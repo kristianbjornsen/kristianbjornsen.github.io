@@ -4,7 +4,7 @@ title: Anbefalte aksjefond
 published: true
 ---
 
-![]({{'/' | relative_url}}/_posts/black-and-white-business-chart-241544.jpg)
+![Aksjer]({{'/' | relative_url}}/_posts/black-and-white-business-chart-241544.jpg)
 
 Her er en liten oversikt over enkelte indeksnære fond jeg anbefaler å vurdere som en del av din portefølje. Merk at disse er lavkostnad indeksfond, ettersom mye historisk forskning har overbevist meg om at billige fond som sporer et marked vil over tid ha bedre avkastning for spareren, enn dyre aktive fond.
 
