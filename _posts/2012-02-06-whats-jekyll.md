@@ -1,15 +1,25 @@
 ---
 layout: post
-title: What's Jekyll?
+title: Anbefalte aksjefond
 published: true
 ---
 
-[Jekyll](http://jekyllrb.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):
+![black-and-white-business-chart-241544.jpg]({{site.baseurl}}/_posts/black-and-white-business-chart-241544.jpg)
 
-  > Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
+Her er en liten oversikt over enkelte indeksnære fond jeg anbefaler å vurdere som en del av din portefølje. Merk at disse er lavkostnad indeksfond, ettersom mye historisk forskning har overbevist meg om at billige fond som sporer et marked vil over tid ha bedre avkastning for spareren, enn dyre aktive fond.
 
-It's an immensely useful tool and one we encourage you to use here with Hyde.
+Som Jack Bogle, grunnlegger av Vanguard Group, så fint sier:
 
-Find out more by [visiting the project on GitHub](https://github.com/mojombo/jekyll).
+> In Investing, You Get What You Don't Pay For
 
-Test 123
+Jeg har valgt å ekskludere fond med høye kjøpsminimum i ti-millionsklassen, På slike innskudd vil man kunne få tilgang til enda billigere indeksfond hos noen forvaltere som KLP og Storebrand.
+
+## Norge
+
+1. **Nordnet Superfondet Norge**, Kostnad: 0%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000TH8U)
+2. **Alfred Berg Indeks Classic**, Kostnad: 0,19%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000SQ3R)
+3. **KLP AksjeNorge Indeks II**, Kostnad: 0,20%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F000002489)
+
+## Globale fond
+
+1. **KLP AksjeGlobal V**, Kostnad: 0,20%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000XWSL)
