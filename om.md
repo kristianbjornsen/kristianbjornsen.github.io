@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Om
+title: Portefølje
 published: true
 ---
 
