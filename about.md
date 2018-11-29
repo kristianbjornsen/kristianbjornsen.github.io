@@ -1,6 +1,7 @@
 ---
 layout: page
-title: About
+title: Om meg
+published: true
 ---
 
 <p class="message">
