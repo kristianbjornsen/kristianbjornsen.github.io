@@ -6,8 +6,8 @@ permalink:        pretty
 relative_permalinks: 
 
 # Setup
-title:            Networth.no
-#tagline:          'Networth.no'
+title:            Networth
+tagline:          'Sparing, investering og personlig økonomi'
 description:      'Sparing, investering og personlig økonomi'
 url:              http://networth.no
 baseurl:          /
