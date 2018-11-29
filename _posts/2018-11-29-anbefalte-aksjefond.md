@@ -2,6 +2,7 @@
 layout: post
 title: Anbefalte aksjefond
 published: true
+tags: indeksfond oversikt aksjesparekonto
 ---
 
 ![]({{site.baseurl}}/public/black-and-white-business-chart-241544.jpg)
