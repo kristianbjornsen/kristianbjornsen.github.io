@@ -24,3 +24,15 @@ Jeg har valgt å ekskludere fond med høye kjøpsminimum i ti-millionsklassen, P
 ## Globale fond
 
 1. **KLP AksjeGlobal V**, Kostnad: 0,20%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000XWSL)
+
+## USA
+
+1. **KLP AksjeUSA Indeks III**, Kostnad: 0,20%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000XM0A)
+
+## Europa
+
+1. **KLP AksjeEuropa Indeks III**, Kostnad: 0,20%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000WEGF)
+
+## Emerging Markets
+
+1. **KLP Aksje Fremvoksende Markeder Indeks II**, Kostnad: 0,30%, [Morningstar](http://www.morningstar.no/no/funds/snapshot/snapshot.aspx?id=F00000MKDH)
