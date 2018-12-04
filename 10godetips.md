@@ -6,10 +6,10 @@ published: true
 
 
 
-## 1 Start sparingen nå
+# 1 Start sparingen nå
 Begynn i dag
 
-## 2 Sett av en viss prosent av månedlig inntekt
+# 2 Sett av en viss prosent av månedlig inntekt
 
-## 3 
+# 3 
 
