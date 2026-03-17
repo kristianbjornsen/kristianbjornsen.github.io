@@ -41,7 +41,8 @@ body{font-family:'Inter',sans-serif;color:var(--dark);line-height:1.65;backgroun
   position:absolute;top:0;left:0;right:0;
   display:flex;justify-content:flex-end;padding:1.4rem 2rem;z-index:10;
 }
-.lang-switcher{display:flex;gap:4px}
+.lang-switcher{display:flex;align-items:center;gap:6px}
+.lang-label{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:500;color:rgba(255,255,255,.65);letter-spacing:.05em;margin-right:2px;white-space:nowrap}
 .lang-btn{
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
   padding:.3rem .65rem;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;
@@ -200,14 +201,15 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
 <div class="hero">
   <div class="top-bar">
     <nav class="lang-switcher" aria-label="Språkval">
-      <button class="lang-btn active" onclick="setLang('nn')">NN</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <span class="lang-label">Language:</span>
+      <button class="lang-btn active" onclick="setLang('nn')">🇳🇴 NO</button>
+      <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+      <button class="lang-btn" onclick="setLang('de')">🇩🇪 DE</button>
+      <button class="lang-btn" onclick="setLang('fr')">🇫🇷 FR</button>
     </nav>
   </div>
   <div class="hero-inner">
-    <img class="hero-logo" src="logo.png" alt="Morkadalen logo" onerror="this.style.display='none'">
+    <img class="hero-logo" src="grok-image-3228ef4c-1468-46f8-be93-3756f5222778.png" alt="Morkadalen logo" onerror="this.style.display='none'">
     <div class="hero-divider"></div>
     <p class="hero-eyebrow" data-i18n="heroEyebrow">Stadlandet · Vestland</p>
     <h1 class="hero-title" data-i18n="heroTitle">Morkadalen<br>Vilt og Fiskelag</h1>
@@ -446,9 +448,9 @@ const T = {
     btnBuy:"Buy fishing permit",btnMap:"View fishing zones",scrollCue:"Scroll",
     aboutEyebrow:"About us",aboutTitle:"A club rooted in nature",
     aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"Morkadalen Wildlife & Fishing Club is a local sport fishing club at Stadlandet in Vestland. We manage some of the richest fishing waters on the west coast – an area renowned for its wild salmon and sea trout populations.",
-    aboutBody:"The club actively works to preserve the natural environment and ensures the fish stock is managed sustainably. We welcome anglers from around the world to share these exceptional nature experiences – always with respect for nature as our host.",
-    fact1:"Fishing lakes",fact2:"Years of experience",fact3:"Anglers per year",
+    aboutLead:"Morkadalen Wildlife & Fishing Club is a landowner association managing hunting and fishing in Morkadalen at Stadlandet. We steward a unique natural area with rich populations of wild salmon and sea trout in the river and river estuary, and several mountain lakes.",
+    aboutBody:"As a landowner association, we are responsible for the sustainable management of wildlife and fish in the area. We prioritise nature and ensure that future generations can enjoy hunting and fishing here, keeping populations strong and habitats intact.",
+    fact1:"Fishing lakes",fact2:"River & estuary",fact3:"Years of experience",
     priceEyebrow:"Fishing Permits",priceTitle:"Choose your permit",
     priceLead:"All permits grant access to our fishing waters, rich in trout and salmon. The permit is personal and valid across all of the club's fishing zones.",
     dayLabel:"Day Permit",dayUnit:"per day",
@@ -481,9 +483,9 @@ const T = {
     btnBuy:"Angelschein kaufen",btnMap:"Angelzonen ansehen",scrollCue:"Weiter",
     aboutEyebrow:"Über uns",aboutTitle:"Ein Verein verwurzelt in der Natur",
     aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"Der Morkadalen Wild- und Fischereiverein ist ein lokaler Sportanglerverein in Stadlandet, Vestland. Wir verwalten einige der fischreichsten Gewässer der Westküste – bekannt für Wildlachs und Meerforelle.",
-    aboutBody:"Der Verein setzt sich aktiv für den Naturschutz ein und sorgt für eine nachhaltige Bewirtschaftung der Fischbestände. Wir heißen Angler aus aller Welt willkommen – stets mit Respekt vor der Natur.",
-    fact1:"Angelgewässer",fact2:"Jahre Erfahrung",fact3:"Angler pro Jahr",
+    aboutLead:"Der Morkadalen Wild- und Fischereiverein ist eine Grundeigentümergemeinschaft, die Jagd und Fischerei in Morkadalen auf Stadlandet verwaltet. Wir hüten ein einzigartiges Naturgebiet mit reichen Beständen an Wildlachs und Meerforelle in Fluss und Flussmündung sowie mehreren Bergseen.",
+    aboutBody:"Als Grundeigentümergemeinschaft tragen wir die Verantwortung für eine nachhaltige Bewirtschaftung von Wild und Fisch im Gebiet. Wir stellen die Natur in den Mittelpunkt und sorgen dafür, dass künftige Generationen hier jagen und fischen können.",
+    fact1:"Angelgewässer",fact2:"Fluss & Mündung",fact3:"Jahre Erfahrung",
     priceEyebrow:"Angelscheine",priceTitle:"Angelschein wählen",
     priceLead:"Alle Scheine gewähren Zugang zu unseren Gewässern mit Forellen und Lachsen. Der Schein ist persönlich und in allen Angelzonen gültig.",
     dayLabel:"Tagesschein",dayUnit:"pro Tag",
@@ -516,9 +518,9 @@ const T = {
     btnBuy:"Acheter un permis",btnMap:"Voir les zones de pêche",scrollCue:"Défiler",
     aboutEyebrow:"À propos",aboutTitle:"Une association enracinée dans la nature",
     aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"L'Association Chasse & Pêche de Morkadalen est un club local de pêche sportive à Stadlandet, Vestland. Nous gérons certaines des eaux les plus poissonneuses de la côte ouest – réputées pour le saumon sauvage et la truite de mer.",
-    aboutBody:"L'association œuvre activement à la préservation de l'environnement naturel et assure une gestion durable des populations de poissons. Nous accueillons des pêcheurs du monde entier – toujours dans le respect de la nature.",
-    fact1:"Plans d'eau",fact2:"Ans d'expérience",fact3:"Pêcheurs par an",
+    aboutLead:"L'Association Chasse & Pêche de Morkadalen est une association de propriétaires fonciers qui gère la chasse et la pêche à Morkadalen, sur Stadlandet. Nous préservons un espace naturel unique avec de riches populations de saumon sauvage et de truite de mer dans la rivière et son estuaire, ainsi que plusieurs lacs de montagne.",
+    aboutBody:"En tant qu'association de propriétaires, nous sommes responsables de la gestion durable de la faune et de la pêche dans la région. Nous plaçons la nature au cœur de nos priorités afin que les générations futures puissent continuer à chasser et pêcher ici.",
+    fact1:"Plans d'eau",fact2:"Rivière & estuaire",fact3:"Ans d'expérience",
     priceEyebrow:"Permis de pêche",priceTitle:"Choisissez votre permis",
     priceLead:"Tous les permis donnent accès à nos eaux poissonneuses riches en truites et saumons. Le permis est personnel et valable dans toutes les zones de pêche.",
     dayLabel:"Permis journalier",dayUnit:"par jour",
@@ -553,9 +555,10 @@ function setLang(lang) {
     const k = el.getAttribute('data-i18n');
     if(t[k] !== undefined) el.innerHTML = t[k];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn =>
-    btn.classList.toggle('active', btn.getAttribute('onclick') === `setLang('${lang}')`)
-  );
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
   document.documentElement.lang = lang === 'nn' ? 'no' : lang;
 }
 setLang('nn');
