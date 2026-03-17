@@ -26,17 +26,22 @@ body{font-family:'Inter',sans-serif;color:var(--dark);line-height:1.65;backgroun
 
 /* ── HERO ── */
 .hero{
-  min-height:115svh;
   min-height:100svh;
-  background-image:url('E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg');
-  background-size:cover;background-position:center 55%;background-color:#3A5A6A;
-  position:relative;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;padding:0 1.5rem;
+  background-image: url('E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg');
+  background-size:cover;
+  background-position:center 55%;
+  background-color:#3A5A6A;
+  position:relative;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:0 1.5rem;
 }
 .hero::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(5,18,12,.72) 0%,rgba(10,30,20,.52) 50%,rgba(5,18,12,.82) 100%);
 }
+
+/* ── TOP BAR ── */
 .top-bar{
   position:absolute;top:0;left:0;right:0;
   display:flex;justify-content:flex-end;padding:1.4rem 2rem;z-index:10;
@@ -52,6 +57,7 @@ body{font-family:'Inter',sans-serif;color:var(--dark);line-height:1.65;backgroun
 .lang-btn:hover{background:rgba(255,255,255,.25);color:#fff}
 .lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
+/* ── HERO CONTENT ── */
 .hero-inner{
   position:relative;z-index:2;max-width:680px;
   display:flex;flex-direction:column;align-items:center;gap:1.1rem;
@@ -82,20 +88,10 @@ section+section{border-top:1px solid var(--midgray)}
 /* ── OM OSS ── */
 #om-oss{background:var(--offwhite)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.about-img-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3}
-.about-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.about-img-wrap::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(42,110,63,.18),transparent);
-}
-.about-label{
-  position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;
-  background:rgba(10,20,15,.72);backdrop-filter:blur(8px);
-  border-left:3px solid var(--accent);
-  padding:.6rem 1rem;border-radius:0 4px 4px 0;
-  font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;
-  color:rgba(255,255,255,.9);letter-spacing:.05em;
-}
+.about-img-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#e8ece8}
+.about-img-wrap img{width:auto;height:100%;max-width:100%;object-fit:contain;display:block}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,110,63,.18),transparent)}
+.about-label{position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;background:rgba(10,20,15,.72);backdrop-filter:blur(8px);border-left:3px solid var(--accent);padding:.6rem 1rem;border-radius:0 4px 4px 0;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.05em}
 .about-text .sec-lead{margin-bottom:1.6rem}
 .about-facts{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--midgray)}
 .fact{display:flex;flex-direction:column;gap:.15rem}
@@ -123,18 +119,16 @@ section+section{border-top:1px solid var(--midgray)}
 .permit-card.featured .permit-cta{background:var(--accent)}
 .permit-card.featured .permit-cta:hover{background:#b8953a}
 
-
-
 /* ── REGLAR ── */
-#reglar{background:var(--white)}
+#reglar{background:var(--offwhite)}
 .rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
-.rule-item{display:flex;gap:1rem;padding:1.1rem 1.2rem;background:var(--offwhite);border-radius:6px;align-items:flex-start;border:1px solid var(--midgray)}
+.rule-item{display:flex;gap:1rem;padding:1.1rem 1.2rem;background:var(--white);border-radius:6px;align-items:flex-start;border:1px solid var(--midgray)}
 .rule-num{min-width:28px;height:28px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:1px}
 .rule-text{font-family:'Inter',sans-serif;font-size:.88rem;line-height:1.55;color:var(--dark)}
 .rule-text strong{font-weight:600;display:block;margin-bottom:.1rem}
 
 /* ── KART ── */
-#kart{background:var(--offwhite)}
+#kart{background:var(--white)}
 .map-wrap{position:relative;width:100%;padding-bottom:50%;height:0;overflow:hidden;border-radius:8px;border:1px solid var(--midgray)}
 .map-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 
@@ -144,29 +138,10 @@ section+section{border-top:1px solid var(--midgray)}
 #betaling .sec-title{color:#fff}
 #betaling .sec-lead{color:rgba(255,255,255,.6);margin-left:auto;margin-right:auto}
 .pay-methods{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem}
-.pay-card-btn{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
-  width:180px;padding:1.6rem 1rem;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:8px;cursor:pointer;
-  transition:background .2s,border-color .2s,transform .2s;
-  text-decoration:none;
-}
+.pay-card-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;width:180px;padding:1.6rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;text-decoration:none}
 .pay-card-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
 .pay-logo{height:36px;display:flex;align-items:center;justify-content:center}
 .pay-name{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase}
-
-/* Vipps SVG logo */
-.vipps-logo{font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:800;color:#FF5B24;letter-spacing:-.02em}
-
-/* PayPal SVG logo */
-.paypal-logo svg{height:28px;width:auto}
-
-/* Card icons */
-.card-icons{display:flex;gap:.4rem;align-items:center}
-.card-chip{width:32px;height:22px;border-radius:3px;border:1.5px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center}
-.card-chip span{font-family:'Inter',sans-serif;font-size:.55rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.03em}
 
 /* ── FOOTER ── */
 footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
@@ -180,16 +155,12 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
 /* ── RESPONSIVE ── */
 @media(max-width:820px){
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:200px 200px 200px}
-  .gallery-item:first-child{grid-column:span 2}
+  .map-wrap{padding-bottom:72%}
 }
 @media(max-width:640px){
-  .map-wrap{padding-bottom:72%}
   .footer-inner{grid-template-columns:1fr}
   .footer-copy{text-align:left}
   .hero-logo{height:68px}
-  .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,180px)}
-  .gallery-item:first-child{grid-column:span 1}
   .pay-card-btn{width:140px;padding:1.2rem .8rem}
   .about-facts{gap:1.2rem}
 }
@@ -230,22 +201,22 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
   <div class="wrap">
     <div class="about-grid">
       <div class="about-img-wrap fade-up">
-        <img src="Screenshot_20220601-202146_Snapchat.jpeg" alt="Morkadalen" onerror="this.style.background='#2A6E3F';this.style.minHeight='300px'">
+        <img src="Screenshot_20220601-202146_Snapchat.jpeg" alt="Morkadalen" onerror="this.style.background='#2A6E3F'">
         <div class="about-label" data-i18n="aboutImgLabel">Morkadalen · Stadlandet</div>
       </div>
       <div class="about-text fade-up d2">
         <p class="sec-eyebrow" data-i18n="aboutEyebrow">Om oss</p>
         <h2 class="sec-title" data-i18n="aboutTitle">Eit lag med røter i naturen</h2>
-        <p class="sec-lead" data-i18n="aboutLead">Morkadalen Vilt og Fiskelag er eit lokalt sportsfiskelag på Stadlandet i Vestland. Me forvaltar nokre av dei rikaste fiskevatna på vestkysten – eit område kjent for sine bestandar av villaks og sjøaure.</p>
-        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.75" data-i18n="aboutBody">Laget arbeider aktivt med bevaring av naturmiljøet og sikrar at fiskebestanden vert forvalta på ein berekraftig måte. Me ynskjer å dela desse naturopplevingane med fiskarar frå heile verda – alltid med respekt for naturen som vertskap.</p>
+        <p class="sec-lead" data-i18n="aboutLead">Morkadalen Vilt og Fiskelag er eit grunneigarlag som forvaltar jakt og fiske i Morkadalen på Stadlandet. Me tek vare på eit unikt naturområde med rike bestandar av villaks og sjøaure i elv og elveos, og fleire fiskevann i fjellet.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.75" data-i18n="aboutBody">Som grunneigarlag har me ansvaret for berekraftig forvalting av vilt og fisk i området. Me set naturen og framtidige generasjonar sitt høve til jakt og fiske høgt, og arbeider for å halda bestanden sterk og leveområda intakte.</p>
         <div class="about-facts">
           <div class="fact fade-up d1">
             <span class="fact-num">3+</span>
             <span class="fact-lbl" data-i18n="fact1">Fiskevann</span>
           </div>
           <div class="fact fade-up d2">
-            <span class="fact-num">∞</span>
-            <span class="fact-lbl" data-i18n="fact2">Elv og elveos</span>
+            <span class="fact-num" style="font-size:1.6rem">Elv &amp;</span>
+            <span class="fact-lbl" data-i18n="fact2">Elveos</span>
           </div>
           <div class="fact fade-up d3">
             <span class="fact-num">40+</span>
@@ -294,7 +265,6 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
   </div>
 </section>
 
-
 <!-- REGLAR -->
 <section id="reglar">
   <div class="wrap">
@@ -331,55 +301,30 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
     <h2 class="sec-title fade-up d1" data-i18n="payTitle">Trygg betaling</h2>
     <p class="sec-lead fade-up d2" data-i18n="payDesc">Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling.</p>
     <div class="pay-methods fade-up d2">
-
-      <!-- Vipps -->
       <a href="#" class="pay-card-btn">
         <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="90" height="32" rx="6" fill="#FF5B24"/>
-            <text x="45" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="15" fill="white" text-anchor="middle" letter-spacing="-0.5">vipps</text>
-          </svg>
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#FF5B24"/><text x="45" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="15" fill="white" text-anchor="middle" letter-spacing="-0.5">vipps</text></svg>
         </div>
         <span class="pay-name">Vipps</span>
       </a>
-
-      <!-- PayPal -->
       <a href="#" class="pay-card-btn">
         <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="90" height="32" rx="6" fill="#003087"/>
-            <text x="22" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="#009CDE" text-anchor="middle">P</text>
-            <text x="34" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">P</text>
-            <text x="55" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="11" fill="white" text-anchor="middle">PayPal</text>
-          </svg>
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#003087"/><text x="22" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="#009CDE" text-anchor="middle">P</text><text x="34" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">P</text><text x="55" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="11" fill="white" text-anchor="middle">PayPal</text></svg>
         </div>
         <span class="pay-name">PayPal</span>
       </a>
-
-      <!-- Visa -->
       <a href="#" class="pay-card-btn">
         <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="90" height="32" rx="6" fill="#1A1F71"/>
-            <text x="45" y="22" font-family="Inter,sans-serif" font-weight="900" font-size="17" fill="white" text-anchor="middle" letter-spacing="1">VISA</text>
-          </svg>
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#1A1F71"/><text x="45" y="22" font-family="Inter,sans-serif" font-weight="900" font-size="17" fill="white" text-anchor="middle" letter-spacing="1">VISA</text></svg>
         </div>
-        <span class="pay-name" data-i18n="payVisa">Visa</span>
+        <span class="pay-name">Visa</span>
       </a>
-
-      <!-- Mastercard -->
       <a href="#" class="pay-card-btn">
         <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="90" height="32" rx="6" fill="#252525"/>
-            <circle cx="33" cy="16" r="11" fill="#EB001B"/>
-            <circle cx="57" cy="16" r="11" fill="#F79E1B"/>
-            <path d="M45 7.5a11 11 0 0 1 0 17 11 11 0 0 1 0-17z" fill="#FF5F00"/>
-          </svg>
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#252525"/><circle cx="33" cy="16" r="11" fill="#EB001B"/><circle cx="57" cy="16" r="11" fill="#F79E1B"/><path d="M45 7.5a11 11 0 0 1 0 17 11 11 0 0 1 0-17z" fill="#FF5F00"/></svg>
         </div>
         <span class="pay-name">Mastercard</span>
       </a>
-
     </div>
   </div>
 </section>
@@ -399,23 +344,20 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
 </footer>
 
 <script>
-/* ── SCROLL ANIMATION ── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
-}, {threshold: 0.12});
+}, {threshold:0.12});
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-/* ── TRANSLATIONS ── */
 const T = {
   nn:{
     heroEyebrow:"Stadlandet · Vestland",heroTitle:"Morkadalen<br>Vilt og Fiskelag",
     heroSub:"Opplev krystallklårt vatn, villmark og rike fiskevatn på den vakraste kyststripa i Noreg.",
     btnBuy:"Kjøp fiskekort",btnMap:"Sjå fiskesonene",scrollCue:"Scroll",
-    aboutEyebrow:"Om oss",aboutTitle:"Eit lag med røter i naturen",
-    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutEyebrow:"Om oss",aboutTitle:"Eit lag med røter i naturen",aboutImgLabel:"Morkadalen · Stadlandet",
     aboutLead:"Morkadalen Vilt og Fiskelag er eit grunneigarlag som forvaltar jakt og fiske i Morkadalen på Stadlandet. Me tek vare på eit unikt naturområde med rike bestandar av villaks og sjøaure i elv og elveos, og fleire fiskevann i fjellet.",
     aboutBody:"Som grunneigarlag har me ansvaret for berekraftig forvalting av vilt og fisk i området. Me set naturen og framtidige generasjonar sitt høve til jakt og fiske høgt, og arbeider for å halda bestanden sterk og leveområda intakte.",
-    fact1:"Fiskevann",fact2:"Elv og elveos",fact3:"Års erfaring",
+    fact1:"Fiskevann",fact2:"Elveos",fact3:"Års erfaring",
     priceEyebrow:"Fiskekort",priceTitle:"Vel ditt fiskekort",
     priceLead:"Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.",
     dayLabel:"Døgnkort",dayUnit:"per døgn",
@@ -425,9 +367,6 @@ const T = {
     seasonDesc:"For den dedikerte fiskaren. Sesongkortet gjev deg ubegrensa tilgang gjennom heile fiskesesongen og er vår mest populære løysing for lokale og faste gjester.",
     feat2a:"Ubegrensa tilgang heile sesongen",feat2b:"Spar samanlikna med dagskort",feat2c:"Alle fiskevatn i sona inkludert",feat2d:"Støttar lokal viltstell",
     ctaBuy:"Kjøp no",
-    galleryEyebrow:"Galleri",galleryTitle:"Naturen i Morkadalen",
-    galleryLead:"Villmark, klåre vatn og spektakulær kystlinje – velkomen til Stadlandet.",
-    gCap1:"Fjordlandskap · Stadlandet",gCap2:"Sportsfisking i elva",gCap3:"Klåre fjellvatn",gCap4:"Spegelblankt vatn",gCap5:"Laksefisking",
     rulesEyebrow:"Retningslinjer",rulesTitle:"Reglar & informasjon",
     rulesLead:"For å ta vare på naturen og fiskebestandane ber vi alle fiskarar følgja desse reglane.",
     rule1:"<strong>Minstemål</strong>Fisk under minstemålet skal setjast forsiktig tilbake i vatnet.",
@@ -439,18 +378,16 @@ const T = {
     mapEyebrow:"Fiskesoner",mapTitle:"Kart over fiskesonene",
     mapLead:"Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.",
     payEyebrow:"Betaling",payTitle:"Trygg betaling",
-    payDesc:"Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling.",
-    payVisa:"Visa / Debitkort"
+    payDesc:"Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling."
   },
   en:{
     heroEyebrow:"Stadlandet · Vestland, Norway",heroTitle:"Morkadalen<br>Wildlife & Fishing Club",
     heroSub:"Experience crystal-clear water, wilderness, and rich fishing waters on Norway's most beautiful coastline.",
     btnBuy:"Buy fishing permit",btnMap:"View fishing zones",scrollCue:"Scroll",
-    aboutEyebrow:"About us",aboutTitle:"A club rooted in nature",
-    aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"Morkadalen Wildlife & Fishing Club is a landowner association managing hunting and fishing in Morkadalen at Stadlandet. We steward a unique natural area with rich populations of wild salmon and sea trout in the river and river estuary, and several mountain lakes.",
-    aboutBody:"As a landowner association, we are responsible for the sustainable management of wildlife and fish in the area. We prioritise nature and ensure that future generations can enjoy hunting and fishing here, keeping populations strong and habitats intact.",
-    fact1:"Fishing lakes",fact2:"River & estuary",fact3:"Years of experience",
+    aboutEyebrow:"About us",aboutTitle:"A club rooted in nature",aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen Wildlife & Fishing Club is a landowner association managing hunting and fishing in Morkadalen at Stadlandet. We steward a unique natural area with rich populations of wild salmon and sea trout in the river and estuary, and several mountain lakes.",
+    aboutBody:"As a landowner association, we are responsible for the sustainable management of wildlife and fish in the area. We prioritise nature and ensure that future generations can enjoy hunting and fishing here.",
+    fact1:"Fishing lakes",fact2:"River estuary",fact3:"Years of experience",
     priceEyebrow:"Fishing Permits",priceTitle:"Choose your permit",
     priceLead:"All permits grant access to our fishing waters, rich in trout and salmon. The permit is personal and valid across all of the club's fishing zones.",
     dayLabel:"Day Permit",dayUnit:"per day",
@@ -460,9 +397,6 @@ const T = {
     seasonDesc:"For the dedicated angler. The season permit gives unlimited access throughout the entire fishing season — our most popular option for regulars and locals.",
     feat2a:"Unlimited access all season",feat2b:"Save vs. day permits",feat2c:"All fishing zones included",feat2d:"Supports local wildlife management",
     ctaBuy:"Buy now",
-    galleryEyebrow:"Gallery",galleryTitle:"Nature in Morkadalen",
-    galleryLead:"Wilderness, clear waters and a spectacular coastline – welcome to Stadlandet.",
-    gCap1:"Fjord landscape · Stadlandet",gCap2:"Sport fishing in the river",gCap3:"Clear mountain lakes",gCap4:"Mirror-calm waters",gCap5:"Salmon fishing",
     rulesEyebrow:"Guidelines",rulesTitle:"Rules & information",
     rulesLead:"To protect the environment and fish populations, we ask all anglers to follow these rules.",
     rule1:"<strong>Minimum size</strong>Fish below the minimum size must be carefully returned to the water.",
@@ -474,18 +408,16 @@ const T = {
     mapEyebrow:"Fishing Zones",mapTitle:"Map of fishing zones",
     mapLead:"Explore the fishing waters of Morkadalen. Click the map for details on each zone.",
     payEyebrow:"Payment",payTitle:"Secure payment",
-    payDesc:"Pay easily and securely with your preferred method. You will receive your permit by email after payment.",
-    payVisa:"Visa / Debit card"
+    payDesc:"Pay easily and securely with your preferred method. You will receive your permit by email after payment."
   },
   de:{
     heroEyebrow:"Stadlandet · Vestland, Norwegen",heroTitle:"Morkadalen<br>Wild- und Fischereiverein",
     heroSub:"Erleben Sie kristallklares Wasser, Wildnis und fischreiche Gewässer an Norwegens schönster Küste.",
     btnBuy:"Angelschein kaufen",btnMap:"Angelzonen ansehen",scrollCue:"Weiter",
-    aboutEyebrow:"Über uns",aboutTitle:"Ein Verein verwurzelt in der Natur",
-    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutEyebrow:"Über uns",aboutTitle:"Ein Verein verwurzelt in der Natur",aboutImgLabel:"Morkadalen · Stadlandet",
     aboutLead:"Der Morkadalen Wild- und Fischereiverein ist eine Grundeigentümergemeinschaft, die Jagd und Fischerei in Morkadalen auf Stadlandet verwaltet. Wir hüten ein einzigartiges Naturgebiet mit reichen Beständen an Wildlachs und Meerforelle in Fluss und Flussmündung sowie mehreren Bergseen.",
-    aboutBody:"Als Grundeigentümergemeinschaft tragen wir die Verantwortung für eine nachhaltige Bewirtschaftung von Wild und Fisch im Gebiet. Wir stellen die Natur in den Mittelpunkt und sorgen dafür, dass künftige Generationen hier jagen und fischen können.",
-    fact1:"Angelgewässer",fact2:"Fluss & Mündung",fact3:"Jahre Erfahrung",
+    aboutBody:"Als Grundeigentümergemeinschaft tragen wir die Verantwortung für eine nachhaltige Bewirtschaftung von Wild und Fisch im Gebiet. Wir stellen die Natur in den Mittelpunkt.",
+    fact1:"Angelgewässer",fact2:"Flussmündung",fact3:"Jahre Erfahrung",
     priceEyebrow:"Angelscheine",priceTitle:"Angelschein wählen",
     priceLead:"Alle Scheine gewähren Zugang zu unseren Gewässern mit Forellen und Lachsen. Der Schein ist persönlich und in allen Angelzonen gültig.",
     dayLabel:"Tagesschein",dayUnit:"pro Tag",
@@ -495,9 +427,6 @@ const T = {
     seasonDesc:"Für den engagierten Angler. Unbegrenzter Zugang während der gesamten Angelsaison – unsere beliebteste Option.",
     feat2a:"Unbegrenzter Zugang die ganze Saison",feat2b:"Günstiger als Einzelscheine",feat2c:"Alle Angelzonen inklusive",feat2d:"Unterstützt lokales Wildtiermanagement",
     ctaBuy:"Jetzt kaufen",
-    galleryEyebrow:"Galerie",galleryTitle:"Natur in Morkadalen",
-    galleryLead:"Wildnis, klare Gewässer und spektakuläre Küste – willkommen in Stadlandet.",
-    gCap1:"Fjordlandschaft · Stadlandet",gCap2:"Sportfischen im Fluss",gCap3:"Klare Bergseen",gCap4:"Spiegelglattes Wasser",gCap5:"Lachsfischen",
     rulesEyebrow:"Richtlinien",rulesTitle:"Regeln & Informationen",
     rulesLead:"Zum Schutz der Natur und der Fischbestände bitten wir alle Angler, diese Regeln einzuhalten.",
     rule1:"<strong>Mindestmaß</strong>Fische unter dem Mindestmaß müssen vorsichtig zurückgesetzt werden.",
@@ -509,18 +438,16 @@ const T = {
     mapEyebrow:"Angelzonen",mapTitle:"Karte der Angelzonen",
     mapLead:"Entdecken Sie die Angelgewässer in Morkadalen. Klicken Sie für Details zu jeder Zone.",
     payEyebrow:"Zahlung",payTitle:"Sichere Zahlung",
-    payDesc:"Zahlen Sie einfach mit Ihrer bevorzugten Methode. Sie erhalten Ihren Schein nach der Zahlung per E-Mail.",
-    payVisa:"Visa / Debitkarte"
+    payDesc:"Zahlen Sie einfach mit Ihrer bevorzugten Methode. Sie erhalten Ihren Schein nach der Zahlung per E-Mail."
   },
   fr:{
     heroEyebrow:"Stadlandet · Vestland, Norvège",heroTitle:"Morkadalen<br>Association Chasse & Pêche",
     heroSub:"Découvrez des eaux cristallines, une nature sauvage et des poissons abondants sur le plus beau littoral de Norvège.",
     btnBuy:"Acheter un permis",btnMap:"Voir les zones de pêche",scrollCue:"Défiler",
-    aboutEyebrow:"À propos",aboutTitle:"Une association enracinée dans la nature",
-    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutEyebrow:"À propos",aboutTitle:"Une association enracinée dans la nature",aboutImgLabel:"Morkadalen · Stadlandet",
     aboutLead:"L'Association Chasse & Pêche de Morkadalen est une association de propriétaires fonciers qui gère la chasse et la pêche à Morkadalen, sur Stadlandet. Nous préservons un espace naturel unique avec de riches populations de saumon sauvage et de truite de mer dans la rivière et son estuaire, ainsi que plusieurs lacs de montagne.",
-    aboutBody:"En tant qu'association de propriétaires, nous sommes responsables de la gestion durable de la faune et de la pêche dans la région. Nous plaçons la nature au cœur de nos priorités afin que les générations futures puissent continuer à chasser et pêcher ici.",
-    fact1:"Plans d'eau",fact2:"Rivière & estuaire",fact3:"Ans d'expérience",
+    aboutBody:"En tant qu'association de propriétaires, nous sommes responsables de la gestion durable de la faune et de la pêche dans la région. Nous plaçons la nature au cœur de nos priorités.",
+    fact1:"Plans d'eau",fact2:"Estuaire",fact3:"Ans d'expérience",
     priceEyebrow:"Permis de pêche",priceTitle:"Choisissez votre permis",
     priceLead:"Tous les permis donnent accès à nos eaux poissonneuses riches en truites et saumons. Le permis est personnel et valable dans toutes les zones de pêche.",
     dayLabel:"Permis journalier",dayUnit:"par jour",
@@ -530,9 +457,6 @@ const T = {
     seasonDesc:"Pour les pêcheurs passionnés. Accès illimité pendant toute la saison de pêche – notre option la plus populaire.",
     feat2a:"Accès illimité toute la saison",feat2b:"Économique vs. permis journalier",feat2c:"Toutes les zones incluses",feat2d:"Soutient la gestion locale de la faune",
     ctaBuy:"Acheter maintenant",
-    galleryEyebrow:"Galerie",galleryTitle:"La nature à Morkadalen",
-    galleryLead:"Wilderness, eaux claires et littoral spectaculaire – bienvenue à Stadlandet.",
-    gCap1:"Paysage de fjord · Stadlandet",gCap2:"Pêche sportive en rivière",gCap3:"Lacs de montagne cristallins",gCap4:"Eaux calmes comme un miroir",gCap5:"Pêche au saumon",
     rulesEyebrow:"Directives",rulesTitle:"Règles & informations",
     rulesLead:"Pour protéger la nature et les populations de poissons, nous demandons à tous les pêcheurs de respecter ces règles.",
     rule1:"<strong>Taille minimale</strong>Les poissons sous la taille minimale doivent être remis délicatement à l'eau.",
@@ -544,8 +468,7 @@ const T = {
     mapEyebrow:"Zones de pêche",mapTitle:"Carte des zones de pêche",
     mapLead:"Explorez les eaux de Morkadalen. Cliquez sur la carte pour les détails de chaque zone.",
     payEyebrow:"Paiement",payTitle:"Paiement sécurisé",
-    payDesc:"Payez facilement avec votre méthode préférée. Vous recevrez votre permis par e-mail après paiement.",
-    payVisa:"Visa / Carte de débit"
+    payDesc:"Payez facilement avec votre méthode préférée. Vous recevrez votre permis par e-mail après paiement."
   }
 };
 
@@ -556,8 +479,8 @@ function setLang(lang) {
     if(t[k] !== undefined) el.innerHTML = t[k];
   });
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    const match = btn.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/);
-    btn.classList.toggle('active', match && match[1] === lang);
+    const m = btn.getAttribute('onclick')?.match(/setLang\('(\w+)'\)/);
+    btn.classList.toggle('active', m && m[1] === lang);
   });
   document.documentElement.lang = lang === 'nn' ? 'no' : lang;
 }
