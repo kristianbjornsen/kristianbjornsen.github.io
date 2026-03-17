@@ -6,500 +6,196 @@
 <title>Morkadalen Vilt og Fiskelag</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sky:#3A7EC8;--green:#2A6E3F;--green-lt:#3A9455;
+  --dark:#141414;--white:#fff;--offwhite:#F6F7F4;
+  --midgray:#E2E6DF;--textgray:#5A6058;--accent:#C8A96E;
+  --vipps:#FF5B24;--paypal:#003087;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--dark);line-height:1.65;background:var(--white);overflow-x:hidden}
 
-  :root {
-    --sky:      #3A7EC8;
-    --green:    #2A6E3F;
-    --green-lt: #3A9455;
-    --dark:     #141414;
-    --white:    #FFFFFF;
-    --offwhite: #F6F7F4;
-    --midgray:  #E2E6DF;
-    --textgray: #5A6058;
-    --accent:   #C8A96E;   /* warm gold accent */
-    --vipps:    #FF5B24;
-    --paypal:   #003087;
-  }
+/* ── SCROLL ANIMATION ── */
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:none}
+.fade-up.d1{transition-delay:0.1s}.fade-up.d2{transition-delay:0.2s}
+.fade-up.d3{transition-delay:0.3s}.fade-up.d4{transition-delay:0.4s}
 
-  html { scroll-behavior: smooth; }
+/* ── HERO ── */
+.hero{
+  min-height:100svh;
+  background-image:url('E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg');
+  background-size:cover;background-position:center 55%;background-color:#3A5A6A;
+  position:relative;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:0 1.5rem;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(5,18,12,.72) 0%,rgba(10,30,20,.52) 50%,rgba(5,18,12,.82) 100%);
+}
+.top-bar{
+  position:absolute;top:0;left:0;right:0;
+  display:flex;justify-content:flex-end;padding:1.4rem 2rem;z-index:10;
+}
+.lang-switcher{display:flex;gap:4px}
+.lang-btn{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+  padding:.3rem .65rem;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;
+  cursor:pointer;border-radius:3px;color:rgba(255,255,255,.85);letter-spacing:.07em;
+  backdrop-filter:blur(6px);transition:background .15s,border-color .15s,color .15s;
+}
+.lang-btn:hover{background:rgba(255,255,255,.25);color:#fff}
+.lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    color: var(--dark);
-    line-height: 1.65;
-    background: var(--white);
-  }
+.hero-inner{
+  position:relative;z-index:2;max-width:680px;
+  display:flex;flex-direction:column;align-items:center;gap:1.1rem;
+}
+.hero-logo{height:90px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 16px rgba(0,0,0,.6))}
+.hero-divider{width:48px;height:2px;background:var(--accent);border-radius:1px}
+.hero-eyebrow{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero-sub{font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.82);max-width:440px;line-height:1.6}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.4rem}
+.btn-prim{background:var(--green);color:#fff;border:2px solid var(--green);padding:.8rem 2rem;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;letter-spacing:.04em;text-transform:uppercase;transition:background .15s,border-color .15s}
+.btn-prim:hover{background:var(--green-lt);border-color:var(--green-lt)}
+.btn-sec{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55);padding:.8rem 2rem;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;letter-spacing:.04em;text-transform:uppercase;backdrop-filter:blur(6px);transition:border-color .15s,background .15s}
+.btn-sec:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:.5}
+.scroll-cue span{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#fff}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
 
-  /* ── HERO ─────────────────────────────────── */
-  .hero {
-    min-height: 100svh;
-    background-image: url('E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg');
-    background-size: cover;
-    background-position: center 55%;
-    background-color: #3A5A6A;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.5rem;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(5,18,12,0.72) 0%,
-      rgba(10,30,20,0.52) 50%,
-      rgba(5,18,12,0.80) 100%
-    );
-  }
+/* ── SHARED ── */
+.wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
+section{padding:5rem 0}
+section+section{border-top:1px solid var(--midgray)}
+.sec-eyebrow{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem}
+.sec-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:.6rem}
+.sec-lead{font-family:'Inter',sans-serif;font-size:1rem;color:var(--textgray);max-width:540px;margin-bottom:2.8rem;line-height:1.65}
 
-  /* ── TOP BAR (lang switcher) ──────────────── */
-  .top-bar {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    display: flex;
-    justify-content: flex-end;
-    padding: 1.4rem 2rem;
-    z-index: 10;
-  }
-  .lang-switcher { display: flex; gap: 4px; }
-  .lang-btn {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 0.3rem 0.65rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 3px;
-    color: rgba(255,255,255,0.85);
-    letter-spacing: 0.07em;
-    backdrop-filter: blur(6px);
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
-  }
-  .lang-btn:hover { background: rgba(255,255,255,0.25); color: #fff; }
-  .lang-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+/* ── OM OSS ── */
+#om-oss{background:var(--offwhite)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.about-img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(42,110,63,.18),transparent);
+}
+.about-label{
+  position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;
+  background:rgba(10,20,15,.72);backdrop-filter:blur(8px);
+  border-left:3px solid var(--accent);
+  padding:.6rem 1rem;border-radius:0 4px 4px 0;
+  font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;
+  color:rgba(255,255,255,.9);letter-spacing:.05em;
+}
+.about-text .sec-lead{margin-bottom:1.6rem}
+.about-facts{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--midgray)}
+.fact{display:flex;flex-direction:column;gap:.15rem}
+.fact-num{font-family:'Playfair Display',Georgia,serif;font-size:2.2rem;font-weight:900;color:var(--green);line-height:1}
+.fact-lbl{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--textgray);letter-spacing:.04em}
 
-  /* ── HERO CONTENT ─────────────────────────── */
-  .hero-inner {
-    position: relative;
-    z-index: 2;
-    max-width: 680px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.1rem;
-  }
-  .hero-logo {
-    height: 90px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.5));
-  }
-  .hero-divider {
-    width: 48px;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 1px;
-  }
-  .hero-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .hero-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.4);
-  }
-  .hero-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.82);
-    max-width: 440px;
-    line-height: 1.6;
-  }
-  .hero-btns {
-    display: flex;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 0.4rem;
-  }
-  .btn-prim {
-    background: var(--green);
-    color: #fff;
-    border: 2px solid var(--green);
-    padding: 0.8rem 2rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .btn-prim:hover { background: var(--green-lt); border-color: var(--green-lt); }
-  .btn-sec {
-    background: transparent;
-    color: #fff;
-    border: 2px solid rgba(255,255,255,0.55);
-    padding: 0.8rem 2rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    backdrop-filter: blur(6px);
-    transition: border-color 0.15s, background 0.15s;
-  }
-  .btn-sec:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+/* ── FISKEKORT ── */
+#fiskekort{background:var(--white)}
+.permit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.permit-card{background:var(--white);border:1px solid var(--midgray);border-radius:8px;padding:2.2rem 2rem;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.permit-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.09);transform:translateY(-2px)}
+.permit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green)}
+.permit-card.featured::before{background:var(--accent)}
+.permit-badge{display:inline-block;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;margin-bottom:1rem}
+.permit-type{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--textgray);margin-bottom:.35rem}
+.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:3.6rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.03em;margin-bottom:.1rem}
+.permit-price sup{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:600;vertical-align:super;letter-spacing:0}
+.permit-period{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--textgray);margin-bottom:1.6rem}
+.permit-desc{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.65;margin-bottom:1.8rem;padding-top:1.2rem;border-top:1px solid var(--midgray)}
+.permit-features{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
+.permit-features li{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--dark);display:flex;align-items:center;gap:.6rem}
+.permit-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:.85rem;flex-shrink:0}
+.permit-cta{display:block;width:100%;text-align:center;padding:.85rem;background:var(--green);color:#fff;border:none;border-radius:4px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .15s}
+.permit-cta:hover{background:var(--green-lt)}
+.permit-card.featured .permit-cta{background:var(--accent)}
+.permit-card.featured .permit-cta:hover{background:#b8953a}
 
-  /* ── SCROLL CUE ───────────────────────────── */
-  .scroll-cue {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    opacity: 0.55;
-  }
-  .scroll-cue span {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  .scroll-arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    transform: rotate(45deg);
-    animation: bounce 1.8s infinite;
-  }
-  @keyframes bounce {
-    0%,100% { transform: rotate(45deg) translateY(0); }
-    50%      { transform: rotate(45deg) translateY(5px); }
-  }
 
-  /* ── SHARED ───────────────────────────────── */
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-  section { padding: 5rem 0; }
-  section + section { border-top: 1px solid var(--midgray); }
 
-  .sec-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 0.6rem;
-  }
-  .sec-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1.15;
-    margin-bottom: 0.6rem;
-  }
-  .sec-lead {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    color: var(--textgray);
-    max-width: 540px;
-    margin-bottom: 2.8rem;
-    line-height: 1.65;
-  }
+/* ── REGLAR ── */
+#reglar{background:var(--white)}
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.rule-item{display:flex;gap:1rem;padding:1.1rem 1.2rem;background:var(--offwhite);border-radius:6px;align-items:flex-start;border:1px solid var(--midgray)}
+.rule-num{min-width:28px;height:28px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.rule-text{font-family:'Inter',sans-serif;font-size:.88rem;line-height:1.55;color:var(--dark)}
+.rule-text strong{font-weight:600;display:block;margin-bottom:.1rem}
 
-  /* ── FISKEKORT ────────────────────────────── */
-  #fiskekort { background: var(--offwhite); }
-  .permit-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .permit-card {
-    background: var(--white);
-    border: 1px solid var(--midgray);
-    border-radius: 8px;
-    padding: 2.2rem 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .permit-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-2px); }
-  .permit-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--green);
-  }
-  .permit-card.featured::before { background: var(--accent); }
-  .permit-badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.6rem;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-  }
-  .permit-type {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--textgray);
-    margin-bottom: 0.35rem;
-  }
-  .permit-price {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 3.6rem;
-    font-weight: 900;
-    color: var(--dark);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.1rem;
-  }
-  .permit-price sup {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    vertical-align: super;
-    letter-spacing: 0;
-  }
-  .permit-period {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.82rem;
-    color: var(--textgray);
-    margin-bottom: 1.6rem;
-  }
-  .permit-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: var(--textgray);
-    line-height: 1.65;
-    margin-bottom: 1.8rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--midgray);
-  }
-  .permit-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-  .permit-features li {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .permit-features li::before {
-    content: '✓';
-    color: var(--green);
-    font-weight: 700;
-    font-size: 0.85rem;
-    flex-shrink: 0;
-  }
-  .permit-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 0.85rem;
-    background: var(--green);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-  .permit-cta:hover { background: var(--green-lt); }
-  .permit-card.featured .permit-cta { background: var(--accent); }
-  .permit-card.featured .permit-cta:hover { background: #b8953a; }
+/* ── KART ── */
+#kart{background:var(--offwhite)}
+.map-wrap{position:relative;width:100%;padding-bottom:50%;height:0;overflow:hidden;border-radius:8px;border:1px solid var(--midgray)}
+.map-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 
-  /* ── REGLAR (accordion) ───────────────────── */
-  #reglar { background: var(--white); }
-  .rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-  .rule-item {
-    display: flex;
-    gap: 1rem;
-    padding: 1.1rem 1.2rem;
-    background: var(--offwhite);
-    border-radius: 6px;
-    align-items: flex-start;
-    border: 1px solid var(--midgray);
-  }
-  .rule-num {
-    min-width: 28px;
-    height: 28px;
-    background: var(--green);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .rule-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    line-height: 1.55;
-    color: var(--dark);
-  }
-  .rule-text strong {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.1rem;
-    color: var(--dark);
-  }
+/* ── BETALING ── */
+#betaling{background:var(--dark);text-align:center}
+#betaling .sec-eyebrow{color:var(--accent)}
+#betaling .sec-title{color:#fff}
+#betaling .sec-lead{color:rgba(255,255,255,.6);margin-left:auto;margin-right:auto}
+.pay-methods{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem}
+.pay-card-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
+  width:180px;padding:1.6rem 1rem;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;cursor:pointer;
+  transition:background .2s,border-color .2s,transform .2s;
+  text-decoration:none;
+}
+.pay-card-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.pay-logo{height:36px;display:flex;align-items:center;justify-content:center}
+.pay-name{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase}
 
-  /* ── KART ─────────────────────────────────── */
-  #kart { background: var(--offwhite); }
-  .map-wrap {
-    position: relative;
-    width: 100%;
-    padding-bottom: 50%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--midgray);
-  }
-  .map-wrap iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-  }
+/* Vipps SVG logo */
+.vipps-logo{font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:800;color:#FF5B24;letter-spacing:-.02em}
 
-  /* ── BETALING ─────────────────────────────── */
-  #betaling { background: var(--white); }
-  .pay-note {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    color: var(--textgray);
-    margin-bottom: 1.8rem;
-    max-width: 480px;
-  }
-  .pay-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-  .pay-btn {
-    padding: 0.8rem 2.2rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    transition: opacity 0.15s;
-  }
-  .pay-btn:hover { opacity: 0.85; }
-  .p-vipps  { background: var(--vipps);  color: #fff; }
-  .p-paypal { background: var(--paypal); color: #fff; }
-  .p-card   { background: var(--dark);   color: #fff; }
+/* PayPal SVG logo */
+.paypal-logo svg{height:28px;width:auto}
 
-  /* ── FOOTER ───────────────────────────────── */
-  footer {
-    background: var(--dark);
-    color: rgba(255,255,255,0.65);
-    padding: 3rem 0 2rem;
-  }
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: end;
-  }
-  .footer-name {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.6rem;
-  }
-  .footer-contact {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    line-height: 2;
-  }
-  .footer-contact a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.15s; }
-  .footer-contact a:hover { color: #fff; }
-  .footer-copy {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
-    opacity: 0.35;
-    text-align: right;
-  }
+/* Card icons */
+.card-icons{display:flex;gap:.4rem;align-items:center}
+.card-chip{width:32px;height:22px;border-radius:3px;border:1.5px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center}
+.card-chip span{font-family:'Inter',sans-serif;font-size:.55rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.03em}
 
-  /* ── RESPONSIVE ───────────────────────────── */
-  @media (max-width: 640px) {
-    .map-wrap { padding-bottom: 72%; }
-    .footer-inner { grid-template-columns: 1fr; }
-    .footer-copy { text-align: left; }
-    .hero-logo { height: 68px; }
-  }
+/* ── FOOTER ── */
+footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
+.footer-name{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.footer-contact{font-family:'Inter',sans-serif;font-size:.85rem;line-height:2}
+.footer-contact a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+.footer-contact a:hover{color:#fff}
+.footer-copy{font-family:'Inter',sans-serif;font-size:.75rem;opacity:.3;text-align:right}
+
+/* ── RESPONSIVE ── */
+@media(max-width:820px){
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:200px 200px 200px}
+  .gallery-item:first-child{grid-column:span 2}
+}
+@media(max-width:640px){
+  .map-wrap{padding-bottom:72%}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-copy{text-align:left}
+  .hero-logo{height:68px}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,180px)}
+  .gallery-item:first-child{grid-column:span 1}
+  .pay-card-btn{width:140px;padding:1.2rem .8rem}
+  .about-facts{gap:1.2rem}
+}
 </style>
 </head>
 <body>
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <div class="hero">
   <div class="top-bar">
     <nav class="lang-switcher" aria-label="Språkval">
@@ -509,7 +205,6 @@
       <button class="lang-btn" onclick="setLang('fr')">FR</button>
     </nav>
   </div>
-
   <div class="hero-inner">
     <img class="hero-logo" src="logo.png" alt="Morkadalen logo" onerror="this.style.display='none'">
     <div class="hero-divider"></div>
@@ -521,24 +216,52 @@
       <a href="#kart" class="btn-sec" data-i18n="btnMap">Sjå fiskesonene</a>
     </div>
   </div>
-
   <div class="scroll-cue">
     <span data-i18n="scrollCue">Scroll</span>
     <div class="scroll-arrow"></div>
   </div>
 </div>
 
-<!-- ══ FISKEKORT ══ -->
+<!-- OM OSS -->
+<section id="om-oss">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&q=80" alt="Fisking i Morkadalen" onerror="this.style.background='#2A6E3F';this.style.minHeight='300px'">
+        <div class="about-label" data-i18n="aboutImgLabel">Morkadalen · Stadlandet</div>
+      </div>
+      <div class="about-text fade-up d2">
+        <p class="sec-eyebrow" data-i18n="aboutEyebrow">Om oss</p>
+        <h2 class="sec-title" data-i18n="aboutTitle">Eit lag med røter i naturen</h2>
+        <p class="sec-lead" data-i18n="aboutLead">Morkadalen Vilt og Fiskelag er eit lokalt sportsfiskelag på Stadlandet i Vestland. Me forvaltar nokre av dei rikaste fiskevatna på vestkysten – eit område kjent for sine bestandar av villaks og sjøaure.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.75" data-i18n="aboutBody">Laget arbeider aktivt med bevaring av naturmiljøet og sikrar at fiskebestanden vert forvalta på ein berekraftig måte. Me ynskjer å dela desse naturopplevingane med fiskarar frå heile verda – alltid med respekt for naturen som vertskap.</p>
+        <div class="about-facts">
+          <div class="fact fade-up d1">
+            <span class="fact-num">12+</span>
+            <span class="fact-lbl" data-i18n="fact1">Fiskevatn</span>
+          </div>
+          <div class="fact fade-up d2">
+            <span class="fact-num">40+</span>
+            <span class="fact-lbl" data-i18n="fact2">Års erfaring</span>
+          </div>
+          <div class="fact fade-up d3">
+            <span class="fact-num">300+</span>
+            <span class="fact-lbl" data-i18n="fact3">Fiskarar per år</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FISKEKORT -->
 <section id="fiskekort">
   <div class="wrap">
-    <p class="sec-eyebrow" data-i18n="priceEyebrow">Fiskekort</p>
-    <h2 class="sec-title" data-i18n="priceTitle">Vel ditt fiskekort</h2>
-    <p class="sec-lead" data-i18n="priceLead">Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.</p>
-
+    <p class="sec-eyebrow fade-up" data-i18n="priceEyebrow">Fiskekort</p>
+    <h2 class="sec-title fade-up d1" data-i18n="priceTitle">Vel ditt fiskekort</h2>
+    <p class="sec-lead fade-up d2" data-i18n="priceLead">Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.</p>
     <div class="permit-grid">
-
-      <!-- Døgnkort -->
-      <div class="permit-card">
+      <div class="permit-card fade-up d2">
         <p class="permit-type" data-i18n="dayLabel">Døgnkort</p>
         <div class="permit-price">80<sup>kr</sup></div>
         <p class="permit-period" data-i18n="dayUnit">per døgn</p>
@@ -550,9 +273,7 @@
         </ul>
         <a href="#betaling" class="permit-cta" data-i18n="ctaBuy">Kjøp no</a>
       </div>
-
-      <!-- Sesongkort -->
-      <div class="permit-card featured">
+      <div class="permit-card featured fade-up d3">
         <span class="permit-badge" data-i18n="bestVal">Beste verdi</span>
         <p class="permit-type" data-i18n="seasonLabel">Sesongkort</p>
         <div class="permit-price">700<sup>kr</sup></div>
@@ -561,63 +282,106 @@
         <ul class="permit-features">
           <li data-i18n="feat2a">Ubegrensa tilgang heile sesongen</li>
           <li data-i18n="feat2b">Spar samanlikna med dagskort</li>
-          <li data-i18n="feat2c">Tilgang alle fiskevatn i sona</li>
+          <li data-i18n="feat2c">Alle fiskevatn i sona inkludert</li>
           <li data-i18n="feat2d">Støttar lokal viltstell</li>
         </ul>
         <a href="#betaling" class="permit-cta" data-i18n="ctaBuy">Kjøp no</a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══ REGLAR ══ -->
+
+<!-- REGLAR -->
 <section id="reglar">
   <div class="wrap">
-    <p class="sec-eyebrow" data-i18n="rulesEyebrow">Retningslinjer</p>
-    <h2 class="sec-title" data-i18n="rulesTitle">Reglar &amp; informasjon</h2>
-    <p class="sec-lead" data-i18n="rulesLead">For å ta vare på naturen og fiskebestandane ber vi alle fiskarar følgja desse reglane.</p>
+    <p class="sec-eyebrow fade-up" data-i18n="rulesEyebrow">Retningslinjer</p>
+    <h2 class="sec-title fade-up d1" data-i18n="rulesTitle">Reglar &amp; informasjon</h2>
+    <p class="sec-lead fade-up d2" data-i18n="rulesLead">For å ta vare på naturen og fiskebestandane ber vi alle fiskarar følgja desse reglane.</p>
     <div class="rules-grid">
-      <div class="rule-item"><div class="rule-num">1</div><div class="rule-text" data-i18n="rule1"><strong>Minstemål</strong>Fisk under minstemålet skal setjast forsiktig tilbake i vatnet.</div></div>
-      <div class="rule-item"><div class="rule-num">2</div><div class="rule-text" data-i18n="rule2"><strong>Personleg kort</strong>Fiskekortet er personleg og kan ikkje overlatast til andre.</div></div>
-      <div class="rule-item"><div class="rule-num">3</div><div class="rule-text" data-i18n="rule3"><strong>Utstyr</strong>Berre lovleg fiskeutstyr er tillate. Levande agn er forbode.</div></div>
-      <div class="rule-item"><div class="rule-num">4</div><div class="rule-text" data-i18n="rule4"><strong>Desinfisering</strong>Alt utstyr skal desinfiserast før bruk for å hindre sjukdomsspreiing.</div></div>
-      <div class="rule-item"><div class="rule-num">5</div><div class="rule-text" data-i18n="rule5"><strong>Mark og gjerde</strong>Ta omsyn til jordbruksmark og lukk alle grinder etter deg.</div></div>
-      <div class="rule-item"><div class="rule-num">6</div><div class="rule-text" data-i18n="rule6"><strong>Køyring</strong>Motorisert ferdsel er ikkje tillate utanfor merkte vegar.</div></div>
+      <div class="rule-item fade-up d1"><div class="rule-num">1</div><div class="rule-text" data-i18n="rule1"><strong>Minstemål</strong>Fisk under minstemålet skal setjast forsiktig tilbake i vatnet.</div></div>
+      <div class="rule-item fade-up d2"><div class="rule-num">2</div><div class="rule-text" data-i18n="rule2"><strong>Personleg kort</strong>Fiskekortet er personleg og kan ikkje overlatast til andre.</div></div>
+      <div class="rule-item fade-up d3"><div class="rule-num">3</div><div class="rule-text" data-i18n="rule3"><strong>Utstyr</strong>Berre lovleg fiskeutstyr er tillate. Levande agn er forbode.</div></div>
+      <div class="rule-item fade-up d1"><div class="rule-num">4</div><div class="rule-text" data-i18n="rule4"><strong>Desinfisering</strong>Alt utstyr skal desinfiserast før bruk for å hindre sjukdomsspreiing.</div></div>
+      <div class="rule-item fade-up d2"><div class="rule-num">5</div><div class="rule-text" data-i18n="rule5"><strong>Mark og gjerde</strong>Ta omsyn til jordbruksmark og lukk alle grinder etter deg.</div></div>
+      <div class="rule-item fade-up d3"><div class="rule-num">6</div><div class="rule-text" data-i18n="rule6"><strong>Køyring</strong>Motorisert ferdsel er ikkje tillate utanfor merkte vegar.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ KART ══ -->
+<!-- KART -->
 <section id="kart">
   <div class="wrap">
-    <p class="sec-eyebrow" data-i18n="mapEyebrow">Fiskesoner</p>
-    <h2 class="sec-title" data-i18n="mapTitle">Kart over fiskesonene</h2>
-    <p class="sec-lead" data-i18n="mapLead">Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.</p>
-    <div class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps/d/embed?mid=14FJFvb7owCQsSQUhs6WchCUnc1ExRmw&hl=en&ehbc=2E312F"
-        allowfullscreen loading="lazy"
-        title="Morkadalen fiskesonar"></iframe>
+    <p class="sec-eyebrow fade-up" data-i18n="mapEyebrow">Fiskesoner</p>
+    <h2 class="sec-title fade-up d1" data-i18n="mapTitle">Kart over fiskesonene</h2>
+    <p class="sec-lead fade-up d2" data-i18n="mapLead">Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.</p>
+    <div class="map-wrap fade-up d2">
+      <iframe src="https://www.google.com/maps/d/embed?mid=14FJFvb7owCQsSQUhs6WchCUnc1ExRmw&hl=en&ehbc=2E312F" allowfullscreen loading="lazy" title="Morkadalen fiskesonar"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ══ BETALING ══ -->
+<!-- BETALING -->
 <section id="betaling">
   <div class="wrap">
-    <p class="sec-eyebrow" data-i18n="payEyebrow">Betaling</p>
-    <h2 class="sec-title" data-i18n="payTitle">Trygg betaling</h2>
-    <p class="pay-note" data-i18n="payDesc">Betal enkelt med Vipps, PayPal eller internasjonalt betalingskort. Du mottek fiskekortet på e-post etter betaling.</p>
-    <div class="pay-btns">
-      <button class="pay-btn p-vipps">Vipps</button>
-      <button class="pay-btn p-paypal">PayPal</button>
-      <button class="pay-btn p-card" data-i18n="payCard">💳 Kort</button>
+    <p class="sec-eyebrow fade-up" data-i18n="payEyebrow">Betaling</p>
+    <h2 class="sec-title fade-up d1" data-i18n="payTitle">Trygg betaling</h2>
+    <p class="sec-lead fade-up d2" data-i18n="payDesc">Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling.</p>
+    <div class="pay-methods fade-up d2">
+
+      <!-- Vipps -->
+      <a href="#" class="pay-card-btn">
+        <div class="pay-logo">
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="90" height="32" rx="6" fill="#FF5B24"/>
+            <text x="45" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="15" fill="white" text-anchor="middle" letter-spacing="-0.5">vipps</text>
+          </svg>
+        </div>
+        <span class="pay-name">Vipps</span>
+      </a>
+
+      <!-- PayPal -->
+      <a href="#" class="pay-card-btn">
+        <div class="pay-logo">
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="90" height="32" rx="6" fill="#003087"/>
+            <text x="22" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="#009CDE" text-anchor="middle">P</text>
+            <text x="34" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">P</text>
+            <text x="55" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="11" fill="white" text-anchor="middle">PayPal</text>
+          </svg>
+        </div>
+        <span class="pay-name">PayPal</span>
+      </a>
+
+      <!-- Visa -->
+      <a href="#" class="pay-card-btn">
+        <div class="pay-logo">
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="90" height="32" rx="6" fill="#1A1F71"/>
+            <text x="45" y="22" font-family="Inter,sans-serif" font-weight="900" font-size="17" fill="white" text-anchor="middle" letter-spacing="1">VISA</text>
+          </svg>
+        </div>
+        <span class="pay-name" data-i18n="payVisa">Visa</span>
+      </a>
+
+      <!-- Mastercard -->
+      <a href="#" class="pay-card-btn">
+        <div class="pay-logo">
+          <svg width="90" height="32" viewBox="0 0 90 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="90" height="32" rx="6" fill="#252525"/>
+            <circle cx="33" cy="16" r="11" fill="#EB001B"/>
+            <circle cx="57" cy="16" r="11" fill="#F79E1B"/>
+            <path d="M45 7.5a11 11 0 0 1 0 17 11 11 0 0 1 0-17z" fill="#FF5F00"/>
+          </svg>
+        </div>
+        <span class="pay-name">Mastercard</span>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -631,24 +395,37 @@
   </div>
 </footer>
 
-<!-- ══ TRANSLATIONS ══ -->
 <script>
+/* ── SCROLL ANIMATION ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold: 0.12});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* ── TRANSLATIONS ── */
 const T = {
-  nn: {
-    heroEyebrow:"Stadlandet · Vestland",
-    heroTitle:"Morkadalen<br>Vilt og Fiskelag",
+  nn:{
+    heroEyebrow:"Stadlandet · Vestland",heroTitle:"Morkadalen<br>Vilt og Fiskelag",
     heroSub:"Opplev krystallklårt vatn, villmark og rike fiskevatn på den vakraste kyststripa i Noreg.",
-    btnBuy:"Kjøp fiskekort", btnMap:"Sjå fiskesonene", scrollCue:"Scroll",
-    priceEyebrow:"Fiskekort", priceTitle:"Vel ditt fiskekort",
+    btnBuy:"Kjøp fiskekort",btnMap:"Sjå fiskesonene",scrollCue:"Scroll",
+    aboutEyebrow:"Om oss",aboutTitle:"Eit lag med røter i naturen",
+    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen Vilt og Fiskelag er eit lokalt sportsfiskelag på Stadlandet i Vestland. Me forvaltar nokre av dei rikaste fiskevatna på vestkysten – eit område kjent for sine bestandar av villaks og sjøaure.",
+    aboutBody:"Laget arbeider aktivt med bevaring av naturmiljøet og sikrar at fiskebestanden vert forvalta på ein berekraftig måte. Me ynskjer å dela desse naturopplevingane med fiskarar frå heile verda – alltid med respekt for naturen som vertskap.",
+    fact1:"Fiskevatn",fact2:"Års erfaring",fact3:"Fiskarar per år",
+    priceEyebrow:"Fiskekort",priceTitle:"Vel ditt fiskekort",
     priceLead:"Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.",
-    dayLabel:"Døgnkort", dayUnit:"per døgn",
+    dayLabel:"Døgnkort",dayUnit:"per døgn",
     dayDesc:"Perfekt for deg som er på gjennomreise eller ønskjer ein dag med fiske på Stadlandet. Kortet er gyldig i 24 timar frå kjøpstidspunktet.",
-    feat1a:"Tilgang alle fiskevatn i sona", feat1b:"Gyldig 24 timar", feat1c:"Ingen bindingstid",
-    bestVal:"Beste verdi", seasonLabel:"Sesongkort", seasonUnit:"heile sesongen",
+    feat1a:"Tilgang alle fiskevatn i sona",feat1b:"Gyldig 24 timar",feat1c:"Ingen bindingstid",
+    bestVal:"Beste verdi",seasonLabel:"Sesongkort",seasonUnit:"heile sesongen",
     seasonDesc:"For den dedikerte fiskaren. Sesongkortet gjev deg ubegrensa tilgang gjennom heile fiskesesongen og er vår mest populære løysing for lokale og faste gjester.",
-    feat2a:"Ubegrensa tilgang heile sesongen", feat2b:"Spar samanlikna med dagskort", feat2c:"Tilgang alle fiskevatn i sona", feat2d:"Støttar lokal viltstell",
+    feat2a:"Ubegrensa tilgang heile sesongen",feat2b:"Spar samanlikna med dagskort",feat2c:"Alle fiskevatn i sona inkludert",feat2d:"Støttar lokal viltstell",
     ctaBuy:"Kjøp no",
-    rulesEyebrow:"Retningslinjer", rulesTitle:"Reglar & informasjon",
+    galleryEyebrow:"Galleri",galleryTitle:"Naturen i Morkadalen",
+    galleryLead:"Villmark, klåre vatn og spektakulær kystlinje – velkomen til Stadlandet.",
+    gCap1:"Fjordlandskap · Stadlandet",gCap2:"Sportsfisking i elva",gCap3:"Klåre fjellvatn",gCap4:"Spegelblankt vatn",gCap5:"Laksefisking",
+    rulesEyebrow:"Retningslinjer",rulesTitle:"Reglar & informasjon",
     rulesLead:"For å ta vare på naturen og fiskebestandane ber vi alle fiskarar følgja desse reglane.",
     rule1:"<strong>Minstemål</strong>Fisk under minstemålet skal setjast forsiktig tilbake i vatnet.",
     rule2:"<strong>Personleg kort</strong>Fiskekortet er personleg og kan ikkje overlatast til andre.",
@@ -656,108 +433,128 @@ const T = {
     rule4:"<strong>Desinfisering</strong>Alt utstyr skal desinfiserast før bruk for å hindre sjukdomsspreiing.",
     rule5:"<strong>Mark og gjerde</strong>Ta omsyn til jordbruksmark og lukk alle grinder etter deg.",
     rule6:"<strong>Køyring</strong>Motorisert ferdsel er ikkje tillate utanfor merkte vegar.",
-    mapEyebrow:"Fiskesoner", mapTitle:"Kart over fiskesonene",
+    mapEyebrow:"Fiskesoner",mapTitle:"Kart over fiskesonene",
     mapLead:"Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.",
-    payEyebrow:"Betaling", payTitle:"Trygg betaling",
-    payDesc:"Betal enkelt med Vipps, PayPal eller internasjonalt betalingskort. Du mottek fiskekortet på e-post etter betaling.",
-    payCard:"💳 Kort"
+    payEyebrow:"Betaling",payTitle:"Trygg betaling",
+    payDesc:"Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling.",
+    payVisa:"Visa / Debitkort"
   },
-  en: {
-    heroEyebrow:"Stadlandet · Vestland, Norway",
-    heroTitle:"Morkadalen<br>Wildlife & Fishing Club",
+  en:{
+    heroEyebrow:"Stadlandet · Vestland, Norway",heroTitle:"Morkadalen<br>Wildlife & Fishing Club",
     heroSub:"Experience crystal-clear water, wilderness, and rich fishing waters on Norway's most beautiful coastline.",
-    btnBuy:"Buy fishing permit", btnMap:"View fishing zones", scrollCue:"Scroll",
-    priceEyebrow:"Fishing Permits", priceTitle:"Choose your permit",
+    btnBuy:"Buy fishing permit",btnMap:"View fishing zones",scrollCue:"Scroll",
+    aboutEyebrow:"About us",aboutTitle:"A club rooted in nature",
+    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen Wildlife & Fishing Club is a local sport fishing club at Stadlandet in Vestland. We manage some of the richest fishing waters on the west coast – an area renowned for its wild salmon and sea trout populations.",
+    aboutBody:"The club actively works to preserve the natural environment and ensures the fish stock is managed sustainably. We welcome anglers from around the world to share these exceptional nature experiences – always with respect for nature as our host.",
+    fact1:"Fishing lakes",fact2:"Years of experience",fact3:"Anglers per year",
+    priceEyebrow:"Fishing Permits",priceTitle:"Choose your permit",
     priceLead:"All permits grant access to our fishing waters, rich in trout and salmon. The permit is personal and valid across all of the club's fishing zones.",
-    dayLabel:"Day Permit", dayUnit:"per day",
+    dayLabel:"Day Permit",dayUnit:"per day",
     dayDesc:"Perfect if you're passing through or want a day of fishing at Stadlandet. Valid for 24 hours from the time of purchase.",
-    feat1a:"Access to all fishing zones", feat1b:"Valid for 24 hours", feat1c:"No commitment",
-    bestVal:"Best value", seasonLabel:"Season Permit", seasonUnit:"full season",
-    seasonDesc:"For the dedicated angler. The season permit gives you unlimited access throughout the entire fishing season — our most popular option for regulars and locals.",
-    feat2a:"Unlimited access all season", feat2b:"Save vs. day permits", feat2c:"All fishing zones included", feat2d:"Supports local wildlife management",
+    feat1a:"Access to all fishing zones",feat1b:"Valid for 24 hours",feat1c:"No commitment",
+    bestVal:"Best value",seasonLabel:"Season Permit",seasonUnit:"full season",
+    seasonDesc:"For the dedicated angler. The season permit gives unlimited access throughout the entire fishing season — our most popular option for regulars and locals.",
+    feat2a:"Unlimited access all season",feat2b:"Save vs. day permits",feat2c:"All fishing zones included",feat2d:"Supports local wildlife management",
     ctaBuy:"Buy now",
-    rulesEyebrow:"Guidelines", rulesTitle:"Rules & information",
+    galleryEyebrow:"Gallery",galleryTitle:"Nature in Morkadalen",
+    galleryLead:"Wilderness, clear waters and a spectacular coastline – welcome to Stadlandet.",
+    gCap1:"Fjord landscape · Stadlandet",gCap2:"Sport fishing in the river",gCap3:"Clear mountain lakes",gCap4:"Mirror-calm waters",gCap5:"Salmon fishing",
+    rulesEyebrow:"Guidelines",rulesTitle:"Rules & information",
     rulesLead:"To protect the environment and fish populations, we ask all anglers to follow these rules.",
     rule1:"<strong>Minimum size</strong>Fish below the minimum size must be carefully returned to the water.",
-    rule2:"<strong>Personal permit</strong>The fishing permit is personal and may not be transferred to others.",
+    rule2:"<strong>Personal permit</strong>The fishing permit is personal and may not be transferred.",
     rule3:"<strong>Equipment</strong>Only legal fishing equipment is permitted. Live bait is prohibited.",
-    rule4:"<strong>Disinfection</strong>All equipment must be disinfected before use to prevent the spread of disease.",
+    rule4:"<strong>Disinfection</strong>All equipment must be disinfected before use to prevent disease spread.",
     rule5:"<strong>Land and fences</strong>Respect agricultural land and close all gates behind you.",
     rule6:"<strong>Driving</strong>Motorised vehicles are not permitted outside marked roads.",
-    mapEyebrow:"Fishing Zones", mapTitle:"Map of fishing zones",
+    mapEyebrow:"Fishing Zones",mapTitle:"Map of fishing zones",
     mapLead:"Explore the fishing waters of Morkadalen. Click the map for details on each zone.",
-    payEyebrow:"Payment", payTitle:"Secure payment",
-    payDesc:"Pay easily with Vipps, PayPal, or an international payment card. You will receive your permit by email after payment.",
-    payCard:"💳 Card"
+    payEyebrow:"Payment",payTitle:"Secure payment",
+    payDesc:"Pay easily and securely with your preferred method. You will receive your permit by email after payment.",
+    payVisa:"Visa / Debit card"
   },
-  de: {
-    heroEyebrow:"Stadlandet · Vestland, Norwegen",
-    heroTitle:"Morkadalen<br>Wild- und Fischereiverein",
+  de:{
+    heroEyebrow:"Stadlandet · Vestland, Norwegen",heroTitle:"Morkadalen<br>Wild- und Fischereiverein",
     heroSub:"Erleben Sie kristallklares Wasser, Wildnis und fischreiche Gewässer an Norwegens schönster Küste.",
-    btnBuy:"Angelschein kaufen", btnMap:"Angelzonen ansehen", scrollCue:"Weiter",
-    priceEyebrow:"Angelscheine", priceTitle:"Angelschein wählen",
-    priceLead:"Alle Scheine gewähren Zugang zu unseren Gewässern mit reichen Forellen- und Lachsbeständen. Der Schein ist persönlich und gilt in allen Angelzonen des Vereins.",
-    dayLabel:"Tagesschein", dayUnit:"pro Tag",
+    btnBuy:"Angelschein kaufen",btnMap:"Angelzonen ansehen",scrollCue:"Weiter",
+    aboutEyebrow:"Über uns",aboutTitle:"Ein Verein verwurzelt in der Natur",
+    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Der Morkadalen Wild- und Fischereiverein ist ein lokaler Sportanglerverein in Stadlandet, Vestland. Wir verwalten einige der fischreichsten Gewässer der Westküste – bekannt für Wildlachs und Meerforelle.",
+    aboutBody:"Der Verein setzt sich aktiv für den Naturschutz ein und sorgt für eine nachhaltige Bewirtschaftung der Fischbestände. Wir heißen Angler aus aller Welt willkommen – stets mit Respekt vor der Natur.",
+    fact1:"Angelgewässer",fact2:"Jahre Erfahrung",fact3:"Angler pro Jahr",
+    priceEyebrow:"Angelscheine",priceTitle:"Angelschein wählen",
+    priceLead:"Alle Scheine gewähren Zugang zu unseren Gewässern mit Forellen und Lachsen. Der Schein ist persönlich und in allen Angelzonen gültig.",
+    dayLabel:"Tagesschein",dayUnit:"pro Tag",
     dayDesc:"Ideal für Durchreisende oder einen Angeltag auf Stadlandet. Gültig 24 Stunden ab Kaufzeitpunkt.",
-    feat1a:"Zugang zu allen Angelzonen", feat1b:"Gültig 24 Stunden", feat1c:"Keine Bindung",
-    bestVal:"Bestes Angebot", seasonLabel:"Saisonschein", seasonUnit:"gesamte Saison",
-    seasonDesc:"Für den engagierten Angler. Der Saisonschein bietet unbegrenzten Zugang während der gesamten Angelsaison und ist unsere beliebteste Option.",
-    feat2a:"Unbegrenzter Zugang die ganze Saison", feat2b:"Günstiger als Einzelscheine", feat2c:"Alle Angelzonen inklusive", feat2d:"Unterstützt lokales Wildtiermanagement",
+    feat1a:"Zugang zu allen Angelzonen",feat1b:"Gültig 24 Stunden",feat1c:"Keine Bindung",
+    bestVal:"Bestes Angebot",seasonLabel:"Saisonschein",seasonUnit:"gesamte Saison",
+    seasonDesc:"Für den engagierten Angler. Unbegrenzter Zugang während der gesamten Angelsaison – unsere beliebteste Option.",
+    feat2a:"Unbegrenzter Zugang die ganze Saison",feat2b:"Günstiger als Einzelscheine",feat2c:"Alle Angelzonen inklusive",feat2d:"Unterstützt lokales Wildtiermanagement",
     ctaBuy:"Jetzt kaufen",
-    rulesEyebrow:"Richtlinien", rulesTitle:"Regeln & Informationen",
+    galleryEyebrow:"Galerie",galleryTitle:"Natur in Morkadalen",
+    galleryLead:"Wildnis, klare Gewässer und spektakuläre Küste – willkommen in Stadlandet.",
+    gCap1:"Fjordlandschaft · Stadlandet",gCap2:"Sportfischen im Fluss",gCap3:"Klare Bergseen",gCap4:"Spiegelglattes Wasser",gCap5:"Lachsfischen",
+    rulesEyebrow:"Richtlinien",rulesTitle:"Regeln & Informationen",
     rulesLead:"Zum Schutz der Natur und der Fischbestände bitten wir alle Angler, diese Regeln einzuhalten.",
     rule1:"<strong>Mindestmaß</strong>Fische unter dem Mindestmaß müssen vorsichtig zurückgesetzt werden.",
     rule2:"<strong>Persönlicher Schein</strong>Der Angelschein ist persönlich und darf nicht übertragen werden.",
-    rule3:"<strong>Ausrüstung</strong>Nur legales Angelzubehör ist erlaubt. Lebendköder sind verboten.",
-    rule4:"<strong>Desinfektion</strong>Alle Ausrüstungen müssen vor der Verwendung desinfiziert werden.",
-    rule5:"<strong>Felder und Zäune</strong>Respektieren Sie landwirtschaftliche Flächen und schließen Sie alle Tore.",
-    rule6:"<strong>Fahren</strong>Motorisierte Fahrzeuge sind außerhalb markierter Wege nicht gestattet.",
-    mapEyebrow:"Angelzonen", mapTitle:"Karte der Angelzonen",
-    mapLead:"Entdecken Sie die Angelgewässer in Morkadalen. Klicken Sie auf die Karte für Details zu jeder Zone.",
-    payEyebrow:"Zahlung", payTitle:"Sichere Zahlung",
-    payDesc:"Zahlen Sie einfach mit Vipps, PayPal oder einer internationalen Karte. Sie erhalten Ihren Schein nach der Zahlung per E-Mail.",
-    payCard:"💳 Karte"
+    rule3:"<strong>Ausrüstung</strong>Nur legales Angelzubehör erlaubt. Lebendköder verboten.",
+    rule4:"<strong>Desinfektion</strong>Alle Ausrüstungen vor der Verwendung desinfizieren.",
+    rule5:"<strong>Felder und Zäune</strong>Landwirtschaftliche Flächen respektieren, Tore schließen.",
+    rule6:"<strong>Fahren</strong>Motorisierte Fahrzeuge nur auf markierten Wegen.",
+    mapEyebrow:"Angelzonen",mapTitle:"Karte der Angelzonen",
+    mapLead:"Entdecken Sie die Angelgewässer in Morkadalen. Klicken Sie für Details zu jeder Zone.",
+    payEyebrow:"Zahlung",payTitle:"Sichere Zahlung",
+    payDesc:"Zahlen Sie einfach mit Ihrer bevorzugten Methode. Sie erhalten Ihren Schein nach der Zahlung per E-Mail.",
+    payVisa:"Visa / Debitkarte"
   },
-  fr: {
-    heroEyebrow:"Stadlandet · Vestland, Norvège",
-    heroTitle:"Morkadalen<br>Association Chasse & Pêche",
+  fr:{
+    heroEyebrow:"Stadlandet · Vestland, Norvège",heroTitle:"Morkadalen<br>Association Chasse & Pêche",
     heroSub:"Découvrez des eaux cristallines, une nature sauvage et des poissons abondants sur le plus beau littoral de Norvège.",
-    btnBuy:"Acheter un permis", btnMap:"Voir les zones de pêche", scrollCue:"Défiler",
-    priceEyebrow:"Permis de pêche", priceTitle:"Choisissez votre permis",
-    priceLead:"Tous les permis donnent accès à nos eaux poissonneuses, riches en truites et saumons. Le permis est personnel et valable dans toutes les zones de pêche de l'association.",
-    dayLabel:"Permis journalier", dayUnit:"par jour",
+    btnBuy:"Acheter un permis",btnMap:"Voir les zones de pêche",scrollCue:"Défiler",
+    aboutEyebrow:"À propos",aboutTitle:"Une association enracinée dans la nature",
+    aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"L'Association Chasse & Pêche de Morkadalen est un club local de pêche sportive à Stadlandet, Vestland. Nous gérons certaines des eaux les plus poissonneuses de la côte ouest – réputées pour le saumon sauvage et la truite de mer.",
+    aboutBody:"L'association œuvre activement à la préservation de l'environnement naturel et assure une gestion durable des populations de poissons. Nous accueillons des pêcheurs du monde entier – toujours dans le respect de la nature.",
+    fact1:"Plans d'eau",fact2:"Ans d'expérience",fact3:"Pêcheurs par an",
+    priceEyebrow:"Permis de pêche",priceTitle:"Choisissez votre permis",
+    priceLead:"Tous les permis donnent accès à nos eaux poissonneuses riches en truites et saumons. Le permis est personnel et valable dans toutes les zones de pêche.",
+    dayLabel:"Permis journalier",dayUnit:"par jour",
     dayDesc:"Idéal pour les voyageurs de passage ou une journée de pêche à Stadlandet. Valable 24 heures à partir de l'achat.",
-    feat1a:"Accès à toutes les zones", feat1b:"Valable 24 heures", feat1c:"Sans engagement",
-    bestVal:"Meilleur rapport qualité-prix", seasonLabel:"Permis saisonnier", seasonUnit:"toute la saison",
-    seasonDesc:"Pour les pêcheurs passionnés. Le permis saisonnier offre un accès illimité pendant toute la saison de pêche — notre option la plus populaire.",
-    feat2a:"Accès illimité toute la saison", feat2b:"Économisez par rapport au permis journalier", feat2c:"Toutes les zones incluses", feat2d:"Soutient la gestion locale de la faune",
+    feat1a:"Accès à toutes les zones",feat1b:"Valable 24 heures",feat1c:"Sans engagement",
+    bestVal:"Meilleur rapport qualité-prix",seasonLabel:"Permis saisonnier",seasonUnit:"toute la saison",
+    seasonDesc:"Pour les pêcheurs passionnés. Accès illimité pendant toute la saison de pêche – notre option la plus populaire.",
+    feat2a:"Accès illimité toute la saison",feat2b:"Économique vs. permis journalier",feat2c:"Toutes les zones incluses",feat2d:"Soutient la gestion locale de la faune",
     ctaBuy:"Acheter maintenant",
-    rulesEyebrow:"Directives", rulesTitle:"Règles & informations",
+    galleryEyebrow:"Galerie",galleryTitle:"La nature à Morkadalen",
+    galleryLead:"Wilderness, eaux claires et littoral spectaculaire – bienvenue à Stadlandet.",
+    gCap1:"Paysage de fjord · Stadlandet",gCap2:"Pêche sportive en rivière",gCap3:"Lacs de montagne cristallins",gCap4:"Eaux calmes comme un miroir",gCap5:"Pêche au saumon",
+    rulesEyebrow:"Directives",rulesTitle:"Règles & informations",
     rulesLead:"Pour protéger la nature et les populations de poissons, nous demandons à tous les pêcheurs de respecter ces règles.",
     rule1:"<strong>Taille minimale</strong>Les poissons sous la taille minimale doivent être remis délicatement à l'eau.",
-    rule2:"<strong>Permis personnel</strong>Le permis est personnel et ne peut pas être cédé à d'autres.",
+    rule2:"<strong>Permis personnel</strong>Le permis est personnel et ne peut pas être cédé.",
     rule3:"<strong>Équipement</strong>Seul l'équipement légal est autorisé. Les appâts vivants sont interdits.",
     rule4:"<strong>Désinfection</strong>Tout l'équipement doit être désinfecté avant utilisation.",
     rule5:"<strong>Terres et clôtures</strong>Respectez les terres agricoles et fermez toutes les barrières.",
     rule6:"<strong>Conduite</strong>Les véhicules motorisés ne sont pas autorisés hors des routes balisées.",
-    mapEyebrow:"Zones de pêche", mapTitle:"Carte des zones de pêche",
+    mapEyebrow:"Zones de pêche",mapTitle:"Carte des zones de pêche",
     mapLead:"Explorez les eaux de Morkadalen. Cliquez sur la carte pour les détails de chaque zone.",
-    payEyebrow:"Paiement", payTitle:"Paiement sécurisé",
-    payDesc:"Payez facilement avec Vipps, PayPal ou une carte internationale. Vous recevrez votre permis par e-mail après paiement.",
-    payCard:"💳 Carte"
+    payEyebrow:"Paiement",payTitle:"Paiement sécurisé",
+    payDesc:"Payez facilement avec votre méthode préférée. Vous recevrez votre permis par e-mail après paiement.",
+    payVisa:"Visa / Carte de débit"
   }
 };
 
 function setLang(lang) {
-  const t = T[lang];
-  if (!t) return;
+  const t = T[lang]; if(!t) return;
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.innerHTML = t[key];
+    const k = el.getAttribute('data-i18n');
+    if(t[k] !== undefined) el.innerHTML = t[k];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('onclick') === `setLang('${lang}')`);
-  });
+  document.querySelectorAll('.lang-btn').forEach(btn =>
+    btn.classList.toggle('active', btn.getAttribute('onclick') === `setLang('${lang}')`)
+  );
   document.documentElement.lang = lang === 'nn' ? 'no' : lang;
 }
 setLang('nn');
