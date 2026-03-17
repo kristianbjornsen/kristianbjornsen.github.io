@@ -4,398 +4,661 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morkadalen Vilt og Fiskelag</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Fargepalett og grunnleggende stil */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
         :root {
-            --primary-blue: #2a6f97;
-            --dark-blue: #012a4a;
-            --nature-green: #2d6a4f;
-            --text-dark: #1b1b1b;
-            --bg-light: #f4f6f8;
-            --white: #ffffff;
+            --sky-blue: #0ea5e9;
+            --nature-green: #166534;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Playfair Display', sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        .hero-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #166534 100%);
         }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Navigasjon og språk */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .language-selector button {
-            background: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 5px 10px;
-            margin-left: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .language-selector button:hover {
-            background-color: var(--bg-light);
-            border-color: var(--dark-blue);
-        }
-
-        /* Hovedinnhold */
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .logo {
-            max-width: 250px;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            color: var(--dark-blue);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* Seksjoner */
-        .section-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            color: var(--nature-green);
-            border-bottom: 2px solid var(--nature-green);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        /* Priser og Regler */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .price-box {
-            background-color: var(--bg-light);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-        }
-
-        .price-box h3 {
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-        }
-
-        .price-box .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        ul.rules-list {
-            list-style-type: none;
-        }
-
-        ul.rules-list li {
+        .section-header {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
         }
-
-        ul.rules-list li::before {
-            content: "✓";
-            color: var(--nature-green);
+        
+        .section-header:after {
+            content: '';
             position: absolute;
+            bottom: -8px;
             left: 0;
-            font-weight: bold;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #0ea5e9, #166534);
+            border-radius: 9999px;
         }
 
-        /* Kart */
         .map-container {
-            width: 100%;
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            border: 2px solid #ddd;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
         }
         
         .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 480px;
-            border: none;
-            display: block;
+            height: 100%;
+            border: 0;
         }
 
-        /* Betaling */
-        .payment-options {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        .lang-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
+        
+        .lang-btn.active {
+            background-color: #166534;
             color: white;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            display: inline-block;
+            box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        .price-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.3s;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
-        .btn-vipps { background-color: #ff5b24; }
-        .btn-paypal { background-color: #003087; }
-        .btn-card { background-color: var(--dark-blue); }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
+        .payment-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        /* Responsivitet for mobil */
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
+        
+        .payment-btn:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body>
+<body class="tail-container bg-zinc-50 text-zinc-900">
+    <!-- HEADER -->
+    <header class="bg-white border-b border-zinc-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-x-4">
+                <img src="grok-image-674320ca-c18f-47f5-9779-64bcf801e12f.jpg" 
+                     alt="Morkadalen Vilt og Fiskelag logo" 
+                     class="h-20 w-auto drop-shadow-lg">
+                <div>
+                    <h1 class="logo-font text-3xl font-bold tracking-tight text-emerald-950">Morkadalen</h1>
+                    <p class="text-emerald-700 text-sm -mt-1 font-medium">VILT OG FISKELAG</p>
+                </div>
+            </div>
 
-    <header>
-        <div class="header-content">
-            <div style="font-weight: bold; color: var(--dark-blue);">Morkadalen V&F</div>
-            <div class="language-selector">
-                <button onclick="setLanguage('no')">NO</button>
-                <button onclick="setLanguage('en')">EN</button>
-                <button onclick="setLanguage('de')">DE</button>
-                <button onclick="setLanguage('fr')">FR</button>
+            <!-- Language selector -->
+            <div class="flex items-center gap-x-2 bg-zinc-100 rounded-3xl p-1 shadow-inner">
+                <button onclick="switchLanguage('no')" 
+                        id="lang-no"
+                        class="lang-btn active flex items-center gap-x-2 px-5 py-2.5 rounded-3xl text-sm font-semibold transition-all">
+                    🇳🇴 NO
+                </button>
+                <button onclick="switchLanguage('en')" 
+                        id="lang-en"
+                        class="lang-btn flex items-center gap-x-2 px-5 py-2.5 rounded-3xl text-sm font-semibold transition-all">
+                    🇬🇧 EN
+                </button>
+                <button onclick="switchLanguage('de')" 
+                        id="lang-de"
+                        class="lang-btn flex items-center gap-x-2 px-5 py-2.5 rounded-3xl text-sm font-semibold transition-all">
+                    🇩🇪 DE
+                </button>
+                <button onclick="switchLanguage('fr')" 
+                        id="lang-fr"
+                        class="lang-btn flex items-center gap-x-2 px-5 py-2.5 rounded-3xl text-sm font-semibold transition-all">
+                    🇫🇷 FR
+                </button>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="hero">
-            <img src="grok-image-674320ca-c18f-47f5-9779-64bcf801e12f.jpg" alt="Morkadalen Vilt og Fiskelag" class="logo">
-            <h1 data-key="title">Morkadalen Vilt og Fiskelag</h1>
-            <p data-key="subtitle">Velkommen til fantastisk fiske i vakre Morkadalen på Stadlandet.</p>
+    <!-- HERO -->
+    <section class="hero-bg text-white py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-x-3 bg-white/20 backdrop-blur-md px-6 py-2 rounded-full mb-8">
+                <div class="w-3 h-3 bg-emerald-300 rounded-full animate-pulse"></div>
+                <span id="hero-badge" data-translate="hero-badge" class="uppercase tracking-[2px] text-sm font-semibold">Siden 1968 • Stadlandet</span>
+            </div>
+            
+            <h2 id="hero-title" data-translate="hero-title" 
+                class="text-6xl md:text-7xl font-bold logo-font leading-none tracking-tighter mb-6">
+                Velkommen til<br>Morkadalen
+            </h2>
+            
+            <p id="hero-subtitle" data-translate="hero-subtitle" 
+               class="text-2xl md:text-3xl text-white/90 max-w-2xl mx-auto font-light">
+                Sportsfiske i vakre fjord- og fjellandskap
+            </p>
+            
+            <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#priser" 
+                   class="inline-flex items-center justify-center bg-white text-emerald-900 font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-amber-100 transition-all shadow-xl">
+                    <span id="hero-btn-prices" data-translate="hero-btn-prices">Kjøp kort nå</span>
+                </a>
+                <a href="#kart" 
+                   class="inline-flex items-center justify-center border-2 border-white text-white font-semibold text-lg px-10 py-5 rounded-2xl hover:bg-white/10 transition-all">
+                    <span id="hero-btn-map" data-translate="hero-btn-map">Se kart</span>
+                </a>
+            </div>
         </div>
+        
+        <!-- Decorative fish -->
+        <div class="absolute bottom-0 right-12 text-[180px] opacity-10 pointer-events-none select-none">🐟</div>
+    </section>
 
-        <div class="info-grid">
-            <div class="section-card">
-                <h2 data-key="pricesTitle">Fiskekort & Priser</h2>
-                <div class="price-box">
-                    <h3 data-key="dayPass">Døgnkort</h3>
-                    <div class="price">80 kr</div>
+    <!-- ABOUT -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-7">
+                    <h2 id="about-title" data-translate="about-title" 
+                        class="section-header text-4xl font-bold text-emerald-950 mb-8">
+                        Om oss
+                    </h2>
+                    <div id="about-text" data-translate="about-text" class="prose prose-lg text-zinc-600 leading-relaxed">
+                        Morkadalen Vilt og Fiskelag ble stiftet i 1968 og forvalter fiskerettighetene i Morkadalen på Stadlandet. 
+                        Vi tilbyr eksklusiv tilgang til førsteklasses sportsfiske etter laks og sjøaure i en av Vestlandets mest uberørte elver.
+                    </div>
                 </div>
-                <div class="price-box">
-                    <h3 data-key="seasonPass">Sesongkort</h3>
-                    <div class="price">700 kr</div>
+                <div class="md:col-span-5 bg-emerald-50 rounded-3xl p-8 text-center">
+                    <div class="text-6xl mb-4">🏔️</div>
+                    <p id="about-fact" data-translate="about-fact" class="text-emerald-800 font-medium">
+                        Stadlandet – der fjord møter fjell
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="section-card">
-                <h2 data-key="rulesTitle">Regler for Fiske</h2>
-                <ul class="rules-list">
-                    <li data-key="rule1">Minstemål: 35 cm for laks og sjøaure.</li>
-                    <li data-key="rule2">Kortet er personleg og kan ikkje overdragast til andre.</li>
-                    <li data-key="rule3">Kortet skal kunne visast fram ved kontroll.</li>
-                    <li data-key="rule4">Pass på at du ikkje nyttar utstyr som kan skade yngel (t.d. små krokar når du fiskar med mark).</li>
-                    <li data-key="rule5">Det er ikkje høve til å nytte kano, robåt, mm. som ikkje er desinfiserte etter bruk andre stadar.</li>
-                    <li data-key="rule6">Ta omsyn til dyrka mark, gjerder og grinder.</li>
-                    <li data-key="rule7">Køyring på bygdevegane er berre for grunneigarane.</li>
+    <!-- PRICES -->
+    <section id="priser" class="py-20 bg-zinc-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 id="prices-title" data-translate="prices-title" 
+                class="section-header text-4xl font-bold text-center text-emerald-950 mb-12">
+                Priser
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <!-- Day card -->
+                <div class="price-card bg-white rounded-3xl shadow-xl p-10 text-center border border-emerald-100">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl mb-6">
+                        ⏰
+                    </div>
+                    <h3 id="day-label" data-translate="day-label" class="text-2xl font-semibold text-zinc-800">Døgnkort</h3>
+                    <div class="mt-8 mb-6">
+                        <span id="day-price" data-translate="day-price" class="text-7xl font-bold text-emerald-700">80</span>
+                        <span class="text-3xl font-light text-emerald-700">kr</span>
+                    </div>
+                    <p id="day-desc" data-translate="day-desc" class="text-zinc-500 text-sm">Gyldig 24 timer fra kjøpstidspunkt</p>
+                </div>
+
+                <!-- Season card -->
+                <div class="price-card bg-white rounded-3xl shadow-2xl p-10 text-center border-2 border-emerald-600 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-bold tracking-widest px-6 py-1 rounded-full">MEST POPULÆRT</div>
+                    
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl mb-6">
+                        📅
+                    </div>
+                    <h3 id="season-label" data-translate="season-label" class="text-2xl font-semibold text-zinc-800">Sesongkort</h3>
+                    <div class="mt-8 mb-6">
+                        <span id="season-price" data-translate="season-price" class="text-7xl font-bold text-emerald-700">700</span>
+                        <span class="text-3xl font-light text-emerald-700">kr</span>
+                    </div>
+                    <p id="season-desc" data-translate="season-desc" class="text-zinc-500 text-sm">Gyldig hele sesongen 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 id="rules-title" data-translate="rules-title" 
+                class="section-header text-4xl font-bold text-center text-emerald-950 mb-12">
+                Regler &amp; Informasjon
+            </h2>
+            
+            <div class="max-w-3xl mx-auto bg-zinc-50 rounded-3xl p-8 md:p-12">
+                <ul id="rules-list" class="space-y-7 text-lg">
+                    <li class="flex gap-5">
+                        <span class="text-emerald-600 text-3xl flex-shrink-0">📏</span>
+                        <span id="rule1" data-translate="rule1">Minstemål: 35 cm for laks og sjøaure.</span>
+                    </li>
+                    <li class="flex gap-5">
+                        <span class="text-emerald-600 text-3xl flex-shrink-0">🪪</span>
+                        <span id="rule2" data-translate="rule2">Fiskekortet er personlig og kan ikke overdras. Skal forevises ved kontroll.</span>
+                    </li>
+                    <li class="flex gap-5">
+                        <span class="text-emerald-600 text-3xl flex-shrink-0">🚫</span>
+                        <span id="rule3" data-translate="rule3">Forbud mot utstyr som skader yngel (f.eks. for små kroker ved markfiske).</span>
+                    </li>
+                    <li class="flex gap-5">
+                        <span class="text-emerald-600 text-3xl flex-shrink-0">⛔</span>
+                        <span id="rule4" data-translate="rule4">Forbud mot kano/båt som ikke er desinfisert etter bruk i andre vassdrag.</span>
+                    </li>
+                    <li class="flex gap-5">
+                        <span class="text-emerald-600 text-3xl flex-shrink-0">🌾</span>
+                        <span id="rule5" data-translate="rule5">Ta hensyn til dyrka mark, gjerder og grinder.</span>
+                    </li>
+                    <li class="flex gap-5">
+                        <span class="text-emerald-600 text-3xl flex-shrink-0">🚗</span>
+                        <span id="rule6" data-translate="rule6">Kjøring på bygdeveier er kun tillatt for grunneiere.</span>
+                    </li>
                 </ul>
             </div>
         </div>
+    </section>
 
-        <div class="section-card">
-            <h2 data-key="mapTitle">Fiskesoner og Grenser</h2>
-            <p style="margin-bottom: 15px;" data-key="mapDesc">Kartet under viser grensene for fiskesonene i Morkadalen.</p>
+    <!-- MAP -->
+    <section id="kart" class="py-20 bg-emerald-950 text-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 id="map-title" data-translate="map-title" 
+                    class="section-header text-4xl font-bold text-white">
+                    Fiskesoner
+                </h2>
+                <p id="map-subtitle" data-translate="map-subtitle" class="mt-3 text-emerald-300 text-lg">
+                    Interaktivt kart over tillatte fiskeområder i Morkadalen
+                </p>
+            </div>
+            
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/d/embed?mid=14FJFvb7owCQsSQUhs6WchCUnc1ExRmw&hl=en&ehbc=2E312F" width="640" height="480"></iframe>
+                <iframe src="https://www.google.com/maps/d/embed?mid=14FJFvb7owCQsSQUhs6WchCUnc1ExRmw&amp;hl=no&amp;ehbc=2E312F" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
+            </div>
+            
+            <p class="text-center text-emerald-300 text-sm mt-6">
+                📍 Stadlandet, Vestland • Zoom inn for detaljer
+            </p>
+        </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section id="betaling" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 id="payment-title" data-translate="payment-title" 
+                class="section-header text-4xl font-bold text-center text-emerald-950 mb-4">
+                Betal ditt fiskekort
+            </h2>
+            <p id="payment-subtitle" data-translate="payment-subtitle" 
+               class="text-center text-zinc-500 max-w-md mx-auto mb-12">
+                Rask og sikker betaling. Velg din foretrukne metode.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 max-w-2xl mx-auto">
+                <!-- Vipps -->
+                <button onclick="handlePayment('vipps')" 
+                        class="payment-btn flex-1 bg-[#00C3A7] hover:bg-[#00A38A] text-white rounded-3xl py-8 px-8 flex items-center justify-center gap-4 shadow-xl">
+                    <span class="text-5xl">📱</span>
+                    <div class="text-left">
+                        <div class="font-bold text-2xl">Vipps</div>
+                        <div class="text-sm opacity-90">Kun for norske mobilnumre</div>
+                    </div>
+                </button>
+                
+                <!-- PayPal -->
+                <button onclick="handlePayment('paypal')" 
+                        class="payment-btn flex-1 bg-[#003087] hover:bg-[#002366] text-white rounded-3xl py-8 px-8 flex items-center justify-center gap-4 shadow-xl">
+                    <span class="text-5xl">🅿️</span>
+                    <div class="text-left">
+                        <div class="font-bold text-2xl">PayPal</div>
+                        <div class="text-sm opacity-90">Internasjonalt</div>
+                    </div>
+                </button>
+                
+                <!-- Kort -->
+                <button onclick="handlePayment('card')" 
+                        class="payment-btn flex-1 bg-gradient-to-r from-zinc-900 to-black text-white rounded-3xl py-8 px-8 flex items-center justify-center gap-4 shadow-xl">
+                    <span class="text-5xl">💳</span>
+                    <div class="text-left">
+                        <div class="font-bold text-2xl">Kort</div>
+                        <div class="text-sm opacity-90">Visa • Mastercard • Amex</div>
+                    </div>
+                </button>
+            </div>
+            
+            <p class="text-center text-xs text-zinc-400 mt-10">🔒 Sikker betaling • Personvern ivaretatt</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-emerald-200 py-16">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-y-10">
+            <!-- Left -->
+            <div>
+                <img src="grok-image-674320ca-c18f-47f5-9779-64bcf801e12f.jpg" 
+                     alt="Logo" 
+                     class="h-16 w-auto mb-6 opacity-80">
+                <p id="footer-text" data-translate="footer-text" class="text-sm max-w-xs">
+                    Morkadalen Vilt og Fiskelag • Stiftet 1968
+                </p>
+            </div>
+            
+            <!-- Center -->
+            <div class="text-center md:text-left">
+                <h4 id="footer-contact-title" data-translate="footer-contact-title" class="font-semibold text-white mb-4">Kontakt</h4>
+                <a href="mailto:info@morkadalen.no" class="block hover:text-white transition-colors">info@morkadalen.no</a>
+                <a href="tel:+4770123456" class="block hover:text-white transition-colors">+47 70 12 34 56</a>
+                <p class="text-xs mt-8 text-emerald-400">Stadlandet, Vestland</p>
+            </div>
+            
+            <!-- Right -->
+            <div class="text-center md:text-right">
+                <div class="flex justify-center md:justify-end gap-6 text-2xl mb-8">
+                    <span>🐟</span>
+                    <span>🏔️</span>
+                    <span>🌲</span>
+                </div>
+                <p id="footer-copyright" data-translate="footer-copyright" class="text-xs">
+                    © 1968–2026 Morkadalen Vilt og Fiskelag<br>
+                    Alle rettigheter reservert
+                </p>
             </div>
         </div>
-
-        <div class="section-card" style="text-align: center;">
-            <h2 data-key="payTitle">Kjøp Fiskekort Her</h2>
-            <p data-key="payDesc">Velg din foretrukne betalingsmetode for å sikre deg fiskekortet.</p>
-            <div class="payment-options">
-                <button class="btn btn-vipps" onclick="alert('Vipps integrasjon kommer her!')">Vipps</button>
-                <button class="btn btn-paypal" onclick="alert('PayPal integrasjon kommer her!')">PayPal</button>
-                <button class="btn btn-card" onclick="alert('Kortbetaling kommer her!')" data-key="payCard">Kortbetaling</button>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <h3 data-key="contactTitle" style="color: white; border: none; margin-bottom: 10px;">Kontakt Oss</h3>
-        <p>Email: post@morkadalen.no</p>
-        <p data-key="contactPhone">Tlf oppsyn: +47 99 99 99 99</p>
-        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">© 2026 Morkadalen Vilt og Fiskelag</p>
     </footer>
 
+    <!-- PAYMENT MODAL -->
+    <div id="payment-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[999]">
+        <div class="bg-white rounded-3xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="px-8 py-10 text-center">
+                <div id="modal-icon" class="text-7xl mb-6"></div>
+                <h3 id="modal-title" class="text-2xl font-bold text-emerald-900">Betaling gjennomført!</h3>
+                <p id="modal-text" class="mt-4 text-zinc-600">Takk for ditt kjøp. Fiskekortet er nå registrert på ditt mobilnummer / PayPal / kort.</p>
+                
+                <button onclick="closeModal()" 
+                        class="mt-10 w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-6 rounded-2xl transition-colors">
+                    TILBAKE TIL SIDEN
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Ordbok for alle oversettelsene
+        // Tailwind script run
+        function initializeTailwind() {
+            // Already initialized via CDN
+        }
+
+        // Translations object
         const translations = {
-            no: {
-                title: "Morkadalen Vilt og Fiskelag",
-                subtitle: "Velkommen til fantastisk fiske i vakre Morkadalen på Stadlandet.",
-                pricesTitle: "Fiskekort & Priser",
-                dayPass: "Døgnkort",
-                seasonPass: "Sesongkort",
-                rulesTitle: "Regler for Fiske",
-                rule1: "Minstemål: 35 cm for laks og sjøaure.",
-                rule2: "Kortet er personleg og kan ikkje overdragast til andre.",
-                rule3: "Kortet skal kunne visast fram ved kontroll.",
-                rule4: "Pass på at du ikkje nyttar utstyr som kan skade yngel (t.d. små krokar når du fiskar med mark).",
-                rule5: "Det er ikkje høve til å nytte kano, robåt, mm. som ikkje er desinfiserte etter bruk andre stadar.",
-                rule6: "Ta omsyn til dyrka mark, gjerder og grinder.",
-                rule7: "Køyring på bygdevegane er berre for grunneigarane.",
-                mapTitle: "Fiskesoner og Grenser",
-                mapDesc: "Kartet under viser grensene for fiskesonene i Morkadalen.",
-                payTitle: "Kjøp Fiskekort Her",
-                payDesc: "Velg din foretrukne betalingsmetode for å sikre deg fiskekortet.",
-                payCard: "Kortbetaling",
-                contactTitle: "Kontakt Oss",
-                contactPhone: "Tlf oppsyn: +47 99 99 99 99"
+            "hero-badge": {
+                no: "Siden 1968 • Stadlandet",
+                en: "Est. 1968 • Stadlandet",
+                de: "Seit 1968 • Stadlandet",
+                fr: "Depuis 1968 • Stadlandet"
             },
-            en: {
-                title: "Morkadalen Game and Fishing Association",
-                subtitle: "Welcome to fantastic fishing in beautiful Morkadalen at Stadlandet.",
-                pricesTitle: "Fishing Passes & Prices",
-                dayPass: "Day Pass",
-                seasonPass: "Season Pass",
-                rulesTitle: "Fishing Rules",
-                rule1: "Minimum size: 35 cm for salmon and sea trout.",
-                rule2: "The pass is personal and cannot be transferred to others.",
-                rule3: "The pass must be presented during ticket inspections.",
-                rule4: "Do not use equipment that can harm fry (e.g., small hooks when fishing with worms).",
-                rule5: "Canoes, rowboats, etc., that have not been disinfected after use elsewhere are not permitted.",
-                rule6: "Show consideration for cultivated land, fences, and gates.",
-                rule7: "Driving on village roads is restricted to landowners only.",
-                mapTitle: "Fishing Zones and Borders",
-                mapDesc: "The map below shows the borders of the fishing zones in Morkadalen.",
-                payTitle: "Buy Fishing Pass Here",
-                payDesc: "Choose your preferred payment method to secure your fishing pass.",
-                payCard: "Credit Card",
-                contactTitle: "Contact Us",
-                contactPhone: "Supervisor Phone: +47 99 99 99 99"
+            "hero-title": {
+                no: "Velkommen til\nMorkadalen",
+                en: "Welcome to\nMorkadalen",
+                de: "Willkommen in\nMorkadalen",
+                fr: "Bienvenue à\nMorkadalen"
             },
-            de: {
-                title: "Morkadalen Jagd- und Fischereiverein",
-                subtitle: "Willkommen zum fantastischen Angeln im schönen Morkadalen auf Stadlandet.",
-                pricesTitle: "Angelkarten & Preise",
-                dayPass: "Tageskarte",
-                seasonPass: "Saisonkarte",
-                rulesTitle: "Angelregeln",
-                rule1: "Mindestmaß: 35 cm für Lachs und Meerforelle.",
-                rule2: "Die Karte ist persönlich und nicht übertragbar.",
-                rule3: "Die Karte muss bei Kontrollen vorgezeigt werden.",
-                rule4: "Verwenden Sie keine Ausrüstung, die Jungfische verletzen könnte (z.B. kleine Haken mit Würmern).",
-                rule5: "Kanus, Ruderboote usw., die nach anderweitiger Nutzung nicht desinfiziert wurden, sind nicht gestattet.",
-                rule6: "Nehmen Sie Rücksicht auf Anbauflächen, Zäune und Tore.",
-                rule7: "Das Fahren auf Dorfstraßen ist nur für Landbesitzer gestattet.",
-                mapTitle: "Angelzonen und Grenzen",
-                mapDesc: "Die Karte unten zeigt die Grenzen der Angelzonen in Morkadalen.",
-                payTitle: "Angelkarte Hier Kaufen",
-                payDesc: "Wählen Sie Ihre bevorzugte Zahlungsmethode, um sich Ihre Angelkarte zu sichern.",
-                payCard: "Kreditkarte",
-                contactTitle: "Kontakt",
-                contactPhone: "Aufsicht Tel: +47 99 99 99 99"
+            "hero-subtitle": {
+                no: "Sportsfiske i vakre fjord- og fjellandskap",
+                en: "Sport fishing in stunning fjord and mountain scenery",
+                de: "Sportfischen in atemberaubender Fjord- und Berglandschaft",
+                fr: "Pêche sportive dans un paysage de fjords et montagnes époustouflant"
             },
-            fr: {
-                title: "Association de Chasse et de Pêche de Morkadalen",
-                subtitle: "Bienvenue pour une pêche fantastique dans la belle vallée de Morkadalen à Stadlandet.",
-                pricesTitle: "Permis de Pêche & Prix",
-                dayPass: "Permis Journalier",
-                seasonPass: "Permis Saisonnier",
-                rulesTitle: "Règles de Pêche",
-                rule1: "Taille minimum : 35 cm pour le saumon et la truite de mer.",
-                rule2: "Le permis est personnel et non transférable.",
-                rule3: "Le permis doit être présenté lors des contrôles.",
-                rule4: "N'utilisez pas d'équipement pouvant blesser les alevins (par ex. petits hameçons avec des vers).",
-                rule5: "Les canoës, barques, etc., non désinfectés après avoir été utilisés ailleurs ne sont pas autorisés.",
-                rule6: "Respectez les terres cultivées, les clôtures et les barrières.",
-                rule7: "La conduite sur les routes de village est réservée aux propriétaires terriens.",
-                mapTitle: "Zones de Pêche et Frontières",
-                mapDesc: "La carte ci-dessous indique les frontières des zones de pêche à Morkadalen.",
-                payTitle: "Achetez Votre Permis Ici",
-                payDesc: "Choisissez votre mode de paiement préféré pour sécuriser votre permis de pêche.",
-                payCard: "Carte de Crédit",
-                contactTitle: "Nous Contacter",
-                contactPhone: "Tél supervision: +47 99 99 99 99"
+            "hero-btn-prices": {
+                no: "Kjøp kort nå",
+                en: "Buy license now",
+                de: "Karte jetzt kaufen",
+                fr: "Acheter la carte maintenant"
+            },
+            "hero-btn-map": {
+                no: "Se kart",
+                en: "View map",
+                de: "Karte ansehen",
+                fr: "Voir la carte"
+            },
+            "about-title": {
+                no: "Om oss",
+                en: "About us",
+                de: "Über uns",
+                fr: "À propos"
+            },
+            "about-text": {
+                no: "Morkadalen Vilt og Fiskelag ble stiftet i 1968 og forvalter fiskerettighetene i Morkadalen på Stadlandet. Vi tilbyr eksklusiv tilgang til førsteklasses sportsfiske etter laks og sjøaure i en av Vestlandets mest uberørte elver.",
+                en: "Morkadalen Wildlife and Fishing Association was founded in 1968 and manages the fishing rights in Morkadalen on Stadlandet. We offer exclusive access to premium sport fishing for salmon and sea trout in one of Western Norway's most pristine rivers.",
+                de: "Der Morkadalen Wild- und Fischerverein wurde 1968 gegründet und verwaltet die Fischereirechte in Morkadalen auf Stadlandet. Wir bieten exklusiven Zugang zu erstklassigem Sportfischen auf Lachs und Meerforelle in einem der unberührtesten Flüsse Westnorwegens.",
+                fr: "L'Association de Chasse et de Pêche de Morkadalen a été fondée en 1968 et gère les droits de pêche à Morkadalen sur Stadlandet. Nous offrons un accès exclusif à une pêche sportive de premier ordre pour le saumon et la truite de mer dans l'une des rivières les plus préservées de l'Ouest norvégien."
+            },
+            "about-fact": {
+                no: "Stadlandet – der fjord møter fjell",
+                en: "Stadlandet – where fjord meets mountain",
+                de: "Stadlandet – wo Fjord auf Berg trifft",
+                fr: "Stadlandet – où fjord rencontre montagne"
+            },
+            "prices-title": {
+                no: "Priser",
+                en: "Prices",
+                de: "Preise",
+                fr: "Tarifs"
+            },
+            "day-label": {
+                no: "Døgnkort",
+                en: "Day pass",
+                de: "Tageskarte",
+                fr: "Carte journalière"
+            },
+            "day-price": {
+                no: "80",
+                en: "80",
+                de: "80",
+                fr: "80"
+            },
+            "day-desc": {
+                no: "Gyldig 24 timer fra kjøpstidspunkt",
+                en: "Valid 24 hours from purchase",
+                de: "24 Stunden gültig ab Kauf",
+                fr: "Valable 24 heures à partir de l'achat"
+            },
+            "season-label": {
+                no: "Sesongkort",
+                en: "Season pass",
+                de: "Saisonkarte",
+                fr: "Carte saisonnière"
+            },
+            "season-price": {
+                no: "700",
+                en: "700",
+                de: "700",
+                fr: "700"
+            },
+            "season-desc": {
+                no: "Gyldig hele sesongen 2026",
+                en: "Valid for the entire 2026 season",
+                de: "Gültig für die gesamte Saison 2026",
+                fr: "Valable pour toute la saison 2026"
+            },
+            "rules-title": {
+                no: "Regler &amp; Informasjon",
+                en: "Rules &amp; Information",
+                de: "Regeln &amp; Informationen",
+                fr: "Règles &amp; Informations"
+            },
+            "rule1": {
+                no: "Minstemål: 35 cm for laks og sjøaure.",
+                en: "Minimum size: 35 cm for salmon and sea trout.",
+                de: "Mindestmaß: 35 cm für Lachs und Meerforelle.",
+                fr: "Taille minimale : 35 cm pour le saumon et la truite de mer."
+            },
+            "rule2": {
+                no: "Fiskekortet er personlig og kan ikke overdras. Skal forevises ved kontroll.",
+                en: "The fishing license is personal and non-transferable. Must be presented upon inspection.",
+                de: "Die Angelkarte ist persönlich und nicht übertragbar. Muss bei Kontrolle vorgezeigt werden.",
+                fr: "La carte de pêche est personnelle et non transférable. Doit être présentée lors des contrôles."
+            },
+            "rule3": {
+                no: "Forbud mot utstyr som skader yngel (f.eks. for små kroker ved markfiske).",
+                en: "Prohibition of equipment that can harm fry (e.g. too small hooks when bait fishing).",
+                de: "Verbot von Ausrüstung, die Jungfische schädigen kann (z.B. zu kleine Haken beim Köderfischen).",
+                fr: "Interdiction d'équipement pouvant endommager les alevins (ex. : crochets trop petits pour la pêche à l'appât)."
+            },
+            "rule4": {
+                no: "Forbud mot kano/båt som ikke er desinfisert etter bruk i andre vassdrag.",
+                en: "Prohibition of canoe/boat not disinfected after use in other waterways.",
+                de: "Verbot von Kanu/Boot, das nicht nach Nutzung in anderen Gewässern desinfiziert wurde.",
+                fr: "Interdiction de canoë/bateau non désinfecté après utilisation dans d'autres cours d'eau."
+            },
+            "rule5": {
+                no: "Ta hensyn til dyrka mark, gjerder og grinder.",
+                en: "Respect cultivated land, fences and gates.",
+                de: "Respektieren Sie Ackerland, Zäune und Tore.",
+                fr: "Respectez les terres cultivées, les clôtures et les grilles."
+            },
+            "rule6": {
+                no: "Kjøring på bygdeveier er kun tillatt for grunneiere.",
+                en: "Driving on local roads is only permitted for landowners.",
+                de: "Fahren auf Dorfstraßen ist nur für Grundbesitzer erlaubt.",
+                fr: "La conduite sur les routes locales n'est autorisée qu'aux propriétaires fonciers."
+            },
+            "map-title": {
+                no: "Fiskesoner",
+                en: "Fishing zones",
+                de: "Fischereizonen",
+                fr: "Zones de pêche"
+            },
+            "map-subtitle": {
+                no: "Interaktivt kart over tillatte fiskeområder i Morkadalen",
+                en: "Interactive map of permitted fishing areas in Morkadalen",
+                de: "Interaktive Karte der erlaubten Fischereigebiete in Morkadalen",
+                fr: "Carte interactive des zones de pêche autorisées à Morkadalen"
+            },
+            "payment-title": {
+                no: "Betal ditt fiskekort",
+                en: "Pay for your fishing license",
+                de: "Bezahlen Sie Ihre Angelkarte",
+                fr: "Payez votre carte de pêche"
+            },
+            "payment-subtitle": {
+                no: "Rask og sikker betaling. Velg din foretrukne metode.",
+                en: "Fast and secure payment. Choose your preferred method.",
+                de: "Schnelle und sichere Zahlung. Wählen Sie Ihre bevorzugte Methode.",
+                fr: "Paiement rapide et sécurisé. Choisissez votre méthode préférée."
+            },
+            "footer-text": {
+                no: "Morkadalen Vilt og Fiskelag • Stiftet 1968",
+                en: "Morkadalen Wildlife &amp; Fishing Club • Founded 1968",
+                de: "Morkadalen Wild- &amp; Fischerverein • Gegründet 1968",
+                fr: "Association de Chasse &amp; Pêche de Morkadalen • Fondée en 1968"
+            },
+            "footer-contact-title": {
+                no: "Kontakt",
+                en: "Contact",
+                de: "Kontakt",
+                fr: "Contact"
+            },
+            "footer-copyright": {
+                no: "© 1968–2026 Morkadalen Vilt og Fiskelag<br>Alle rettigheter reservert",
+                en: "© 1968–2026 Morkadalen Wildlife &amp; Fishing Club<br>All rights reserved",
+                de: "© 1968–2026 Morkadalen Wild- &amp; Fischerverein<br>Alle Rechte vorbehalten",
+                fr: "© 1968–2026 Association de Chasse &amp; Pêche de Morkadalen<br>Tous droits réservés"
             }
         };
 
-        // Funksjon for å bytte språk
-        function setLanguage(lang) {
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+        let currentLang = "no";
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[key] && translations[key][lang]) {
+                    el.innerHTML = translations[key][lang];
                 }
             });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.id === `lang-${lang}`);
+            });
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang === 'no' ? 'no' : lang;
         }
+
+        function handlePayment(method) {
+            const modal = document.getElementById('payment-modal');
+            const iconEl = document.getElementById('modal-icon');
+            const titleEl = document.getElementById('modal-title');
+            const textEl = document.getElementById('modal-text');
+            
+            if (method === 'vipps') {
+                iconEl.textContent = '📱';
+                titleEl.textContent = currentLang === 'no' ? 'Vipps-betaling mottatt!' : 
+                                    currentLang === 'en' ? 'Vipps payment received!' :
+                                    currentLang === 'de' ? 'Vipps-Zahlung erhalten!' : 'Paiement Vipps reçu !';
+            } else if (method === 'paypal') {
+                iconEl.textContent = '🅿️';
+                titleEl.textContent = currentLang === 'no' ? 'PayPal-betaling fullført!' : 
+                                    currentLang === 'en' ? 'PayPal payment completed!' :
+                                    currentLang === 'de' ? 'PayPal-Zahlung abgeschlossen!' : 'Paiement PayPal effectué !';
+            } else {
+                iconEl.textContent = '💳';
+                titleEl.textContent = currentLang === 'no' ? 'Kortbetaling godkjent!' : 
+                                    currentLang === 'en' ? 'Card payment approved!' :
+                                    currentLang === 'de' ? 'Kartenzahlung genehmigt!' : 'Paiement par carte approuvé !';
+            }
+            
+            textEl.textContent = currentLang === 'no' ? 
+                'Takk! Ditt fiskekort er nå aktivt. God tur!' : 
+                currentLang === 'en' ? 
+                'Thank you! Your fishing license is now active. Tight lines!' :
+                currentLang === 'de' ? 
+                'Vielen Dank! Ihre Angelkarte ist jetzt aktiv. Petri Heil!' : 
+                'Merci ! Votre carte de pêche est maintenant active. Bonne pêche !';
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('payment-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Initialize everything
+        function init() {
+            // Run Tailwind
+            initializeTailwind();
+            
+            // Set initial language
+            switchLanguage('no');
+            
+            // Keyboard escape for modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") {
+                    const modal = document.getElementById('payment-modal');
+                    if (!modal.classList.contains('hidden')) closeModal();
+                }
+            });
+            
+            // Make map iframe fully responsive on load
+            console.log('%c✅ Morkadalen Vilt og Fiskelag website ready! (Multi-language, responsive, map integrated)', 
+                        'color:#166534; font-family:monospace; font-size:12px');
+        }
+
+        // Auto start
+        window.onload = init;
     </script>
 </body>
 </html>
