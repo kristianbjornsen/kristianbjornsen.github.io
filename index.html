@@ -62,7 +62,7 @@ body{font-family:'Inter',sans-serif;color:var(--dark);line-height:1.65;backgroun
   position:relative;z-index:2;max-width:680px;
   display:flex;flex-direction:column;align-items:center;gap:1.1rem;
 }
-.hero-logo{height:160px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 16px rgba(0,0,0,.6))}
+.hero-logo{height:192px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 16px rgba(0,0,0,.6))}
 .hero-divider{width:48px;height:2px;background:var(--accent);border-radius:1px}
 .hero-eyebrow{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
 .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.4)}
@@ -87,34 +87,41 @@ section+section{border-top:1px solid var(--midgray)}
 
 /* ── OM OSS ── */
 #om-oss{background:var(--offwhite)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:2.5rem;align-items:center}
 .about-img-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#e8ece8}
-.about-img-wrap img{width:auto;height:100%;max-width:100%;object-fit:contain;display:block}
+.about-slideshow{position:absolute;inset:0}
+.about-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .9s ease}
+.about-slide.active{opacity:1}
+.about-dots{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);z-index:3;display:flex;gap:.45rem}
+.about-dot{width:.7rem;height:.7rem;border-radius:50%;border:1px solid rgba(255,255,255,.8);background:rgba(255,255,255,.32);padding:0;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.about-dot:hover{background:rgba(255,255,255,.58);transform:scale(1.05)}
+.about-dot.active{background:#fff;border-color:#fff}
 .about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,110,63,.18),transparent)}
-.about-label{position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;background:rgba(10,20,15,.72);backdrop-filter:blur(8px);border-left:3px solid var(--accent);padding:.6rem 1rem;border-radius:0 4px 4px 0;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.05em}
-.about-text .sec-lead{margin-bottom:1.6rem}
-.about-facts{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--midgray)}
-.fact{display:flex;flex-direction:column;gap:.15rem}
-.fact-num{font-family:'Playfair Display',Georgia,serif;font-size:2.2rem;font-weight:900;color:var(--green);line-height:1}
-.fact-lbl{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--textgray);letter-spacing:.04em}
+.about-label{position:absolute;top:1.1rem;left:1.1rem;z-index:2;background:rgba(10,20,15,.72);backdrop-filter:blur(8px);border-left:3px solid var(--accent);padding:.5rem .85rem;border-radius:0 4px 4px 0;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.05em}
+.about-text{max-width:500px}
+.about-text .sec-title{margin-bottom:.75rem}
+.about-text .sec-lead{margin-bottom:.9rem;max-width:none}
+.about-body{font-family:'Inter',sans-serif;font-size:.92rem;color:var(--textgray);line-height:1.7;margin:0}
 
 /* ── FISKEKORT ── */
 #fiskekort{background:var(--white)}
 .permit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.permit-card{background:var(--white);border:1px solid var(--midgray);border-radius:8px;padding:2.2rem 2rem;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.permit-card{background:var(--white);border:1px solid var(--midgray);border-radius:8px;padding:2.2rem 2rem;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
 .permit-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.09);transform:translateY(-2px)}
 .permit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green)}
 .permit-card.featured::before{background:var(--accent)}
 .permit-badge{display:inline-block;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;margin-bottom:1rem}
 .permit-type{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--textgray);margin-bottom:.35rem}
-.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:3.6rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.03em;margin-bottom:.1rem}
+.permit-topline{display:grid;grid-template-columns:auto 1px minmax(0,1fr);align-items:center;gap:1rem;margin-bottom:1.6rem}
+.permit-price-group{display:flex;align-items:baseline}
+.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:3.6rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.03em}
 .permit-price sup{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:600;vertical-align:super;letter-spacing:0}
-.permit-period{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--textgray);margin-bottom:1.6rem}
+.permit-divider{width:1px;align-self:stretch;background:var(--midgray);min-height:2.6rem}
 .permit-desc{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.65;margin-bottom:1.8rem;padding-top:1.2rem;border-top:1px solid var(--midgray)}
-.permit-features{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
+.permit-features{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin:0;padding:0;min-width:0}
 .permit-features li{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--dark);display:flex;align-items:center;gap:.6rem}
 .permit-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:.85rem;flex-shrink:0}
-.permit-cta{display:block;width:100%;text-align:center;padding:.85rem;background:var(--green);color:#fff;border:none;border-radius:4px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .15s}
+.permit-cta{display:block;width:100%;text-align:center;padding:.85rem;background:var(--green);color:#fff;border:none;border-radius:4px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .15s;margin-top:auto}
 .permit-cta:hover{background:var(--green-lt)}
 .permit-card.featured .permit-cta{background:var(--accent)}
 .permit-card.featured .permit-cta:hover{background:#b8953a}
@@ -160,9 +167,12 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
 @media(max-width:640px){
   .footer-inner{grid-template-columns:1fr}
   .footer-copy{text-align:left}
-  .hero-logo{height:68px}
+  .hero-logo{height:82px}
   .pay-card-btn{width:140px;padding:1.2rem .8rem}
-  .about-facts{gap:1.2rem}
+  section{padding:4rem 0}
+  .about-label{top:.85rem;left:.85rem}
+  .permit-topline{grid-template-columns:1fr;align-items:flex-start;gap:.8rem}
+  .permit-divider{display:none}
 }
 </style>
 </head>
@@ -184,7 +194,7 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
     <div class="hero-divider"></div>
     <p class="hero-eyebrow" data-i18n="heroEyebrow">Stadlandet · Vestland</p>
     <h1 class="hero-title" data-i18n="heroTitle">Morkadalen<br>Vilt og Fiskelag</h1>
-    <p class="hero-sub" data-i18n="heroSub">Opplev laks, ørret, villmark og gode fiskevatn på den vakraste kyststripa i Noreg.</p>
+    <p class="hero-sub" data-i18n="heroSub">Opplev godt fiske i vakker natur, med gode sjansar for laks og plass til både familiar og erfarne fiskarar.</p>
     <div class="hero-btns">
       <a href="#fiskekort" class="btn-prim" data-i18n="btnBuy">Kjøp fiskekort</a>
       <a href="#kart" class="btn-sec" data-i18n="btnMap">Sjå fiskesonene</a>
@@ -201,28 +211,22 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
   <div class="wrap">
     <div class="about-grid">
       <div class="about-img-wrap fade-up">
-        <img src="Screenshot_20220601-202146_Snapchat.jpeg" alt="Morkadalen" onerror="this.style.background='#2A6E3F'">
+        <div class="about-slideshow" aria-label="Bilete frå Morkadalen">
+          <img class="about-slide active" src="Screenshot_20220601-202146_Snapchat.jpeg" alt="Morkadalen" onerror="this.style.display='none'">
+          <img class="about-slide" src="grok-image-674320ca-c18f-47f5-9779-64bcf801e12f.jpg" alt="Morkadalen natur" onerror="this.style.display='none'">
+          <img class="about-slide" src="E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg" alt="Fiske i Morkadalen" onerror="this.style.display='none'">
+        </div>
+        <div class="about-dots" aria-label="Vel bilete i lysbiletvising">
+          <button class="about-dot active" type="button" aria-label="Bilete 1"></button>
+          <button class="about-dot" type="button" aria-label="Bilete 2"></button>
+          <button class="about-dot" type="button" aria-label="Bilete 3"></button>
+        </div>
         <div class="about-label" data-i18n="aboutImgLabel">Morkadalen · Stadlandet</div>
       </div>
       <div class="about-text fade-up d2">
-        <p class="sec-eyebrow" data-i18n="aboutEyebrow">Om oss</p>
-        <h2 class="sec-title" data-i18n="aboutTitle">Eit lag med røter i naturen</h2>
-        <p class="sec-lead" data-i18n="aboutLead">Morkadalen Vilt og Fiskelag er eit grunneigarlag som forvaltar jakt og fiske i Morkadalen på Stadlandet. Me tek vare på eit unikt naturområde med rike bestandar av villaks og sjøaure i elv og elveos, og fleire fiskevann i fjellet.</p>
-        <p style="font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.75" data-i18n="aboutBody">Som grunneigarlag har me ansvaret for berekraftig forvalting av vilt og fisk i området. Me set naturen og framtidige generasjonar sitt høve til jakt og fiske høgt, og arbeider for å halda bestanden sterk og leveområda intakte.</p>
-        <div class="about-facts">
-          <div class="fact fade-up d1">
-            <span class="fact-num">3+</span>
-            <span class="fact-lbl" data-i18n="fact1">Fiskevann</span>
-          </div>
-          <div class="fact fade-up d2">
-            <span class="fact-num" style="font-size:1.6rem">Elv &amp;</span>
-            <span class="fact-lbl" data-i18n="fact2">Elveos</span>
-          </div>
-          <div class="fact fade-up d3">
-            <span class="fact-num">40+</span>
-            <span class="fact-lbl" data-i18n="fact3">Års erfaring</span>
-          </div>
-        </div>
+        <h2 class="sec-title" data-i18n="aboutTitle">Om Morkadalen</h2>
+        <p class="sec-lead" data-i18n="aboutLead">Morkadalen er eit naturskjønt område på Stadlandet, kjent for gode fiskemoglegheiter og lange tradisjonar. Her finn du ein solid bestand av både laks og aure, med fleire gode og lett tilgjengelege fiskeplassar, både i elva og i vatna.</p>
+        <p class="about-body" data-i18n="aboutBody">Gjennom generasjonar har folk fiska i Morkadalen, og laksefiske har vore ein viktig del av friluftslivet i området. Dette er ein stad der tradisjon møter natur, og der både erfarne fiskarar og nybegynnarar kan få gode opplevingar.</p>
       </div>
     </div>
   </div>
@@ -237,30 +241,48 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
     <div class="permit-grid">
       <div class="permit-card fade-up d2">
         <p class="permit-type" data-i18n="dayLabel">Døgnkort</p>
-        <div class="permit-price">80<sup>kr</sup></div>
-        <p class="permit-period" data-i18n="dayUnit">per døgn</p>
+        <div class="permit-topline">
+          <div class="permit-price-group">
+            <div class="permit-price">80<sup>kr</sup></div>
+          </div>
+          <span class="permit-divider" aria-hidden="true"></span>
+          <ul class="permit-features">
+            <li data-i18n="feat1a">Tilgang alle fiskevatn i sona</li>
+            <li data-i18n="feat1b">Gyldig 24 timar</li>
+            <li data-i18n="feat1c">Ingen bindingstid</li>
+          </ul>
+        </div>
         <p class="permit-desc" data-i18n="dayDesc">Perfekt for deg som er på gjennomreise eller ønskjer ein dag med fiske på Stadlandet. Kortet er gyldig i 24 timar frå kjøpstidspunktet.</p>
-        <ul class="permit-features">
-          <li data-i18n="feat1a">Tilgang alle fiskevatn i sona</li>
-          <li data-i18n="feat1b">Gyldig 24 timar</li>
-          <li data-i18n="feat1c">Ingen bindingstid</li>
-        </ul>
         <a href="#betaling" class="permit-cta" data-i18n="ctaBuy">Kjøp no</a>
       </div>
       <div class="permit-card featured fade-up d3">
-        <span class="permit-badge" data-i18n="bestVal">Beste verdi</span>
         <p class="permit-type" data-i18n="seasonLabel">Sesongkort</p>
-        <div class="permit-price">700<sup>kr</sup></div>
-        <p class="permit-period" data-i18n="seasonUnit">heile sesongen</p>
-        <p class="permit-desc" data-i18n="seasonDesc">For den dedikerte fiskaren. Sesongkortet gjev deg ubegrensa tilgang gjennom heile fiskesesongen og er vår mest populære løysing for lokale og faste gjester.</p>
-        <ul class="permit-features">
-          <li data-i18n="feat2a">Ubegrensa tilgang heile sesongen</li>
-          <li data-i18n="feat2b">Spar samanlikna med dagskort</li>
-          <li data-i18n="feat2c">Alle fiskevatn i sona inkludert</li>
-          <li data-i18n="feat2d">Støttar lokal viltstell</li>
-        </ul>
+        <div class="permit-topline">
+          <div class="permit-price-group">
+            <div class="permit-price">600<sup>kr</sup></div>
+          </div>
+          <span class="permit-divider" aria-hidden="true"></span>
+          <ul class="permit-features">
+            <li data-i18n="feat2a">Ubegrensa tilgang heile sesongen</li>
+            <li data-i18n="feat2b">Spar samanlikna med dagskort</li>
+            <li data-i18n="feat2c">Alle fiskevatn i sona inkludert</li>
+          </ul>
+        </div>
+        <p class="permit-desc" data-i18n="seasonDesc">For den dedikerte fiskaren. Sesongkortet gjev deg ubegrensa tilgang gjennom heile fiskesesongen og er vår mest populære løysing for lokale og faste gjester. </p>
         <a href="#betaling" class="permit-cta" data-i18n="ctaBuy">Kjøp no</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- KART -->
+<section id="kart">
+  <div class="wrap">
+    <p class="sec-eyebrow fade-up" data-i18n="mapEyebrow">Fiskesoner</p>
+    <h2 class="sec-title fade-up d1" data-i18n="mapTitle">Kart over fiskesonene</h2>
+    <p class="sec-lead fade-up d2" data-i18n="mapLead">Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.</p>
+    <div class="map-wrap fade-up d2">
+      <iframe src="https://www.google.com/maps/d/embed?mid=14FJFvb7owCQsSQUhs6WchCUnc1ExRmw&hl=en&ehbc=2E312F" allowfullscreen loading="lazy" title="Morkadalen fiskesonar"></iframe>
     </div>
   </div>
 </section>
@@ -278,18 +300,6 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
       <div class="rule-item fade-up d1"><div class="rule-num">4</div><div class="rule-text" data-i18n="rule4"><strong>Desinfisering</strong>Alt utstyr skal desinfiserast før bruk for å hindre sjukdomsspreiing.</div></div>
       <div class="rule-item fade-up d2"><div class="rule-num">5</div><div class="rule-text" data-i18n="rule5"><strong>Mark og gjerde</strong>Ta omsyn til jordbruksmark og lukk alle grinder etter deg.</div></div>
       <div class="rule-item fade-up d3"><div class="rule-num">6</div><div class="rule-text" data-i18n="rule6"><strong>Køyring</strong>Motorisert ferdsel er ikkje tillate utanfor merkte vegar.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- KART -->
-<section id="kart">
-  <div class="wrap">
-    <p class="sec-eyebrow fade-up" data-i18n="mapEyebrow">Fiskesoner</p>
-    <h2 class="sec-title fade-up d1" data-i18n="mapTitle">Kart over fiskesonene</h2>
-    <p class="sec-lead fade-up d2" data-i18n="mapLead">Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.</p>
-    <div class="map-wrap fade-up d2">
-      <iframe src="https://www.google.com/maps/d/embed?mid=14FJFvb7owCQsSQUhs6WchCUnc1ExRmw&hl=en&ehbc=2E312F" allowfullscreen loading="lazy" title="Morkadalen fiskesonar"></iframe>
     </div>
   </div>
 </section>
@@ -349,14 +359,45 @@ const observer = new IntersectionObserver(entries => {
 }, {threshold:0.12});
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+const aboutSlides = Array.from(document.querySelectorAll('.about-slide'));
+const aboutDots = Array.from(document.querySelectorAll('.about-dot'));
+if (aboutSlides.length > 1) {
+  let currentAboutSlide = 0;
+  let aboutIntervalId;
+
+  const showAboutSlide = (index) => {
+    aboutSlides[currentAboutSlide].classList.remove('active');
+    aboutDots[currentAboutSlide]?.classList.remove('active');
+    currentAboutSlide = index;
+    aboutSlides[currentAboutSlide].classList.add('active');
+    aboutDots[currentAboutSlide]?.classList.add('active');
+  };
+
+  const startAboutSlideshow = () => {
+    aboutIntervalId = window.setInterval(() => {
+      showAboutSlide((currentAboutSlide + 1) % aboutSlides.length);
+    }, 4000);
+  };
+
+  aboutDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showAboutSlide(index);
+      window.clearInterval(aboutIntervalId);
+      startAboutSlideshow();
+    });
+  });
+
+  startAboutSlideshow();
+}
+
 const T = {
   nn:{
     heroEyebrow:"Stadlandet · Vestland",heroTitle:"Morkadalen<br>Vilt og Fiskelag",
-    heroSub:"Opplev krystallklårt vatn, villmark og rike fiskevatn på den vakraste kyststripa i Noreg.",
+    heroSub:"Opplev godt fiske i vakker natur, med gode sjansar for laks og plass til både familiar og erfarne fiskarar.",
     btnBuy:"Kjøp fiskekort",btnMap:"Sjå fiskesonene",scrollCue:"Scroll",
-    aboutEyebrow:"Om oss",aboutTitle:"Eit lag med røter i naturen",aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"Morkadalen Vilt og Fiskelag er eit grunneigarlag som forvaltar jakt og fiske i Morkadalen på Stadlandet. Me tek vare på eit unikt naturområde med rike bestandar av villaks og sjøaure i elv og elveos, og fleire fiskevann i fjellet.",
-    aboutBody:"Som grunneigarlag har me ansvaret for berekraftig forvalting av vilt og fisk i området. Me set naturen og framtidige generasjonar sitt høve til jakt og fiske høgt, og arbeider for å halda bestanden sterk og leveområda intakte.",
+    aboutEyebrow:"Om Morkadalen",aboutTitle:"Om Morkadalen",aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen er eit naturskjønt område på Stadlandet, kjent for gode fiskemoglegheiter og lange tradisjonar. Her finn du ein solid bestand av både laks og aure, med fleire gode og lett tilgjengelege fiskeplassar, både i elva og i vatna.",
+    aboutBody:"Gjennom generasjonar har folk fiska i Morkadalen, og laksefiske har vore ein viktig del av friluftslivet i området. Dette er ein stad der tradisjon møter natur, og der både erfarne fiskarar og nybegynnarar kan få gode opplevingar.",
     fact1:"Fiskevann",fact2:"Elveos",fact3:"Års erfaring",
     priceEyebrow:"Fiskekort",priceTitle:"Vel ditt fiskekort",
     priceLead:"Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.",
@@ -384,9 +425,9 @@ const T = {
     heroEyebrow:"Stadlandet · Vestland, Norway",heroTitle:"Morkadalen<br>Wildlife & Fishing Club",
     heroSub:"Experience crystal-clear water, wilderness, and rich fishing waters on Norway's most beautiful coastline.",
     btnBuy:"Buy fishing permit",btnMap:"View fishing zones",scrollCue:"Scroll",
-    aboutEyebrow:"About us",aboutTitle:"A club rooted in nature",aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"Morkadalen Wildlife & Fishing Club is a landowner association managing hunting and fishing in Morkadalen at Stadlandet. We steward a unique natural area with rich populations of wild salmon and sea trout in the river and estuary, and several mountain lakes.",
-    aboutBody:"As a landowner association, we are responsible for the sustainable management of wildlife and fish in the area. We prioritise nature and ensure that future generations can enjoy hunting and fishing here.",
+    aboutEyebrow:"About Morkadalen",aboutTitle:"About Morkadalen",aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen is a scenic area on Stadlandet, known for excellent fishing opportunities and long traditions. Here you will find strong stocks of both salmon and trout, with several good and easily accessible fishing spots in the river and the lakes.",
+    aboutBody:"For generations, people have fished in Morkadalen, and salmon fishing has been an important part of outdoor life in the area. This is a place where tradition meets nature, and where both experienced anglers and beginners can enjoy memorable experiences.",
     fact1:"Fishing lakes",fact2:"River estuary",fact3:"Years of experience",
     priceEyebrow:"Fishing Permits",priceTitle:"Choose your permit",
     priceLead:"All permits grant access to our fishing waters, rich in trout and salmon. The permit is personal and valid across all of the club's fishing zones.",
@@ -414,9 +455,9 @@ const T = {
     heroEyebrow:"Stadlandet · Vestland, Norwegen",heroTitle:"Morkadalen<br>Wild- und Fischereiverein",
     heroSub:"Erleben Sie kristallklares Wasser, Wildnis und fischreiche Gewässer an Norwegens schönster Küste.",
     btnBuy:"Angelschein kaufen",btnMap:"Angelzonen ansehen",scrollCue:"Weiter",
-    aboutEyebrow:"Über uns",aboutTitle:"Ein Verein verwurzelt in der Natur",aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"Der Morkadalen Wild- und Fischereiverein ist eine Grundeigentümergemeinschaft, die Jagd und Fischerei in Morkadalen auf Stadlandet verwaltet. Wir hüten ein einzigartiges Naturgebiet mit reichen Beständen an Wildlachs und Meerforelle in Fluss und Flussmündung sowie mehreren Bergseen.",
-    aboutBody:"Als Grundeigentümergemeinschaft tragen wir die Verantwortung für eine nachhaltige Bewirtschaftung von Wild und Fisch im Gebiet. Wir stellen die Natur in den Mittelpunkt.",
+    aboutEyebrow:"Über Morkadalen",aboutTitle:"Über Morkadalen",aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen ist ein landschaftlich reizvolles Gebiet auf Stadlandet, bekannt für gute Angelmöglichkeiten und lange Traditionen. Hier gibt es starke Bestände an Lachs und Forelle sowie mehrere gute und leicht zugängliche Angelplätze im Fluss und in den Seen.",
+    aboutBody:"Seit Generationen wird in Morkadalen geangelt, und der Lachsfang ist ein wichtiger Teil des Lebens im Freien in der Region. Dies ist ein Ort, an dem Tradition und Natur zusammenkommen und an dem sowohl erfahrene Angler als auch Anfänger schöne Erlebnisse haben können.",
     fact1:"Angelgewässer",fact2:"Flussmündung",fact3:"Jahre Erfahrung",
     priceEyebrow:"Angelscheine",priceTitle:"Angelschein wählen",
     priceLead:"Alle Scheine gewähren Zugang zu unseren Gewässern mit Forellen und Lachsen. Der Schein ist persönlich und in allen Angelzonen gültig.",
@@ -444,9 +485,9 @@ const T = {
     heroEyebrow:"Stadlandet · Vestland, Norvège",heroTitle:"Morkadalen<br>Association Chasse & Pêche",
     heroSub:"Découvrez des eaux cristallines, une nature sauvage et des poissons abondants sur le plus beau littoral de Norvège.",
     btnBuy:"Acheter un permis",btnMap:"Voir les zones de pêche",scrollCue:"Défiler",
-    aboutEyebrow:"À propos",aboutTitle:"Une association enracinée dans la nature",aboutImgLabel:"Morkadalen · Stadlandet",
-    aboutLead:"L'Association Chasse & Pêche de Morkadalen est une association de propriétaires fonciers qui gère la chasse et la pêche à Morkadalen, sur Stadlandet. Nous préservons un espace naturel unique avec de riches populations de saumon sauvage et de truite de mer dans la rivière et son estuaire, ainsi que plusieurs lacs de montagne.",
-    aboutBody:"En tant qu'association de propriétaires, nous sommes responsables de la gestion durable de la faune et de la pêche dans la région. Nous plaçons la nature au cœur de nos priorités.",
+    aboutEyebrow:"À propos de Morkadalen",aboutTitle:"À propos de Morkadalen",aboutImgLabel:"Morkadalen · Stadlandet",
+    aboutLead:"Morkadalen est une région pittoresque de Stadlandet, connue pour ses belles possibilités de pêche et ses longues traditions. On y trouve de bons stocks de saumon et de truite, avec plusieurs lieux de pêche accessibles, dans la rivière comme dans les lacs.",
+    aboutBody:"Depuis des générations, les habitants pêchent à Morkadalen, et la pêche au saumon fait partie importante de la vie de plein air dans la région. C'est un lieu où la tradition rencontre la nature, et où pêcheurs expérimentés comme débutants peuvent vivre de belles expériences.",
     fact1:"Plans d'eau",fact2:"Estuaire",fact3:"Ans d'expérience",
     priceEyebrow:"Permis de pêche",priceTitle:"Choisissez votre permis",
     priceLead:"Tous les permis donnent accès à nos eaux poissonneuses riches en truites et saumons. Le permis est personnel et valable dans toutes les zones de pêche.",
