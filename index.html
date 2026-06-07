@@ -103,52 +103,64 @@ section+section{border-top:1px solid var(--midgray)}
 .about-text .sec-lead{margin-bottom:.9rem;max-width:none}
 .about-body{font-family:'Inter',sans-serif;font-size:.92rem;color:var(--textgray);line-height:1.7;margin:0}
 
-/* ── FISKEKORT ── */
+/* ── FISKEKORT + BETALING (kombinert) ── */
 #fiskekort{background:var(--white)}
-.permit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.permit-card{background:var(--white);border:1px solid var(--midgray);border-radius:8px;padding:2.2rem 2rem;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
-.permit-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.09);transform:translateY(-2px)}
-.permit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green)}
+.permit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin-bottom:1.6rem}
+.permit-card{background:var(--white);border:1px solid var(--midgray);border-radius:8px;padding:1rem 1.2rem;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.permit-card:hover{box-shadow:0 6px 22px rgba(0,0,0,.08);transform:translateY(-2px)}
+.permit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
 .permit-card.featured::before{background:var(--accent)}
-.permit-badge{display:inline-block;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;margin-bottom:1rem}
-.permit-type{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--textgray);margin-bottom:.35rem}
-.permit-topline{display:grid;grid-template-columns:auto 1px minmax(0,1fr);align-items:center;gap:1rem;margin-bottom:1.6rem}
-.permit-price-group{display:flex;align-items:baseline}
-.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:3.6rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.03em}
-.permit-price sup{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:600;vertical-align:super;letter-spacing:0}
-.permit-divider{width:1px;align-self:stretch;background:var(--midgray);min-height:2.6rem}
-.permit-desc{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--textgray);line-height:1.65;margin-bottom:1.8rem;padding-top:1.2rem;border-top:1px solid var(--midgray)}
-.permit-features{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin:0;padding:0;min-width:0}
-.permit-features li{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--dark);display:flex;align-items:center;gap:.6rem}
-.permit-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:.85rem;flex-shrink:0}
-.permit-cta{display:block;width:100%;text-align:center;padding:.85rem;background:var(--green);color:#fff;border:none;border-radius:4px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background .15s;margin-top:auto}
-.permit-cta:hover{background:var(--green-lt)}
-.permit-card.featured .permit-cta{background:var(--accent)}
-.permit-card.featured .permit-cta:hover{background:#b8953a}
+.permit-head{display:flex;align-items:center;gap:.55rem;margin-bottom:.55rem;padding-bottom:.55rem;border-bottom:1px solid var(--midgray)}
+.permit-type{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--textgray)}
+.permit-badge{background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:.54rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .42rem;border-radius:2px}
+.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.02em;margin-left:auto}
+.permit-price sup{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;vertical-align:super;letter-spacing:0;margin-left:1px}
+.permit-features{list-style:none;display:flex;flex-direction:column;gap:.28rem;margin:0;padding:0}
+.permit-features li{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--textgray);display:flex;align-items:flex-start;gap:.5rem;line-height:1.35}
+.permit-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:.8rem;flex-shrink:0}
+.permit-card.featured .permit-features li::before{color:var(--accent)}
+
+/* betalingspanel inne i fiskekort-seksjonen */
+.pay-panel{background:var(--dark);border-radius:16px;padding:2.2rem 1.6rem;text-align:center}
+.pay-panel .sec-eyebrow{color:var(--accent)}
+.pay-panel .sec-title{color:#fff;font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.pay-panel .sec-lead{color:rgba(255,255,255,.6);margin:0 auto 1.2rem;max-width:480px;font-size:.92rem}
 
 /* ── REGLAR ── */
 #reglar{background:var(--offwhite)}
+.rule-highlight{display:flex;align-items:center;gap:1rem;background:var(--green);color:#fff;border-radius:8px;padding:1.1rem 1.4rem;margin-bottom:1.2rem}
+.rule-highlight svg{flex-shrink:0}
+.rule-highlight-text{font-family:'Inter',sans-serif;font-size:.95rem;line-height:1.4}
+.rule-highlight-text strong{font-weight:700}
 .rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
 .rule-item{display:flex;gap:1rem;padding:1.1rem 1.2rem;background:var(--white);border-radius:6px;align-items:flex-start;border:1px solid var(--midgray)}
 .rule-num{min-width:28px;height:28px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:1px}
-.rule-text{font-family:'Inter',sans-serif;font-size:.88rem;line-height:1.55;color:var(--dark)}
-.rule-text strong{font-weight:600;display:block;margin-bottom:.1rem}
+.rule-text{font-family:'Inter',sans-serif;font-size:.88rem;line-height:1.5;color:var(--dark)}
 
 /* ── KART ── */
 #kart{background:var(--white)}
 .map-wrap{position:relative;width:100%;padding-bottom:50%;height:0;overflow:hidden;border-radius:8px;border:1px solid var(--midgray)}
 .map-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 
-/* ── BETALING ── */
-#betaling{background:var(--dark);text-align:center}
-#betaling .sec-eyebrow{color:var(--accent)}
-#betaling .sec-title{color:#fff}
-#betaling .sec-lead{color:rgba(255,255,255,.6);margin-left:auto;margin-right:auto}
-.pay-methods{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem}
-.pay-card-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;width:180px;padding:1.6rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;text-decoration:none}
-.pay-card-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
-.pay-logo{height:36px;display:flex;align-items:center;justify-content:center}
-.pay-name{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase}
+/* ── BETALINGSMETODAR (symmetriske, kompakte) ── */
+.pay-methods{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;align-items:stretch;margin-top:.4rem}
+.pay-method{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;width:248px;max-width:100%;padding:1.4rem 1.2rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;transition:border-color .2s,background .2s}
+.pay-method.primary{border-color:rgba(255,91,36,.55);background:rgba(255,91,36,.07)}
+.pay-method-badge{position:absolute;top:-.65rem;left:50%;transform:translateX(-50%);background:var(--vipps);color:#fff;font-family:'Inter',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:20px;white-space:nowrap}
+.pay-method-head{height:30px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem}
+.pay-method-head .pay-head-name{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:.01em}
+.pay-media{width:158px;height:158px;border-radius:10px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:.7rem}
+.pay-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.pay-media.qr{padding:8px}
+.pay-media.qr img{object-fit:contain}
+.pay-qr-ph{display:none;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;width:100%;height:100%;border:2px dashed #c9ccc4;border-radius:6px;color:#9aa094;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-align:center;padding:.5rem}
+.pay-hint{font-family:'Inter',sans-serif;font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.4;margin-bottom:.5rem}
+.pay-note{font-family:'Inter',sans-serif;font-size:.73rem;font-weight:600;color:var(--accent);line-height:1.4;margin-bottom:.9rem}
+.pay-foot{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.12rem;width:100%}
+.pay-foot-label{font-family:'Inter',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.pay-foot-value{font-family:'Playfair Display',Georgia,serif;font-size:1.45rem;font-weight:700;color:#fff;letter-spacing:.05em}
+.pay-store-link{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;border:1px solid rgba(255,255,255,.35);border-radius:4px;color:#fff;text-decoration:none;font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .15s,border-color .15s}
+.pay-store-link:hover{background:rgba(255,255,255,.1);border-color:#fff}
 
 /* ── FOOTER ── */
 footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
@@ -168,11 +180,10 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
   .footer-inner{grid-template-columns:1fr}
   .footer-copy{text-align:left}
   .hero-logo{height:82px}
-  .pay-card-btn{width:140px;padding:1.2rem .8rem}
+  .pay-method{width:100%}
   section{padding:4rem 0}
   .about-label{top:.85rem;left:.85rem}
-  .permit-topline{grid-template-columns:1fr;align-items:flex-start;gap:.8rem}
-  .permit-divider{display:none}
+  .pay-panel{padding:2.2rem 1.2rem}
 }
 </style>
 </head>
@@ -232,44 +243,82 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
   </div>
 </section>
 
-<!-- FISKEKORT -->
+<!-- FISKEKORT + BETALING -->
 <section id="fiskekort">
   <div class="wrap">
     <p class="sec-eyebrow fade-up" data-i18n="priceEyebrow">Fiskekort</p>
     <h2 class="sec-title fade-up d1" data-i18n="priceTitle">Vel ditt fiskekort</h2>
-    <p class="sec-lead fade-up d2" data-i18n="priceLead">Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.</p>
+    <p class="sec-lead fade-up d2" data-i18n="priceLead">Alle fiskekort gjev tilgang til fiskevatna i Morkadalen. Vel kort under, og betal med Vipps eller hos Joker Stadlandet.</p>
     <div class="permit-grid">
       <div class="permit-card fade-up d2">
-        <p class="permit-type" data-i18n="dayLabel">Døgnkort</p>
-        <div class="permit-topline">
-          <div class="permit-price-group">
-            <div class="permit-price">80<sup>kr</sup></div>
-          </div>
-          <span class="permit-divider" aria-hidden="true"></span>
-          <ul class="permit-features">
-            <li data-i18n="feat1a">Tilgang alle fiskevatn i sona</li>
-            <li data-i18n="feat1b">Gyldig 24 timar</li>
-            <li data-i18n="feat1c">Ingen bindingstid</li>
-          </ul>
+        <div class="permit-head">
+          <span class="permit-type" data-i18n="dayLabel">Døgnkort</span>
+          <span class="permit-price">80<sup>kr</sup></span>
         </div>
-        <p class="permit-desc" data-i18n="dayDesc">Perfekt for deg som er på gjennomreise eller ønskjer ein dag med fiske på Stadlandet. Kortet er gyldig i 24 timar frå kjøpstidspunktet.</p>
-        <a href="#betaling" class="permit-cta" data-i18n="ctaBuy">Kjøp no</a>
+        <ul class="permit-features">
+          <li data-i18n="feat1a">Tilgang alle fiskevatn i sona</li>
+          <li data-i18n="feat1b">Gyldig 24 timar</li>
+          <li data-i18n="feat1c">Ingen bindingstid</li>
+        </ul>
       </div>
       <div class="permit-card featured fade-up d3">
-        <p class="permit-type" data-i18n="seasonLabel">Sesongkort</p>
-        <div class="permit-topline">
-          <div class="permit-price-group">
-            <div class="permit-price">600<sup>kr</sup></div>
-          </div>
-          <span class="permit-divider" aria-hidden="true"></span>
-          <ul class="permit-features">
-            <li data-i18n="feat2a">Ubegrensa tilgang heile sesongen</li>
-            <li data-i18n="feat2b">Spar samanlikna med dagskort</li>
-            <li data-i18n="feat2c">Alle fiskevatn i sona inkludert</li>
-          </ul>
+        <div class="permit-head">
+          <span class="permit-type" data-i18n="seasonLabel">Sesongkort</span>
+          <span class="permit-badge" data-i18n="bestVal">Beste verdi</span>
+          <span class="permit-price">600<sup>kr</sup></span>
         </div>
-        <p class="permit-desc" data-i18n="seasonDesc">For den dedikerte fiskaren. Sesongkortet gjev deg ubegrensa tilgang gjennom heile fiskesesongen og er vår mest populære løysing for lokale og faste gjester. </p>
-        <a href="#betaling" class="permit-cta" data-i18n="ctaBuy">Kjøp no</a>
+        <ul class="permit-features">
+          <li data-i18n="feat2a">Ubegrensa tilgang heile sesongen</li>
+          <li data-i18n="feat2b">Spar samanlikna med dagskort</li>
+          <li data-i18n="feat2c">Alle fiskevatn i sona inkludert</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BETALING -->
+    <div class="pay-panel fade-up d2" id="betaling">
+      <p class="sec-eyebrow" data-i18n="payEyebrow">Betaling</p>
+      <h3 class="sec-title" data-i18n="payTitle">Slik betaler du</h3>
+      <p class="sec-lead" data-i18n="payDesc">Betal enkelt med Vipps, eller kjøp over disk hos Joker Stadlandet. Vipps-betalinga er fiskekortet ditt.</p>
+      <div class="pay-methods">
+
+        <!-- VIPPS (hovudmetode) -->
+        <div class="pay-method primary">
+          <span class="pay-method-badge" data-i18n="payVippsBadge">Tilrådd</span>
+          <div class="pay-method-head">
+            <svg width="96" height="32" viewBox="0 0 120 40" fill="none"><rect width="120" height="40" rx="8" fill="#FF5B24"/><text x="60" y="28" font-family="Inter,sans-serif" font-weight="800" font-size="20" fill="white" text-anchor="middle" letter-spacing="-0.5">vipps</text></svg>
+          </div>
+          <!-- Legg inn QR-bilete som "vipps-qr.png" i mappa, så vert det vist automatisk -->
+          <div class="pay-media qr">
+            <img src="vipps-qr.png" alt="Vipps QR-kode" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="pay-qr-ph" data-i18n="payQrSoon">QR-kode<br>kjem snart</div>
+          </div>
+          <p class="pay-hint" data-i18n="payVippsQrHint">Skann for å betale i nettbutikken</p>
+          <p class="pay-note" data-i18n="payVippsNote">Vipps-betalinga er fiskekortet ditt.</p>
+          <div class="pay-foot">
+            <span class="pay-foot-label" data-i18n="payVippsNumberLabel">Vipps-nummer</span>
+            <!-- Byt ut #XXXXX med Vipps-nummeret dykkar -->
+            <span class="pay-foot-value">#XXXXX</span>
+          </div>
+        </div>
+
+        <!-- JOKER STADLANDET (fysisk kjøp) -->
+        <div class="pay-method">
+          <div class="pay-method-head">
+            <span class="pay-head-name">Joker Stadlandet</span>
+          </div>
+          <div class="pay-media">
+            <img src="316953130_10167564610575284_669172820994259527_n.jpg" alt="Joker Stadlandet">
+          </div>
+          <p class="pay-hint" data-i18n="payJokerInfo">Kjøp over disk i opningstida</p>
+          <div class="pay-foot">
+            <a class="pay-store-link" href="https://joker.no/finn-butikk/joker-stadlandet" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span data-i18n="payJokerDirections">Opningstider</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -293,48 +342,20 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
     <p class="sec-eyebrow fade-up" data-i18n="rulesEyebrow">Retningslinjer</p>
     <h2 class="sec-title fade-up d1" data-i18n="rulesTitle">Reglar &amp; informasjon</h2>
     <p class="sec-lead fade-up d2" data-i18n="rulesLead">For å ta vare på naturen og fiskebestandane ber vi alle fiskarar følgja desse reglane.</p>
-    <div class="rules-grid">
-      <div class="rule-item fade-up d1"><div class="rule-num">1</div><div class="rule-text" data-i18n="rule1"><strong>Minstemål</strong>Fisk under minstemålet skal setjast forsiktig tilbake i vatnet.</div></div>
-      <div class="rule-item fade-up d2"><div class="rule-num">2</div><div class="rule-text" data-i18n="rule2"><strong>Personleg kort</strong>Fiskekortet er personleg og kan ikkje overlatast til andre.</div></div>
-      <div class="rule-item fade-up d3"><div class="rule-num">3</div><div class="rule-text" data-i18n="rule3"><strong>Utstyr</strong>Berre lovleg fiskeutstyr er tillate. Levande agn er forbode.</div></div>
-      <div class="rule-item fade-up d1"><div class="rule-num">4</div><div class="rule-text" data-i18n="rule4"><strong>Desinfisering</strong>Alt utstyr skal desinfiserast før bruk for å hindre sjukdomsspreiing.</div></div>
-      <div class="rule-item fade-up d2"><div class="rule-num">5</div><div class="rule-text" data-i18n="rule5"><strong>Mark og gjerde</strong>Ta omsyn til jordbruksmark og lukk alle grinder etter deg.</div></div>
-      <div class="rule-item fade-up d3"><div class="rule-num">6</div><div class="rule-text" data-i18n="rule6"><strong>Køyring</strong>Motorisert ferdsel er ikkje tillate utanfor merkte vegar.</div></div>
+    <div class="rule-highlight fade-up d1">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l13 13 5-5L8 3z"/><path d="M7 7l1.5 1.5M11 11l1.5 1.5M15 15l1.5 1.5"/></svg>
+      <div class="rule-highlight-text" data-i18n="ruleMin"><strong>Minstemål:</strong> 35 cm for laks og sjøaure.</div>
     </div>
-  </div>
-</section>
-
-<!-- BETALING -->
-<section id="betaling">
-  <div class="wrap">
-    <p class="sec-eyebrow fade-up" data-i18n="payEyebrow">Betaling</p>
-    <h2 class="sec-title fade-up d1" data-i18n="payTitle">Trygg betaling</h2>
-    <p class="sec-lead fade-up d2" data-i18n="payDesc">Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling.</p>
-    <div class="pay-methods fade-up d2">
-      <a href="#" class="pay-card-btn">
-        <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#FF5B24"/><text x="45" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="15" fill="white" text-anchor="middle" letter-spacing="-0.5">vipps</text></svg>
-        </div>
-        <span class="pay-name">Vipps</span>
-      </a>
-      <a href="#" class="pay-card-btn">
-        <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#003087"/><text x="22" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="#009CDE" text-anchor="middle">P</text><text x="34" y="22" font-family="Inter,sans-serif" font-weight="800" font-size="13" fill="white" text-anchor="middle">P</text><text x="55" y="22" font-family="Inter,sans-serif" font-weight="700" font-size="11" fill="white" text-anchor="middle">PayPal</text></svg>
-        </div>
-        <span class="pay-name">PayPal</span>
-      </a>
-      <a href="#" class="pay-card-btn">
-        <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#1A1F71"/><text x="45" y="22" font-family="Inter,sans-serif" font-weight="900" font-size="17" fill="white" text-anchor="middle" letter-spacing="1">VISA</text></svg>
-        </div>
-        <span class="pay-name">Visa</span>
-      </a>
-      <a href="#" class="pay-card-btn">
-        <div class="pay-logo">
-          <svg width="90" height="32" viewBox="0 0 90 32" fill="none"><rect width="90" height="32" rx="6" fill="#252525"/><circle cx="33" cy="16" r="11" fill="#EB001B"/><circle cx="57" cy="16" r="11" fill="#F79E1B"/><path d="M45 7.5a11 11 0 0 1 0 17 11 11 0 0 1 0-17z" fill="#FF5F00"/></svg>
-        </div>
-        <span class="pay-name">Mastercard</span>
-      </a>
+    <div class="rules-grid">
+      <div class="rule-item fade-up d1"><div class="rule-num">1</div><div class="rule-text" data-i18n="rule1">Alle som skal fiske i Morkadalen må løyse fiskekort.</div></div>
+      <div class="rule-item fade-up d2"><div class="rule-num">2</div><div class="rule-text" data-i18n="rule2">Kortet gjeld berre for fiske i Morkadalen som vist på kartet.</div></div>
+      <div class="rule-item fade-up d3"><div class="rule-num">3</div><div class="rule-text" data-i18n="rule3">Kortet kan ikkje overdragast til andre.</div></div>
+      <div class="rule-item fade-up d1"><div class="rule-num">4</div><div class="rule-text" data-i18n="rule4">Kortet skal kunne visast fram ved kontroll.</div></div>
+      <div class="rule-item fade-up d2"><div class="rule-num">5</div><div class="rule-text" data-i18n="rule5">Kortet gjeld for stong og handsnøre.</div></div>
+      <div class="rule-item fade-up d3"><div class="rule-num">6</div><div class="rule-text" data-i18n="rule6">Pass på at du ikkje nyttar utstyr som kan skade yngel (t.d. små krokar når du fiskar med mark).</div></div>
+      <div class="rule-item fade-up d1"><div class="rule-num">7</div><div class="rule-text" data-i18n="rule7">Det er ikkje høve til å nytte kano, robåt o.l. som ikkje er desinfiserte etter bruk andre stadar.</div></div>
+      <div class="rule-item fade-up d2"><div class="rule-num">8</div><div class="rule-text" data-i18n="rule8">Ta omsyn til dyrka mark, gjerder og grinder.</div></div>
+      <div class="rule-item fade-up d3"><div class="rule-num">9</div><div class="rule-text" data-i18n="rule9">Køyring på bygdevegane er berre for grunneigarane.</div></div>
     </div>
   </div>
 </section>
@@ -400,7 +421,7 @@ const T = {
     aboutBody:"Gjennom generasjonar har folk fiska i Morkadalen, og laksefiske har vore ein viktig del av friluftslivet i området. Dette er ein stad der tradisjon møter natur, og der både erfarne fiskarar og nybegynnarar kan få gode opplevingar.",
     fact1:"Fiskevann",fact2:"Elveos",fact3:"Års erfaring",
     priceEyebrow:"Fiskekort",priceTitle:"Vel ditt fiskekort",
-    priceLead:"Alle fiskekort gjev deg tilgang til våre fiskevatn med rike bestandar av aure og laks. Kortet er personleg og gjeld i heile fiskesona til laget.",
+    priceLead:"Alle fiskekort gjev tilgang til fiskevatna i Morkadalen. Vel kortet som passar deg.",
     dayLabel:"Døgnkort",dayUnit:"per døgn",
     dayDesc:"Perfekt for deg som er på gjennomreise eller ønskjer ein dag med fiske på Stadlandet. Kortet er gyldig i 24 timar frå kjøpstidspunktet.",
     feat1a:"Tilgang alle fiskevatn i sona",feat1b:"Gyldig 24 timar",feat1c:"Ingen bindingstid",
@@ -410,16 +431,27 @@ const T = {
     ctaBuy:"Kjøp no",
     rulesEyebrow:"Retningslinjer",rulesTitle:"Reglar & informasjon",
     rulesLead:"For å ta vare på naturen og fiskebestandane ber vi alle fiskarar følgja desse reglane.",
-    rule1:"<strong>Minstemål</strong>Fisk under minstemålet skal setjast forsiktig tilbake i vatnet.",
-    rule2:"<strong>Personleg kort</strong>Fiskekortet er personleg og kan ikkje overlatast til andre.",
-    rule3:"<strong>Utstyr</strong>Berre lovleg fiskeutstyr er tillate. Levande agn er forbode.",
-    rule4:"<strong>Desinfisering</strong>Alt utstyr skal desinfiserast før bruk for å hindre sjukdomsspreiing.",
-    rule5:"<strong>Mark og gjerde</strong>Ta omsyn til jordbruksmark og lukk alle grinder etter deg.",
-    rule6:"<strong>Køyring</strong>Motorisert ferdsel er ikkje tillate utanfor merkte vegar.",
+    ruleMin:"<strong>Minstemål:</strong> 35 cm for laks og sjøaure.",
+    rule1:"Alle som skal fiske i Morkadalen må løyse fiskekort.",
+    rule2:"Kortet gjeld berre for fiske i Morkadalen som vist på kartet.",
+    rule3:"Kortet kan ikkje overdragast til andre.",
+    rule4:"Kortet skal kunne visast fram ved kontroll.",
+    rule5:"Kortet gjeld for stong og handsnøre.",
+    rule6:"Pass på at du ikkje nyttar utstyr som kan skade yngel (t.d. små krokar når du fiskar med mark).",
+    rule7:"Det er ikkje høve til å nytte kano, robåt o.l. som ikkje er desinfiserte etter bruk andre stadar.",
+    rule8:"Ta omsyn til dyrka mark, gjerder og grinder.",
+    rule9:"Køyring på bygdevegane er berre for grunneigarane.",
     mapEyebrow:"Fiskesoner",mapTitle:"Kart over fiskesonene",
     mapLead:"Utforsk fiskevatna i Morkadalen. Klikk på kartet for detaljar om kvar enkelt sone.",
-    payEyebrow:"Betaling",payTitle:"Trygg betaling",
-    payDesc:"Betal enkelt og trygt med di føretrekte betalingsmetode. Du mottek fiskekortet på e-post etter fullført betaling."
+    payEyebrow:"Betaling",payTitle:"Slik betaler du",
+    payDesc:"Betal enkelt med Vipps, eller kjøp over disk hos Joker Stadlandet.",
+    payVippsNote:"Vipps-betalinga er fiskekortet ditt.",
+    payVippsBadge:"Tilrådd",payVippsTitle:"Betal med Vipps",
+    payVippsDesc:"Skann QR-koden eller bruk Vipps-nummeret vårt for å kjøpe fiskekort i nettbutikken. Vipps-betalinga er fiskekortet ditt.",
+    payQrSoon:"QR-kode<br>kjem snart",payVippsQrHint:"Skann for å betale i nettbutikken",payVippsNumberLabel:"Vipps-nummer",
+    payJokerTitle:"Kjøp hos Joker Stadlandet",
+    payJokerDesc:"Føretrekkjer du å betale kontant eller med kort? Du får kjøpt fiskekort over disk hos Joker Stadlandet.",
+    payJokerInfo:"Kjøp over disk i opningstida",payJokerDirections:"Opningstider"
   },
   en:{
     heroEyebrow:"Stadlandet · Vestland, Norway",heroTitle:"Morkadalen<br>Wildlife & Fishing Club",
@@ -430,7 +462,7 @@ const T = {
     aboutBody:"For generations, people have fished in Morkadalen, and salmon fishing has been an important part of outdoor life in the area. This is a place where tradition meets nature, and where both experienced anglers and beginners can enjoy memorable experiences.",
     fact1:"Fishing lakes",fact2:"River estuary",fact3:"Years of experience",
     priceEyebrow:"Fishing Permits",priceTitle:"Choose your permit",
-    priceLead:"All permits grant access to our fishing waters, rich in trout and salmon. The permit is personal and valid across all of the club's fishing zones.",
+    priceLead:"Every permit gives access to the fishing waters of Morkadalen. Choose the card that suits you.",
     dayLabel:"Day Permit",dayUnit:"per day",
     dayDesc:"Perfect if you're passing through or want a day of fishing at Stadlandet. Valid for 24 hours from the time of purchase.",
     feat1a:"Access to all fishing zones",feat1b:"Valid for 24 hours",feat1c:"No commitment",
@@ -440,16 +472,27 @@ const T = {
     ctaBuy:"Buy now",
     rulesEyebrow:"Guidelines",rulesTitle:"Rules & information",
     rulesLead:"To protect the environment and fish populations, we ask all anglers to follow these rules.",
-    rule1:"<strong>Minimum size</strong>Fish below the minimum size must be carefully returned to the water.",
-    rule2:"<strong>Personal permit</strong>The fishing permit is personal and may not be transferred.",
-    rule3:"<strong>Equipment</strong>Only legal fishing equipment is permitted. Live bait is prohibited.",
-    rule4:"<strong>Disinfection</strong>All equipment must be disinfected before use to prevent disease spread.",
-    rule5:"<strong>Land and fences</strong>Respect agricultural land and close all gates behind you.",
-    rule6:"<strong>Driving</strong>Motorised vehicles are not permitted outside marked roads.",
+    ruleMin:"<strong>Minimum size:</strong> 35 cm for salmon and sea trout.",
+    rule1:"Everyone fishing in Morkadalen must buy a fishing permit.",
+    rule2:"The permit is valid only for fishing in Morkadalen as shown on the map.",
+    rule3:"The permit cannot be transferred to others.",
+    rule4:"The permit must be shown on request during inspection.",
+    rule5:"The permit covers rod and handline only.",
+    rule6:"Make sure you don't use equipment that can harm fry (e.g. small hooks when fishing with worms).",
+    rule7:"Canoes, rowing boats etc. may not be used unless disinfected after use elsewhere.",
+    rule8:"Show consideration for cultivated land, fences and gates.",
+    rule9:"Driving on the rural roads is for landowners only.",
     mapEyebrow:"Fishing Zones",mapTitle:"Map of fishing zones",
     mapLead:"Explore the fishing waters of Morkadalen. Click the map for details on each zone.",
-    payEyebrow:"Payment",payTitle:"Secure payment",
-    payDesc:"Pay easily and securely with your preferred method. You will receive your permit by email after payment."
+    payEyebrow:"Payment",payTitle:"How to pay",
+    payDesc:"Pay easily with Vipps, or buy over the counter at Joker Stadlandet.",
+    payVippsNote:"Your Vipps payment is your fishing permit.",
+    payVippsBadge:"Recommended",payVippsTitle:"Pay with Vipps",
+    payVippsDesc:"Scan the QR code or use our Vipps number to buy your permit in the web shop. Your Vipps payment is your fishing permit.",
+    payQrSoon:"QR code<br>coming soon",payVippsQrHint:"Scan to pay in the web shop",payVippsNumberLabel:"Vipps number",
+    payJokerTitle:"Buy at Joker Stadlandet",
+    payJokerDesc:"Prefer to pay by cash or card? You can buy your fishing permit over the counter at Joker Stadlandet.",
+    payJokerInfo:"Buy over the counter during opening hours",payJokerDirections:"Opening hours"
   },
   de:{
     heroEyebrow:"Stadlandet · Vestland, Norwegen",heroTitle:"Morkadalen<br>Wild- und Fischereiverein",
@@ -460,7 +503,7 @@ const T = {
     aboutBody:"Seit Generationen wird in Morkadalen geangelt, und der Lachsfang ist ein wichtiger Teil des Lebens im Freien in der Region. Dies ist ein Ort, an dem Tradition und Natur zusammenkommen und an dem sowohl erfahrene Angler als auch Anfänger schöne Erlebnisse haben können.",
     fact1:"Angelgewässer",fact2:"Flussmündung",fact3:"Jahre Erfahrung",
     priceEyebrow:"Angelscheine",priceTitle:"Angelschein wählen",
-    priceLead:"Alle Scheine gewähren Zugang zu unseren Gewässern mit Forellen und Lachsen. Der Schein ist persönlich und in allen Angelzonen gültig.",
+    priceLead:"Jeder Angelschein gewährt Zugang zu den Gewässern von Morkadalen. Wählen Sie die passende Karte.",
     dayLabel:"Tagesschein",dayUnit:"pro Tag",
     dayDesc:"Ideal für Durchreisende oder einen Angeltag auf Stadlandet. Gültig 24 Stunden ab Kaufzeitpunkt.",
     feat1a:"Zugang zu allen Angelzonen",feat1b:"Gültig 24 Stunden",feat1c:"Keine Bindung",
@@ -470,16 +513,27 @@ const T = {
     ctaBuy:"Jetzt kaufen",
     rulesEyebrow:"Richtlinien",rulesTitle:"Regeln & Informationen",
     rulesLead:"Zum Schutz der Natur und der Fischbestände bitten wir alle Angler, diese Regeln einzuhalten.",
-    rule1:"<strong>Mindestmaß</strong>Fische unter dem Mindestmaß müssen vorsichtig zurückgesetzt werden.",
-    rule2:"<strong>Persönlicher Schein</strong>Der Angelschein ist persönlich und darf nicht übertragen werden.",
-    rule3:"<strong>Ausrüstung</strong>Nur legales Angelzubehör erlaubt. Lebendköder verboten.",
-    rule4:"<strong>Desinfektion</strong>Alle Ausrüstungen vor der Verwendung desinfizieren.",
-    rule5:"<strong>Felder und Zäune</strong>Landwirtschaftliche Flächen respektieren, Tore schließen.",
-    rule6:"<strong>Fahren</strong>Motorisierte Fahrzeuge nur auf markierten Wegen.",
+    ruleMin:"<strong>Mindestmaß:</strong> 35 cm für Lachs und Meerforelle.",
+    rule1:"Wer in Morkadalen angeln möchte, muss einen Angelschein lösen.",
+    rule2:"Der Schein gilt nur für das Angeln in Morkadalen wie auf der Karte gezeigt.",
+    rule3:"Der Schein kann nicht an andere übertragen werden.",
+    rule4:"Der Schein muss bei Kontrollen vorgezeigt werden können.",
+    rule5:"Der Schein gilt für Angelrute und Handleine.",
+    rule6:"Achten Sie darauf, keine Ausrüstung zu verwenden, die Jungfische schädigen kann (z. B. kleine Haken beim Angeln mit Wurm).",
+    rule7:"Kanus, Ruderboote usw. dürfen nur genutzt werden, wenn sie nach Gebrauch andernorts desinfiziert wurden.",
+    rule8:"Nehmen Sie Rücksicht auf bewirtschaftete Flächen, Zäune und Tore.",
+    rule9:"Das Befahren der Dorfwege ist nur den Grundeigentümern gestattet.",
     mapEyebrow:"Angelzonen",mapTitle:"Karte der Angelzonen",
     mapLead:"Entdecken Sie die Angelgewässer in Morkadalen. Klicken Sie für Details zu jeder Zone.",
-    payEyebrow:"Zahlung",payTitle:"Sichere Zahlung",
-    payDesc:"Zahlen Sie einfach mit Ihrer bevorzugten Methode. Sie erhalten Ihren Schein nach der Zahlung per E-Mail."
+    payEyebrow:"Zahlung",payTitle:"So bezahlen Sie",
+    payDesc:"Bezahlen Sie bequem mit Vipps oder kaufen Sie direkt im Joker Stadlandet.",
+    payVippsNote:"Ihre Vipps-Zahlung ist Ihr Angelschein.",
+    payVippsBadge:"Empfohlen",payVippsTitle:"Mit Vipps bezahlen",
+    payVippsDesc:"Scannen Sie den QR-Code oder nutzen Sie unsere Vipps-Nummer, um den Angelschein im Webshop zu kaufen. Ihre Vipps-Zahlung ist Ihr Angelschein.",
+    payQrSoon:"QR-Code<br>folgt in Kürze",payVippsQrHint:"Zum Bezahlen im Webshop scannen",payVippsNumberLabel:"Vipps-Nummer",
+    payJokerTitle:"Kauf im Joker Stadlandet",
+    payJokerDesc:"Zahlen Sie lieber bar oder mit Karte? Sie können den Angelschein direkt im Joker Stadlandet an der Kasse kaufen.",
+    payJokerInfo:"Kauf an der Kasse während der Öffnungszeiten",payJokerDirections:"Öffnungszeiten"
   },
   fr:{
     heroEyebrow:"Stadlandet · Vestland, Norvège",heroTitle:"Morkadalen<br>Association Chasse & Pêche",
@@ -490,7 +544,7 @@ const T = {
     aboutBody:"Depuis des générations, les habitants pêchent à Morkadalen, et la pêche au saumon fait partie importante de la vie de plein air dans la région. C'est un lieu où la tradition rencontre la nature, et où pêcheurs expérimentés comme débutants peuvent vivre de belles expériences.",
     fact1:"Plans d'eau",fact2:"Estuaire",fact3:"Ans d'expérience",
     priceEyebrow:"Permis de pêche",priceTitle:"Choisissez votre permis",
-    priceLead:"Tous les permis donnent accès à nos eaux poissonneuses riches en truites et saumons. Le permis est personnel et valable dans toutes les zones de pêche.",
+    priceLead:"Chaque permis donne accès aux eaux de pêche de Morkadalen. Choisissez la carte qui vous convient.",
     dayLabel:"Permis journalier",dayUnit:"par jour",
     dayDesc:"Idéal pour les voyageurs de passage ou une journée de pêche à Stadlandet. Valable 24 heures à partir de l'achat.",
     feat1a:"Accès à toutes les zones",feat1b:"Valable 24 heures",feat1c:"Sans engagement",
@@ -500,16 +554,27 @@ const T = {
     ctaBuy:"Acheter maintenant",
     rulesEyebrow:"Directives",rulesTitle:"Règles & informations",
     rulesLead:"Pour protéger la nature et les populations de poissons, nous demandons à tous les pêcheurs de respecter ces règles.",
-    rule1:"<strong>Taille minimale</strong>Les poissons sous la taille minimale doivent être remis délicatement à l'eau.",
-    rule2:"<strong>Permis personnel</strong>Le permis est personnel et ne peut pas être cédé.",
-    rule3:"<strong>Équipement</strong>Seul l'équipement légal est autorisé. Les appâts vivants sont interdits.",
-    rule4:"<strong>Désinfection</strong>Tout l'équipement doit être désinfecté avant utilisation.",
-    rule5:"<strong>Terres et clôtures</strong>Respectez les terres agricoles et fermez toutes les barrières.",
-    rule6:"<strong>Conduite</strong>Les véhicules motorisés ne sont pas autorisés hors des routes balisées.",
+    ruleMin:"<strong>Taille minimale :</strong> 35 cm pour le saumon et la truite de mer.",
+    rule1:"Toute personne pêchant à Morkadalen doit acheter un permis de pêche.",
+    rule2:"Le permis est valable uniquement pour la pêche à Morkadalen, comme indiqué sur la carte.",
+    rule3:"Le permis ne peut pas être cédé à d'autres personnes.",
+    rule4:"Le permis doit pouvoir être présenté lors d'un contrôle.",
+    rule5:"Le permis couvre la canne et la ligne à main.",
+    rule6:"Veillez à ne pas utiliser d'équipement pouvant nuire aux alevins (par ex. petits hameçons avec des vers).",
+    rule7:"Les canoës, barques, etc. ne peuvent être utilisés que s'ils ont été désinfectés après usage ailleurs.",
+    rule8:"Respectez les terres cultivées, les clôtures et les barrières.",
+    rule9:"La circulation sur les chemins ruraux est réservée aux propriétaires fonciers.",
     mapEyebrow:"Zones de pêche",mapTitle:"Carte des zones de pêche",
     mapLead:"Explorez les eaux de Morkadalen. Cliquez sur la carte pour les détails de chaque zone.",
-    payEyebrow:"Paiement",payTitle:"Paiement sécurisé",
-    payDesc:"Payez facilement avec votre méthode préférée. Vous recevrez votre permis par e-mail après paiement."
+    payEyebrow:"Paiement",payTitle:"Comment payer",
+    payDesc:"Payez facilement avec Vipps, ou achetez au comptoir du Joker Stadlandet.",
+    payVippsNote:"Votre paiement Vipps est votre permis de pêche.",
+    payVippsBadge:"Recommandé",payVippsTitle:"Payer avec Vipps",
+    payVippsDesc:"Scannez le code QR ou utilisez notre numéro Vipps pour acheter votre permis dans la boutique en ligne. Votre paiement Vipps est votre permis de pêche.",
+    payQrSoon:"Code QR<br>bientôt disponible",payVippsQrHint:"Scannez pour payer dans la boutique",payVippsNumberLabel:"Numéro Vipps",
+    payJokerTitle:"Achat au Joker Stadlandet",
+    payJokerDesc:"Vous préférez payer en espèces ou par carte ? Vous pouvez acheter votre permis directement au comptoir du Joker Stadlandet.",
+    payJokerInfo:"Achat au comptoir pendant les heures d'ouverture",payJokerDirections:"Horaires d'ouverture"
   }
 };
 
