@@ -159,6 +159,8 @@ section+section{border-top:1px solid var(--midgray)}
 .pay-media iframe{width:100%;height:100%;border:0;display:block}
 .pay-media.qr{padding:8px;border-style:dashed}
 .pay-media.qr img{object-fit:contain}
+.pay-qr-link{display:block;width:100%;height:100%;line-height:0;transition:opacity .15s}
+.pay-qr-link:hover{opacity:.82}
 .pay-qr-ph{display:none;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;width:100%;height:100%;color:var(--textgray);font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600;text-align:center;padding:.5rem}
 .pay-store-name{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);letter-spacing:.01em;margin-bottom:.25rem}
 .pay-hint{font-family:'Inter',sans-serif;font-size:.74rem;color:var(--textgray);line-height:1.4;margin-bottom:.45rem}
@@ -297,9 +299,11 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
           <div class="pay-method-head">
             <img class="pay-head-logo vipps" src="Vipps_rgb_orange_pos.svg" alt="Vipps">
           </div>
-          <!-- Legg inn QR-bilete som "vipps-qr.png" i mappa, så vert det vist automatisk -->
+          <!-- QR lenkjer til same Vipps-betaling som koden inneheld (trykkbar på mobil) -->
           <div class="pay-media qr">
-            <img src="vipps-qr.png" alt="Vipps QR-kode" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <a class="pay-qr-link" href="https://qr.vipps.no/vp/dZBqAv5cp" target="_blank" rel="noopener" aria-label="Opne Vipps-betaling">
+              <img src="vipps-qr.png" alt="Vipps QR-kode" onerror="this.closest('.pay-media').querySelector('.pay-qr-ph').style.display='flex';this.closest('.pay-qr-link').style.display='none'">
+            </a>
             <div class="pay-qr-ph" data-i18n="payQrSoon">QR-kode<br>kjem snart</div>
           </div>
           <p class="pay-hint" data-i18n="payVippsQrHint">Skann for å betale i nettbutikken</p>
