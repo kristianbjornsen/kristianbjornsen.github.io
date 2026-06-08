@@ -88,7 +88,7 @@ section+section{border-top:1px solid var(--midgray)}
 /* ── OM OSS ── */
 #om-oss{background:var(--offwhite)}
 .about-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:2.5rem;align-items:center}
-.about-img-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#e8ece8}
+.about-img-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:#e8ece8}
 .about-slideshow{position:absolute;inset:0}
 .about-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .9s ease}
 .about-slide.active{opacity:1}
@@ -103,28 +103,30 @@ section+section{border-top:1px solid var(--midgray)}
 .about-text .sec-lead{margin-bottom:.9rem;max-width:none}
 .about-body{font-family:'Inter',sans-serif;font-size:.92rem;color:var(--textgray);line-height:1.7;margin:0}
 
-/* ── FISKEKORT + BETALING (kombinert) ── */
+/* ── FISKEKORT + BETALING ── */
 #fiskekort{background:var(--white)}
-.permit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin-bottom:1.6rem}
-.permit-card{background:var(--white);border:1px solid var(--midgray);border-radius:8px;padding:1rem 1.2rem;position:relative;overflow:hidden;transition:box-shadow .2s,transform .2s}
-.permit-card:hover{box-shadow:0 6px 22px rgba(0,0,0,.08);transform:translateY(-2px)}
-.permit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
-.permit-card.featured::before{background:var(--accent)}
-.permit-head{display:flex;align-items:center;gap:.55rem;margin-bottom:.55rem;padding-bottom:.55rem;border-bottom:1px solid var(--midgray)}
-.permit-type{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--textgray)}
-.permit-badge{background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:.54rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .42rem;border-radius:2px}
-.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.02em;margin-left:auto}
-.permit-price sup{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;vertical-align:super;letter-spacing:0;margin-left:1px}
-.permit-features{list-style:none;display:flex;flex-direction:column;gap:.28rem;margin:0;padding:0}
-.permit-features li{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--textgray);display:flex;align-items:flex-start;gap:.5rem;line-height:1.35}
-.permit-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:.8rem;flex-shrink:0}
-.permit-card.featured .permit-features li::before{color:var(--accent)}
 
-/* betalingspanel inne i fiskekort-seksjonen */
-.pay-panel{background:var(--dark);border-radius:16px;padding:2.2rem 1.6rem;text-align:center}
-.pay-panel .sec-eyebrow{color:var(--accent)}
-.pay-panel .sec-title{color:#fff;font-size:clamp(1.4rem,2.4vw,1.9rem)}
-.pay-panel .sec-lead{color:rgba(255,255,255,.6);margin:0 auto 1.2rem;max-width:480px;font-size:.92rem}
+/* fiskekort-kort (lyse, elegante) */
+.permit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:2.4rem}
+.permit-card{display:flex;align-items:center;gap:1.1rem;padding:1.3rem 1.5rem 1.3rem 1.6rem;background:var(--white);border:1px solid var(--midgray);border-radius:14px;position:relative;overflow:hidden;text-align:left;box-shadow:0 1px 3px rgba(20,30,20,.04);transition:transform .2s,box-shadow .2s,border-color .2s}
+.permit-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green)}
+.permit-card.featured::before{background:var(--accent)}
+.permit-card.featured{border-color:rgba(200,169,110,.55)}
+.permit-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(20,30,20,.09)}
+.permit-emoji{font-size:2rem;line-height:1;flex-shrink:0}
+.permit-info{display:flex;flex-direction:column;gap:.22rem;flex:1;min-width:0}
+.permit-type-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.permit-type{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dark)}
+.permit-badge{background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .42rem;border-radius:3px}
+.permit-tag{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--textgray);line-height:1.35}
+.permit-price{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:900;color:var(--dark);line-height:1;letter-spacing:-.02em;flex-shrink:0}
+.permit-price sup{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;vertical-align:super;margin-left:1px;color:var(--accent)}
+
+/* betalingspanel (lyst, mjukt kort) */
+.pay-panel{background:linear-gradient(180deg,var(--offwhite),#fff);border:1px solid var(--midgray);border-radius:20px;padding:2.6rem 2rem;text-align:center;box-shadow:0 1px 3px rgba(20,30,20,.04)}
+.pay-panel .sec-eyebrow{color:var(--green)}
+.pay-panel .sec-title{color:var(--dark);font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.pay-panel .sec-lead{color:var(--textgray);margin:0 auto 1.6rem;max-width:480px;font-size:.92rem}
 
 /* ── REGLAR ── */
 #reglar{background:var(--offwhite)}
@@ -142,25 +144,30 @@ section+section{border-top:1px solid var(--midgray)}
 .map-wrap{position:relative;width:100%;padding-bottom:50%;height:0;overflow:hidden;border-radius:8px;border:1px solid var(--midgray)}
 .map-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 
-/* ── BETALINGSMETODAR (symmetriske, kompakte) ── */
-.pay-methods{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;align-items:stretch;margin-top:.4rem}
-.pay-method{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;width:248px;max-width:100%;padding:1.4rem 1.2rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;transition:border-color .2s,background .2s}
-.pay-method.primary{border-color:rgba(255,91,36,.55);background:rgba(255,91,36,.07)}
-.pay-method-badge{position:absolute;top:-.65rem;left:50%;transform:translateX(-50%);background:var(--vipps);color:#fff;font-family:'Inter',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:20px;white-space:nowrap}
-.pay-method-head{height:30px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem}
-.pay-method-head .pay-head-name{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:.01em}
-.pay-media{width:158px;height:158px;border-radius:10px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:.7rem}
+/* ── BETALINGSMETODAR (symmetriske, lyse kort) ── */
+.pay-methods{display:flex;gap:1.1rem;flex-wrap:wrap;justify-content:center;align-items:stretch;margin-top:.4rem}
+.pay-method{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;width:300px;max-width:100%;padding:1.8rem 1.5rem;background:var(--white);border:1px solid var(--midgray);border-radius:14px;box-shadow:0 1px 3px rgba(20,30,20,.05);transition:border-color .2s,box-shadow .2s,transform .2s}
+.pay-method:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(20,30,20,.09)}
+.pay-method.primary{border-color:rgba(255,91,36,.5);box-shadow:0 6px 26px rgba(255,91,36,.12)}
+.pay-method-badge{position:absolute;top:-.65rem;left:50%;transform:translateX(-50%);background:var(--vipps);color:#fff;font-family:'Inter',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:20px;white-space:nowrap;box-shadow:0 2px 8px rgba(255,91,36,.3)}
+.pay-method-head{height:50px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.pay-head-logo{display:block;width:auto}
+.pay-head-logo.vipps{height:32px}
+.pay-head-logo.joker{height:46px}
+.pay-media{width:210px;height:210px;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--midgray);display:flex;align-items:center;justify-content:center;margin-bottom:.95rem}
 .pay-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.pay-media.qr{padding:8px}
+.pay-media iframe{width:100%;height:100%;border:0;display:block}
+.pay-media.qr{padding:8px;border-style:dashed}
 .pay-media.qr img{object-fit:contain}
-.pay-qr-ph{display:none;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;width:100%;height:100%;border:2px dashed #c9ccc4;border-radius:6px;color:#9aa094;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-align:center;padding:.5rem}
-.pay-hint{font-family:'Inter',sans-serif;font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.4;margin-bottom:.5rem}
-.pay-note{font-family:'Inter',sans-serif;font-size:.73rem;font-weight:600;color:var(--accent);line-height:1.4;margin-bottom:.9rem}
-.pay-foot{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.12rem;width:100%}
-.pay-foot-label{font-family:'Inter',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.pay-foot-value{font-family:'Playfair Display',Georgia,serif;font-size:1.45rem;font-weight:700;color:#fff;letter-spacing:.05em}
-.pay-store-link{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;border:1px solid rgba(255,255,255,.35);border-radius:4px;color:#fff;text-decoration:none;font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .15s,border-color .15s}
-.pay-store-link:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.pay-qr-ph{display:none;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;width:100%;height:100%;color:var(--textgray);font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600;text-align:center;padding:.5rem}
+.pay-store-name{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);letter-spacing:.01em;margin-bottom:.25rem}
+.pay-hint{font-family:'Inter',sans-serif;font-size:.74rem;color:var(--textgray);line-height:1.4;margin-bottom:.45rem}
+.pay-note{font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600;color:var(--green);line-height:1.4;margin-bottom:.9rem}
+.pay-foot{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.12rem;width:100%;padding-top:.7rem}
+.pay-foot-label{font-family:'Inter',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--textgray)}
+.pay-foot-value{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--dark);letter-spacing:.05em}
+.pay-store-link{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;border:1px solid var(--green);border-radius:6px;color:var(--green);text-decoration:none;font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .15s,color .15s}
+.pay-store-link:hover{background:var(--green);color:#fff}
 
 /* ── FOOTER ── */
 footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
@@ -223,14 +230,18 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
     <div class="about-grid">
       <div class="about-img-wrap fade-up">
         <div class="about-slideshow" aria-label="Bilete frå Morkadalen">
-          <img class="about-slide active" src="Screenshot_20220601-202146_Snapchat.jpeg" alt="Morkadalen" onerror="this.style.display='none'">
-          <img class="about-slide" src="grok-image-674320ca-c18f-47f5-9779-64bcf801e12f.jpg" alt="Morkadalen natur" onerror="this.style.display='none'">
-          <img class="about-slide" src="E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg" alt="Fiske i Morkadalen" onerror="this.style.display='none'">
+          <img class="about-slide active" src="E801BD75-F64E-47FE-BB60-465CA1B1C9CE_1_105_c.jpeg" alt="Morkadalen" onerror="this.style.display='none'">
+          <img class="about-slide" src="41A5070B-937C-48CC-8C27-1C6BDA1D8397_1_105_c.jpeg" alt="Laks frå Morkadalen" onerror="this.style.display='none'">
+          <img class="about-slide" src="31138377-DF40-4A45-B6C0-E2E1BCB3F92B_1_105_c.jpeg" alt="To laks frå Morkadalen" onerror="this.style.display='none'">
+          <img class="about-slide" src="Screenshot_20220601-202146_Snapchat.jpeg" alt="Laksefangst i Morkadalen" onerror="this.style.display='none'">
+          <img class="about-slide" src="BB9358C1-CAB3-449E-AAB0-6A990FB53440_1_105_c.jpeg" alt="Fiske i Morkadalen" onerror="this.style.display='none'">
         </div>
         <div class="about-dots" aria-label="Vel bilete i lysbiletvising">
           <button class="about-dot active" type="button" aria-label="Bilete 1"></button>
           <button class="about-dot" type="button" aria-label="Bilete 2"></button>
           <button class="about-dot" type="button" aria-label="Bilete 3"></button>
+          <button class="about-dot" type="button" aria-label="Bilete 4"></button>
+          <button class="about-dot" type="button" aria-label="Bilete 5"></button>
         </div>
         <div class="about-label" data-i18n="aboutImgLabel">Morkadalen · Stadlandet</div>
       </div>
@@ -248,30 +259,28 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
   <div class="wrap">
     <p class="sec-eyebrow fade-up" data-i18n="priceEyebrow">Fiskekort</p>
     <h2 class="sec-title fade-up d1" data-i18n="priceTitle">Vel ditt fiskekort</h2>
-    <p class="sec-lead fade-up d2" data-i18n="priceLead">Alle fiskekort gjev tilgang til fiskevatna i Morkadalen. Vel kort under, og betal med Vipps eller hos Joker Stadlandet.</p>
+    <p class="sec-lead fade-up d2" data-i18n="priceLead">Alle fiskekort gjev tilgang til fiskevatna i Morkadalen. Vel kortet som passar deg.</p>
     <div class="permit-grid">
-      <div class="permit-card fade-up d2">
-        <div class="permit-head">
-          <span class="permit-type" data-i18n="dayLabel">Døgnkort</span>
-          <span class="permit-price">80<sup>kr</sup></span>
+      <div class="permit-card fade-up d1">
+        <span class="permit-emoji">🕐</span>
+        <div class="permit-info">
+          <div class="permit-type-row">
+            <span class="permit-type" data-i18n="dayLabel">Døgnkort</span>
+          </div>
+          <span class="permit-tag" data-i18n="dayTag">Gyldig i 24 timar</span>
         </div>
-        <ul class="permit-features">
-          <li data-i18n="feat1a">Tilgang alle fiskevatn i sona</li>
-          <li data-i18n="feat1b">Gyldig 24 timar</li>
-          <li data-i18n="feat1c">Ingen bindingstid</li>
-        </ul>
+        <span class="permit-price">80<sup>kr</sup></span>
       </div>
-      <div class="permit-card featured fade-up d3">
-        <div class="permit-head">
-          <span class="permit-type" data-i18n="seasonLabel">Sesongkort</span>
-          <span class="permit-badge" data-i18n="bestVal">Beste verdi</span>
-          <span class="permit-price">600<sup>kr</sup></span>
+      <div class="permit-card featured fade-up d2">
+        <span class="permit-emoji">📅</span>
+        <div class="permit-info">
+          <div class="permit-type-row">
+            <span class="permit-type" data-i18n="seasonLabel">Sesongkort</span>
+            <span class="permit-badge" data-i18n="bestVal">Beste verdi</span>
+          </div>
+          <span class="permit-tag" data-i18n="seasonTag">Ubegrensa tilgang heile sesongen</span>
         </div>
-        <ul class="permit-features">
-          <li data-i18n="feat2a">Ubegrensa tilgang heile sesongen</li>
-          <li data-i18n="feat2b">Spar samanlikna med dagskort</li>
-          <li data-i18n="feat2c">Alle fiskevatn i sona inkludert</li>
-        </ul>
+        <span class="permit-price">600<sup>kr</sup></span>
       </div>
     </div>
 
@@ -279,14 +288,14 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
     <div class="pay-panel fade-up d2" id="betaling">
       <p class="sec-eyebrow" data-i18n="payEyebrow">Betaling</p>
       <h3 class="sec-title" data-i18n="payTitle">Slik betaler du</h3>
-      <p class="sec-lead" data-i18n="payDesc">Betal enkelt med Vipps, eller kjøp over disk hos Joker Stadlandet. Vipps-betalinga er fiskekortet ditt.</p>
+      <p class="sec-lead" data-i18n="payDesc">Betal enkelt med Vipps, eller kjøp over disk hos Joker Stadlandet.</p>
       <div class="pay-methods">
 
         <!-- VIPPS (hovudmetode) -->
         <div class="pay-method primary">
           <span class="pay-method-badge" data-i18n="payVippsBadge">Tilrådd</span>
           <div class="pay-method-head">
-            <svg width="96" height="32" viewBox="0 0 120 40" fill="none"><rect width="120" height="40" rx="8" fill="#FF5B24"/><text x="60" y="28" font-family="Inter,sans-serif" font-weight="800" font-size="20" fill="white" text-anchor="middle" letter-spacing="-0.5">vipps</text></svg>
+            <img class="pay-head-logo vipps" src="Vipps_rgb_orange_pos.svg" alt="Vipps">
           </div>
           <!-- Legg inn QR-bilete som "vipps-qr.png" i mappa, så vert det vist automatisk -->
           <div class="pay-media qr">
@@ -297,19 +306,19 @@ footer{background:#0A0F0A;color:rgba(255,255,255,.55);padding:3rem 0 2rem}
           <p class="pay-note" data-i18n="payVippsNote">Vipps-betalinga er fiskekortet ditt.</p>
           <div class="pay-foot">
             <span class="pay-foot-label" data-i18n="payVippsNumberLabel">Vipps-nummer</span>
-            <!-- Byt ut #XXXXX med Vipps-nummeret dykkar -->
-            <span class="pay-foot-value">#XXXXX</span>
+            <span class="pay-foot-value">#55341</span>
           </div>
         </div>
 
         <!-- JOKER STADLANDET (fysisk kjøp) -->
         <div class="pay-method">
           <div class="pay-method-head">
-            <span class="pay-head-name">Joker Stadlandet</span>
+            <img class="pay-head-logo joker" src="db2f1c3dfbdf9eeac28377ee06aa34e882dffab6-700x500.avif" alt="Joker Stadlandet">
           </div>
           <div class="pay-media">
-            <img src="316953130_10167564610575284_669172820994259527_n.jpg" alt="Joker Stadlandet">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2671.1061750395424!2d5.177855477730136!3d62.16060918126339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x461772775e5e26eb%3A0x55d8102842cd9ce!2sJoker%20Stadlandet!5e1!3m2!1sen!2sno!4v1780899587040!5m2!1sen!2sno" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Joker Stadlandet kart"></iframe>
           </div>
+          <p class="pay-store-name">Joker Stadlandet</p>
           <p class="pay-hint" data-i18n="payJokerInfo">Kjøp over disk i opningstida</p>
           <div class="pay-foot">
             <a class="pay-store-link" href="https://joker.no/finn-butikk/joker-stadlandet" target="_blank" rel="noopener">
@@ -422,7 +431,7 @@ const T = {
     fact1:"Fiskevann",fact2:"Elveos",fact3:"Års erfaring",
     priceEyebrow:"Fiskekort",priceTitle:"Vel ditt fiskekort",
     priceLead:"Alle fiskekort gjev tilgang til fiskevatna i Morkadalen. Vel kortet som passar deg.",
-    dayLabel:"Døgnkort",dayUnit:"per døgn",
+    dayLabel:"Døgnkort",dayUnit:"per døgn",dayTag:"Gyldig i 24 timar",seasonTag:"Ubegrensa tilgang heile sesongen",
     dayDesc:"Perfekt for deg som er på gjennomreise eller ønskjer ein dag med fiske på Stadlandet. Kortet er gyldig i 24 timar frå kjøpstidspunktet.",
     feat1a:"Tilgang alle fiskevatn i sona",feat1b:"Gyldig 24 timar",feat1c:"Ingen bindingstid",
     bestVal:"Beste verdi",seasonLabel:"Sesongkort",seasonUnit:"heile sesongen",
@@ -463,7 +472,7 @@ const T = {
     fact1:"Fishing lakes",fact2:"River estuary",fact3:"Years of experience",
     priceEyebrow:"Fishing Permits",priceTitle:"Choose your permit",
     priceLead:"Every permit gives access to the fishing waters of Morkadalen. Choose the card that suits you.",
-    dayLabel:"Day Permit",dayUnit:"per day",
+    dayLabel:"Day Permit",dayUnit:"per day",dayTag:"Valid for 24 hours",seasonTag:"Unlimited access all season",
     dayDesc:"Perfect if you're passing through or want a day of fishing at Stadlandet. Valid for 24 hours from the time of purchase.",
     feat1a:"Access to all fishing zones",feat1b:"Valid for 24 hours",feat1c:"No commitment",
     bestVal:"Best value",seasonLabel:"Season Permit",seasonUnit:"full season",
@@ -504,7 +513,7 @@ const T = {
     fact1:"Angelgewässer",fact2:"Flussmündung",fact3:"Jahre Erfahrung",
     priceEyebrow:"Angelscheine",priceTitle:"Angelschein wählen",
     priceLead:"Jeder Angelschein gewährt Zugang zu den Gewässern von Morkadalen. Wählen Sie die passende Karte.",
-    dayLabel:"Tagesschein",dayUnit:"pro Tag",
+    dayLabel:"Tagesschein",dayUnit:"pro Tag",dayTag:"24 Stunden gültig",seasonTag:"Unbegrenzter Zugang die ganze Saison",
     dayDesc:"Ideal für Durchreisende oder einen Angeltag auf Stadlandet. Gültig 24 Stunden ab Kaufzeitpunkt.",
     feat1a:"Zugang zu allen Angelzonen",feat1b:"Gültig 24 Stunden",feat1c:"Keine Bindung",
     bestVal:"Bestes Angebot",seasonLabel:"Saisonschein",seasonUnit:"gesamte Saison",
@@ -545,7 +554,7 @@ const T = {
     fact1:"Plans d'eau",fact2:"Estuaire",fact3:"Ans d'expérience",
     priceEyebrow:"Permis de pêche",priceTitle:"Choisissez votre permis",
     priceLead:"Chaque permis donne accès aux eaux de pêche de Morkadalen. Choisissez la carte qui vous convient.",
-    dayLabel:"Permis journalier",dayUnit:"par jour",
+    dayLabel:"Permis journalier",dayUnit:"par jour",dayTag:"Valable 24 heures",seasonTag:"Accès illimité toute la saison",
     dayDesc:"Idéal pour les voyageurs de passage ou une journée de pêche à Stadlandet. Valable 24 heures à partir de l'achat.",
     feat1a:"Accès à toutes les zones",feat1b:"Valable 24 heures",feat1c:"Sans engagement",
     bestVal:"Meilleur rapport qualité-prix",seasonLabel:"Permis saisonnier",seasonUnit:"toute la saison",
